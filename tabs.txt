@@ -1,0 +1,2 @@
+https://github.com/amazingSurge/jquery-asAccordion
+https://www.npmjs.com/package/jquery-asAccordion
