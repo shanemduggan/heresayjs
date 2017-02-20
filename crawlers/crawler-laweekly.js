@@ -112,6 +112,7 @@ function visitPage(url, callback) {
 				}
 				console.log("The file was saved!");
 			});
+			
 
 			var eventData = [];
 			for (var i = 0; i < uniqueEventNames.length; i++) {
