@@ -5,8 +5,7 @@ var fs = require('fs');
 //var html = require("html");
 var $ = require("jquery");
 
-
-var START_URL = "https://www.timeout.com/los-angeles/things-to-do/february-events-calendar?package_page=3863";
+var START_URL = "http://www.laweekly.com/calendar";
 var SEARCH_WORD = "February";
 var MAX_PAGES_TO_VISIT = 10;
 
@@ -50,6 +49,7 @@ function visitPage(url, callback) {
 		}
 		// Parse the document body
 		var $ = cheerio.load(body);
+		//console.log(body);
 		var isWordFound = searchForWord($, SEARCH_WORD);
 		if (isWordFound) {
 			console.log('Word ' + SEARCH_WORD + ' found at page ' + url);
@@ -61,45 +61,58 @@ function visitPage(url, callback) {
 			var allEventNames = [];
 
 			//.feature-item__content
-			$('.feature-item').each(function(index) {
-				//console.log(index + ": " + $(this).text());
+			//$('body').find('.result-day')
+			$('body').find('.result-day').each(function(index) {
+				$(this).find('.recommended').each(function(index) {
+					//console.log(index + ": " + $(this).text());
+					var event = $(this);
+					var title = $(this).find(".title")[0];
+					var nameText = $(title).find('a').text().trim();
+					var eventLink = 'http://www.laweekly.com' + $(title).find('a').attr("href");
+					var summaryText = '';
+					var location = $(this).find(".location")[0];
+					var locationText = $(location).find('a').text().trim();
+					locationText = locationText.replace("@", "").trim();
+					var locationLinkText = 'http://www.laweekly.com' + $(location).find('a').attr("href");
+					var dateText = $(this).parent().parent().find('.date-line').text().trim() + ' 2017';
+					var categories = '';
 
-				var nameText = $(this).find("h3").text().trim();
-				var summaryText = $(this).find(".feature_item__annotation--truncated").text().trim();
-				var locationText = $(this).find('.icon_pin').text().trim();
-				locationText = locationText.replace(/(\r\n|\n|\r)/gm, "");
-				locationText = locationText.replace(/\s\s+/g, ' ');
-				var locationLinkText = 'https://www.timeout.com' + $(this).find(".locationLink").attr("href");
-				var dateText = $(this).find(".icon_calendar").text().trim();
-				if (dateText == 'Now Showing') {
-					return;
-				}
-				if (nameText.indexOf('events calendar') > -1 ) {
-					return;
-				}
-				allEventNames.push(nameText);
 
-				obj.events.push({
-					name : nameText,
-					summary : summaryText,
-					location : locationText,
-					locationLink : locationLinkText,
-					date : dateText
+					allEventNames.push(nameText);
+
+					obj.events.push({
+						name : nameText,
+						eventLink : eventLink,
+						summary : summaryText,
+						location : locationText,
+						locationLink : locationLinkText,
+						date : dateText
+					});
 				});
 			});
 
 			var json = JSON.stringify(obj);
 			//console.log(json);
 			
-		
-			var uniqueEventNames = allEventNames.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
-			fs.writeFile('data\\february\\timeoutEventNames.txt', uniqueEventNames, 'utf8', function(err) {
+			fs.writeFile('data\\february\\laweeklyAllEvents.txt', json, 'utf8', function(err) {
 				if (err) {
 					return console.log(err);
 				}
 				console.log("The file was saved!");
 			});
-			
+
+			var uniqueEventNames = allEventNames.reduce(function(a, b) {
+				if (a.indexOf(b) < 0)
+					a.push(b);
+				return a;
+			}, []);
+			fs.writeFile('data\\february\\laweeklyEventNames.txt', uniqueEventNames, 'utf8', function(err) {
+				if (err) {
+					return console.log(err);
+				}
+				console.log("The file was saved!");
+			});
+
 			var eventData = [];
 			for (var i = 0; i < uniqueEventNames.length; i++) {
 				//console.log(uniqueEventNames[i]);
@@ -110,7 +123,7 @@ function visitPage(url, callback) {
 			}
 			var json2 = JSON.stringify(eventData);
 
-			fs.writeFile('data\\february\\timeout.json', json2, 'utf8', function(err) {
+			fs.writeFile('data\\february\\laweekly.json', json2, 'utf8', function(err) {
 				if (err) {
 					return console.log(err);
 				}
@@ -123,7 +136,6 @@ function visitPage(url, callback) {
 		}
 	});
 }
-
 
 function searchForWord($, word) {
 	var bodyText = $('html > body').text().toLowerCase();

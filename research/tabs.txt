@@ -10,3 +10,28 @@ http://stackoverflow.com/questions/26748032/combine-json-files
 
 https://github.com/amazingSurge/jquery-asAccordion
 https://www.npmjs.com/package/jquery-asAccordion
+
+
+
+
+
+color palette:
+	- http://www.color-hex.com/color/f9f9f9
+	- http://www.color-hex.com/color-palette/3318
+	- http://www.color-hex.com/color/ededed
+
+
+
+
+task scheduler:
+	- https://www.webmasterworld.com/microsoft_windows_os/4011217.htm
+	- https://social.technet.microsoft.com/Forums/office/en-US/44120d29-cb25-4478-999e-f1a4e9dfa304/command-runs-successfully-from-a-cmd-prompt-but-not-when-using-task-scheduler?forum=winservergen
+	- http://stackoverflow.com/questions/28507707/how-to-launch-cmd-exe-to-execute-command-using-task-scheduler
+
+
+
+
+app examples:
+	- https://www.google.com/imgres?imgurl=https%3A%2F%2F0.s3.envato.com%2Ffiles%2F68737773%2FPreview-Set%2FDesign-08.jpg&imgrefurl=https%3A%2F%2Fgraphicriver.net%2Fitem%2Fiphone-5-flat-event-app-design%2F5714200&docid=RUE57zylZ08mRM&tbnid=Zn9j6n5kVmIskM%3A&vet=1&w=640&h=1136&bih=672&biw=1366&q=event%20web%20app%20designs&ved=0ahUKEwjy28_PjJrSAhVB_WMKHRQoAuMQMwgpKA8wDw&iact=mrc&uact=8#h=1136&imgrc=Zn9j6n5kVmIskM:&vet=1&w=640
+	- https://www.gigigator.com/?page=21&sortOrder=distance_desc&currentFilter=caidamrsztij&metroAreaId=1
+	- https://www.eventbrite.com/d/ca--los-angeles/events/

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var jsonFiles = ['laweekly.json', 'discover.json'];
+	var jsonFiles = ['timeout.json', 'laweekly.json', 'discover.json'];
 
 	setUpButtons();
 	sortFunctions();
@@ -15,17 +15,40 @@ function getJson(fileDir) {
 	var fullDir = 'data/february/' + fileDir;
 	$.getJSON(fullDir, function(data) {
 		var filteredData = [];
+
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].date.includes('Until') || data[i].date.includes(' - ')) {
+			if (!data[i].date.includes('February') || data[i].date.includes('Until') || data[i].date.includes('5') || data[i].date.includes('6') || data[i].date.includes('8')) {
 			} else {
 				filteredData.push(data[i]);
 			}
 		}
 
-		var items = filteredData.map(function(item) {
-			var index = item.date.indexOf('February');
-			var date = item.date.slice(index, item.date.length);
-			var dateSplit = item.date.split(' ');
+		for (var i = 0; i < filteredData.length; i++) {
+			var item = filteredData[i];
+			var nameSplit = filteredData[i].name.split(' ');
+			if (nameSplit[0] == nameSplit[0].toUpperCase()) {
+				var newName = toTitleCase(filteredData[i].name);
+				filteredData[i].name = newName;
+			}
+
+			if (item.date.includes(' - ')) {
+				var dateSplit = item.date.split(' - ');
+				filteredData[i].dateFirst = dateSplit[0];
+			} else if (item.date.includes('-')) {
+				var dateSplit = item.date.split('-');
+				filteredData[i].dateFirst = dateSplit[0];
+			}
+			
+
+			if (item.dateFirst) {
+				var index = item.dateFirst.indexOf('February');
+				var date = item.dateFirst.slice(index, item.dateFirst.length);
+				var dateSplit = item.dateFirst.split(' ');
+			} else {
+				var index = item.date.indexOf('February');
+				var date = item.date.slice(index, item.date.length);
+				var dateSplit = item.date.split(' ');
+			}
 
 			if (dateSplit.length == 4) {
 				if (dateSplit[2].length == 1) {
@@ -43,26 +66,44 @@ function getJson(fileDir) {
 				}
 			}
 
-			return '<span class="itemHeader" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<a target="_blank" href="' + item.locationLink + '">' + item.location + '</a>; <span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span><br>' + item.summary;
-		});
-		//showData.empty();
-		if (items.length) {
-			var content = '<li>' + items.join('</li><li>') + '</li>';
+			filteredData[i].dateFormed = numDate;
 
-			if ($('#show-data').find('ul').length == 0) {
-				var list = $('<ul />').html(content).trigger("app-appened");
-				;
-				showData.append(list);
-			} else {
-				//showData.append(content);
-				$('#show-data').find('ul').append(content).trigger("app-appened");
-				;
+			// var locationPiece = '';
+			// var namePiece = '<span class="itemHeader" id="' + item.name + '"><b>' + item.name + '</b>';
+			// var datePiece = '';
+			var summaryPiece = '';
+			
+			if (filteredData[i].summary != "")
+				summaryPiece = '<br>' + item.summary + '<br><br>';
+
+			if (filteredData[i].location == "")
+				filteredData[i].element = '<span class="itemHeader" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span>' + summaryPiece;
+			else
+				filteredData[i].element = '<span class="itemHeader" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<a target="_blank" href="' + item.locationLink + '">' + item.location + '</a>; <span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span>' + summaryPiece;
+		}
+
+		if (filteredData.length) {
+			for (var i = 0; i < filteredData.length; i++) {
+				var potentialParent = $('#show-data').find("ul#" + filteredData[i].dateFormed);
+				if (potentialParent.length) {
+					potentialParent.append('<li>' + filteredData[i].element + '</li>')
+				} else {
+					if (filteredData[i].dateFirst)
+						$('#show-data').append('<div class="show-data-box" id="' + filteredData[i].dateFormed + '"><div><h3>' + filteredData[i].dateFirst + '</h3><ul id="' + filteredData[i].dateFormed + '"><li>' + filteredData[i].element + '</li></ul></div></div>').trigger("app-appened");
+					else
+						$('#show-data').append('<div class="show-data-box" id="' + filteredData[i].dateFormed + '"><div><h3>' + filteredData[i].date + '</h3><ul id="' + filteredData[i].dateFormed + '"><li>' + filteredData[i].element + '</li></ul></div></div>').trigger("app-appened");
+				}
 			}
 		}
 	});
 
-	//showData.text('Loading the JSON file.');
 	$('#user-data').append('<ul id="user-data-list"></ul>');
+}
+
+function toTitleCase(str) {
+	return str.replace(/\w\S*/g, function(txt) {
+		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	});
 }
 
 function sortFunctions() {
@@ -75,18 +116,29 @@ function sortFunctions() {
 	});
 
 	$("body").on("app-appened", "div", function(event) {
-		var elems = $(this).find('ul').children();
-		elems.sort(function(a, b) {
-			return parseInt($(a).find('.date')[0].id) > parseInt($(b).find('.date')[0].id)
-		});
-		$('#show-data').find('ul').append(elems);
-		$('#user-data').css('height', $('#show-data').height());
+		$('#user-data').css('height', $('#show-data').height() + 30);
+		var elems = $('#show-data').find('.show-data-box');
+		if (elems.length > 1) {
+			elems.sort(function(a, b) {
+				return parseInt($(a)[0].id) > parseInt($(b)[0].id)
+			});
+
+			$('#show-data').html('');
+			for (var i = 0; i < elems.length; i++) {
+				$('#show-data').append(elems[i]);
+			}
+		}
+
 	});
 
 	setTimeout(function() {
 		var eventNodes = $('#show-data').find('li');
 		for (var i = 0; i < eventNodes.length; i++) {
 			$(eventNodes[i]).click(function() {
+
+				if ($('#user-data-welcome').css('display') == 'block')
+					$('#user-data-welcome').hide();
+
 				var headerData = $(this).contents('span').html();
 				var split = headerData.split('</b>');
 				var name = split[0].replace('<b>', '')

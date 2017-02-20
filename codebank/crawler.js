@@ -5,8 +5,9 @@ var fs = require('fs');
 //var html = require("html");
 var $ = require("jquery");
 
-
+//var START_URL = "https://www.timeout.com/los-angeles/things-to-do/january-events-calendar?package_page=3863";
 var START_URL = "https://www.timeout.com/los-angeles/things-to-do/february-events-calendar?package_page=3863";
+//var SEARCH_WORD = "January";
 var SEARCH_WORD = "February";
 var MAX_PAGES_TO_VISIT = 10;
 
@@ -62,7 +63,7 @@ function visitPage(url, callback) {
 
 			//.feature-item__content
 			$('.feature-item').each(function(index) {
-				//console.log(index + ": " + $(this).text());
+				console.log(index + ": " + $(this).text());
 
 				var nameText = $(this).find("h3").text().trim();
 				var summaryText = $(this).find(".feature_item__annotation--truncated").text().trim();
@@ -74,7 +75,7 @@ function visitPage(url, callback) {
 				if (dateText == 'Now Showing') {
 					return;
 				}
-				if (nameText.indexOf('events calendar') > -1 ) {
+				if (nameText == 'See more in our 2017 events calendar') {
 					return;
 				}
 				allEventNames.push(nameText);
@@ -93,7 +94,8 @@ function visitPage(url, callback) {
 			
 		
 			var uniqueEventNames = allEventNames.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
-			fs.writeFile('data\\february\\timeoutEventNames.txt', uniqueEventNames, 'utf8', function(err) {
+			//fs.writeFile('data/timeoutEventNAmes.txt', uniqueEventNames, 'utf8', function(err) {
+			fs.writeFile('data/february/timeoutEventNAmes.txt', uniqueEventNames, 'utf8', function(err) {
 				if (err) {
 					return console.log(err);
 				}
@@ -110,22 +112,58 @@ function visitPage(url, callback) {
 			}
 			var json2 = JSON.stringify(eventData);
 
-			fs.writeFile('data\\february\\timeout.json', json2, 'utf8', function(err) {
+			//fs.writeFile('data/timeout.txt', json2, 'utf8', function(err) {
+			//fs.writeFile('data/timeout.json', json2, 'utf8', function(err) {
+			fs.writeFile('data/february/timeout.json', json2, 'utf8', function(err) {
 				if (err) {
 					return console.log(err);
 				}
 
+				//parseText();
 				console.log("The file was saved!");
 			});
 		} else {
+			collectInternalLinks($);
 			// In this short program, our callback is just calling crawl()
 			callback();
 		}
 	});
 }
 
+function parseText() {
+	fs.readFile('data/timeout.txt', "utf-8", function read(err, data) {
+		if (err) {
+			throw err;
+		}
+		console.log(data);
+		console.log('timeout txt read');
+	});
+
+	/*var text = '';
+	 $( ".feature_item__annotation--truncated slab p" ).each(function( index ) {
+	 console.log( index + ": " + $( this ).text() );
+	 text += $( this ).text();
+	 });
+
+	 fs.writeFile('timeoutText.txt', text, function(err) {
+	 if(err) {
+	 return console.log(err);
+	 }
+
+	 console.log("The file was saved!");
+	 }); */
+
+}
 
 function searchForWord($, word) {
 	var bodyText = $('html > body').text().toLowerCase();
 	return (bodyText.indexOf(word.toLowerCase()) !== -1);
+}
+
+function collectInternalLinks($) {
+	var relativeLinks = $("a[href^='/']");
+	console.log("Found " + relativeLinks.length + " relative links on page");
+	relativeLinks.each(function() {
+		pagesToVisit.push(baseUrl + $(this).attr('href'));
+	});
 }
