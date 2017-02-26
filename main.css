@@ -11,6 +11,7 @@ body {
 	background-image: url("https://www.burgessyachts.com/media/adminforms/locations/l/o/los_angeles.jpg");
 	background-size: cover;
     background-attachment: fixed;
+    position: relative;
 }
 html {
 	height: 100%;
@@ -86,4 +87,15 @@ a#user-data-clear {
 
 #user-data div {
 	padding: 5% 30% 0 30%;
+}
+
+.containers {
+}
+
+#mapContainer {
+	height: 500px;
+	width: 100%;
+	background-color: white;
+	margin-top: 50px;
+	margin-bottom: 100px;
 }
