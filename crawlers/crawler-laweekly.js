@@ -1,139 +1,96 @@
+// "http://www.laweekly.com/calendar?dateRange[]=2017-02-26";
+
 var request = require('request');
 var cheerio = require('cheerio');
 var URL = require('url-parse');
 var fs = require('fs');
-//var html = require("html");
 var $ = require("jquery");
+var moment = require('moment');
 
-var START_URL = "http://www.laweekly.com/calendar";
-var SEARCH_WORD = "February";
-var MAX_PAGES_TO_VISIT = 10;
+var startURL = "http://www.laweekly.com/calendar?dateRange[]=";
+var searchWord = "February";
+var allEventNames = [];
+var obj = {
+	events : []
+};
+var URLlist = [];
 
-var pagesVisited = {};
-var numPagesVisited = 0;
-var pagesToVisit = [];
-var url = new URL(START_URL);
-var baseUrl = url.protocol + "//" + url.hostname;
-
-pagesToVisit.push(START_URL);
-crawl();
-
-function crawl() {
-	if (numPagesVisited >= MAX_PAGES_TO_VISIT) {
-		console.log("Reached max limit of number of pages to visit.");
-		return;
-	}
-	var nextPage = pagesToVisit.pop();
-	if ( nextPage in pagesVisited) {
-		// We've already visited this page, so repeat the crawl
-		crawl();
-	} else {
-		// New page we haven't visited
-		visitPage(nextPage, crawl);
-	}
+function daysInMonth(month, year) {
+	return new Date(year, month, 0).getDate();
 }
 
-function visitPage(url, callback) {
-	// Add page to our set
-	pagesVisited[url] = true;
-	numPagesVisited++;
+var year = 2017;
+var currentMonth = new Date().getMonth() + 1;
+var currentDay = new Date().getDate();
+var daysInCurrentMonth = daysInMonth(currentMonth, year);
 
-	// Make the request
-	console.log("Visiting page " + url);
+for (var i = currentDay; i < daysInCurrentMonth + 1; i++) {
+	if (currentMonth.toString().length == 1)
+		currentMonth = '0' + currentMonth;
+	var dynamicURL = startURL + year + '-' + currentMonth + '-' + i;
+	URLlist.push(dynamicURL);
+}
+
+firstRequest(URLlist[0], 0);
+
+function firstRequest(url, index) {
+	if (url == undefined)
+		return;
 	request(url, function(error, response, body) {
-		// Check status code (200 is HTTP OK)
-		console.log("Status code: " + response.statusCode);
-		if (response.statusCode !== 200) {
-			callback();
+		console.log("Status code: " + response);
+		if (response.statusCode !== 200)
 			return;
-		}
-		// Parse the document body
+		console.log(url);
+		var urlSplit = url.split('=');
+		var dateSplit = urlSplit[1].split('-')
+		var monthNum = dateSplit[1];
+		var dayNum = dateSplit[2];
+		var formattedMonth = moment(monthNum, 'MM').format('MMMM');
+		var monthText = formattedMonth + ' ' + dayNum;
+
 		var $ = cheerio.load(body);
-		//console.log(body);
-		var isWordFound = searchForWord($, SEARCH_WORD);
+		var isWordFound = searchForWord($, searchWord);
+
 		if (isWordFound) {
-			console.log('Word ' + SEARCH_WORD + ' found at page ' + url);
+			var content = $('.results').find('.result-day').children('ul');
 
-			var text = '';
-			var obj = {
-				events : []
-			};
-			var allEventNames = [];
+			for (var i = 0; i < content.length; i++) {
+				//console.log(content[i]);
+				var children = $(content[i]).children('li');
+				$(children).each(function(index) {
+					var childID = $(this)[0].attribs.class;
+					console.log(childID);
+					if (childID == "goldstar" || childID == "inline-ad" || childID == "yieldmo-placement")
+						return;
 
-			//.feature-item__content
-			//$('body').find('.result-day')
-			$('body').find('.result-day').each(function(index) {
-				$(this).find('.recommended').each(function(index) {
-					//console.log(index + ": " + $(this).text());
-					var event = $(this);
-					var title = $(this).find(".title")[0];
-					var nameText = $(title).find('a').text().trim();
-					var eventLink = 'http://www.laweekly.com' + $(title).find('a').attr("href");
-					var summaryText = '';
-					var location = $(this).find(".location")[0];
-					var locationText = $(location).find('a').text().trim();
-					locationText = locationText.replace("@", "").trim();
-					var locationLinkText = 'http://www.laweekly.com' + $(location).find('a').attr("href");
-					var dateText = $(this).parent().parent().find('.date-line').text().trim() + ' 2017';
-					var categories = '';
-
+					var nameText = $(this).find(".title").text().replace(/\s+/g, ' ').trim();
+					var locationName = $(this).find('.location').children();
+					locationName = $(locationName)[0].children[0].data;
+					var detailPage = $(this).find(".title").children().attr("href");
+					detailPage = 'http://www.laweekly.com' + detailPage;
 
 					allEventNames.push(nameText);
 
 					obj.events.push({
 						name : nameText,
-						eventLink : eventLink,
-						summary : summaryText,
-						location : locationText,
-						locationLink : locationLinkText,
-						date : dateText
+						summary : '',
+						location : locationName,
+						detailPage : detailPage,
+						date : monthText
 					});
+
+					console.log(obj.events);
 				});
-			});
-
-			var json = JSON.stringify(obj);
-			//console.log(json);
-			
-			fs.writeFile('data\\february\\laweeklyAllEvents.txt', json, 'utf8', function(err) {
-				if (err) {
-					return console.log(err);
-				}
-				console.log("The file was saved!");
-			});
-
-			var uniqueEventNames = allEventNames.reduce(function(a, b) {
-				if (a.indexOf(b) < 0)
-					a.push(b);
-				return a;
-			}, []);
-			fs.writeFile('data\\february\\laweeklyEventNames.txt', uniqueEventNames, 'utf8', function(err) {
-				if (err) {
-					return console.log(err);
-				}
-				console.log("The file was saved!");
-			});
-			
-
-			var eventData = [];
-			for (var i = 0; i < uniqueEventNames.length; i++) {
-				//console.log(uniqueEventNames[i]);
-				console.log(obj.events[i].name);
-				if (uniqueEventNames[i] == obj.events[i].name) {
-					eventData.push(obj.events[i]);
-				}
 			}
-			var json2 = JSON.stringify(eventData);
 
-			fs.writeFile('data\\february\\laweekly.json', json2, 'utf8', function(err) {
-				if (err) {
-					return console.log(err);
-				}
+			console.log(obj);
+			secondRequest(obj);
+			// var nextNum = index + 1;
+			// if (nextNum == URLlist.length) {
+			// secondRequest(obj);
+			// }
 
-				console.log("The file was saved!");
-			});
-		} else {
-			// In this short program, our callback is just calling crawl()
-			callback();
+			// firstRequest(URLlist[nextNum], nextNum);
 		}
 	});
 }
@@ -141,4 +98,64 @@ function visitPage(url, callback) {
 function searchForWord($, word) {
 	var bodyText = $('html > body').text().toLowerCase();
 	return (bodyText.indexOf(word.toLowerCase()) !== -1);
+}
+
+function secondRequest(obj) {
+	console.log('secondRequest');
+	var that = this;
+	var number = 0;
+	for (var i = 0; i < 2; i++) {
+		//for (var i = 0; i < obj.events.length; i++) {
+		if (obj.events[i].detailPage != "" || obj.events[i].detailPage != '') {
+			console.log(obj.events[i].detailPage);
+			var url = obj.events[i].detailPage;
+			console.log(i);
+			if (url == undefined)
+				return;
+			makeSecondRequest(url, i, function(val, i) {
+				console.log(val);
+				obj.events[i].address = val.address;
+				obj.events[i].type = val.type;
+				obj.events[i].summary = val.summary;
+				console.log(i);
+				console.log(obj.events[i]);
+				number++
+
+				//if (number == obj.events.length) {
+				if (number == 2) {
+					console.log(i + ' is greater than ' + obj.events.length);
+					var json = JSON.stringify(obj);
+					var length = obj.events.length;
+
+					fs.writeFile('data\\february\\laweekly.json', json, 'utf8', function(err) {
+						console.log("File saved with " + length + ' entries');
+					});
+				}
+			});
+		}
+	}
+}
+
+function makeSecondRequest(url, i, callback) {
+	console.log('crawling event details for ' + url)
+	request(url, function(error, response, body) {
+		if (!response)
+			return;
+		console.log("Status code: " + response.statusCode);
+		if (response.statusCode !== 200)
+			return;
+		var $ = cheerio.load(body);
+		var data = [];
+
+		var eventHTML = $('.content');
+		if (eventHTML) {
+			data.type = $('.categories').text().replace(/\s+/g, ' ').trim();
+			data.summary = $('.col-desc').text().replace(/\s+/g, ' ').trim();
+			data.address = $('.address').text().replace(/\s+/g, ' ').trim();
+		}
+
+		console.log(data);
+		return callback(data, i);
+
+	});
 }
