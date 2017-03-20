@@ -1,7 +1,8 @@
 var map;
 
 $(document).ready(function() {
-	var jsonFiles = ['timeout.json', 'laweekly.json', 'discover.json'];
+	//var jsonFiles = ['timeout.json', 'laweekly.json', 'discover.json'];
+	var jsonFiles = ['timeout.json', 'discover.json'];
 
 	setUpButtons();
 	sortFunctions();
@@ -42,6 +43,8 @@ function placeMarker(address, item) {
 			});
 
 			console.log(item);
+			if (!item)
+				return;
 			var contentString = "<html><body><div><p><h4>" + item.name + "</h4>" + item.date + "<br>" + item.location + "</p></div></body></html>";
 			var infowindow = new google.maps.InfoWindow({
 				content : contentString
@@ -60,7 +63,7 @@ function placeMarker(address, item) {
 
 function addMarkerOnLoad(item) {
 	console.log(item.locationAddress);
-	var timer = Math.floor((Math.random() * 20000) + 1);
+	var timer = Math.floor((Math.random() * 60000) + 1);
 	console.log(timer);
 	setTimeout(function() {
 		placeMarker(item.locationAddress, item);
@@ -69,7 +72,7 @@ function addMarkerOnLoad(item) {
 
 function getJson(fileDir) {
 	var showData = $('#show-data');
-	var fullDir = 'data/february/' + fileDir;
+	var fullDir = 'data/march/' + fileDir;
 	$.getJSON(fullDir, function(data) {
 		var filteredData = [];
 
@@ -79,8 +82,10 @@ function getJson(fileDir) {
 			}
 		} else {
 			for (var i = 0; i < data.events.length; i++) {
-				if (!data.events[i].date.includes('Until'))
-					filteredData.push(data.events[i]);
+				if (data.events[i].date) {
+					if (!data.events[i].date.includes('Until'))
+						filteredData.push(data.events[i]);
+				}			
 			}
 		}
 
@@ -146,7 +151,10 @@ function getJson(fileDir) {
 			if (item.type) {
 				console.log(item.date);
 				console.log(item.type);
-				var type = getFilterOption(item.type);
+				var trimmed = item.type.replace(/\//g, '').trim();
+				var type = getFilterOption(trimmed);
+				if (type == undefined)
+					item.type = "Miscellaneous";
 				console.log(type);
 				item.type = type;
 			} else
@@ -178,24 +186,36 @@ function getJson(fileDir) {
 }
 
 function getFilterOption(type) {
-	var type = type.replace('/', '').trim();
 	switch (type) {
+	case type.includes('Theatre'):
+		return "Art & Theatre";
+		break;
+	case type.includes('Gallery'):
+		return "Art Gallery & Museum";
+		break;
 	case "Museums & Galleries":
 		return "Art Gallery & Museum";
+		break;
 	case "Sports":
 		return "Sports";
+		break;
 	case "Festivals":
 		return "Festivals";
-	case "Art & Theatre":
+		break;
+	case "Art & Theatre" || "Arts & Theatre":
 		return "Art & Theatre";
+		break;
 	case "Miscellaneous":
 		return "Miscellaneous";
+		break;
 	case "Music":
-		return "Music";
+		return"Music";
+		break;
 	case "Educational":
 		return "Educational";
-	default:
-		return "Miscellaneous";
+		break;
+	// default:
+		// return "Miscellaneous";
 	}
 }
 
@@ -347,18 +367,26 @@ function setUpButtons() {
 		}
 	});
 
-	// var monthDates = getDateFilterOptions();
-	// console.log(monthDates);
-	// for (var i = 0; i < monthDates.length; i++) {
-		// $('#dateFilter select').append($('<option>', {
-			// value : i + 2,
-			// text : monthDates[i]
-		// })); 
-	// }
+	var monthDates = getDateFilterOptions();
+	console.log(monthDates);
+	for (var i = 0; i < monthDates.length; i++) {
+		$('#dateFilter select').append($('<option>', {
+			value : i + 2,
+			text : monthDates[i]
+		}));
+	}
+}
+
+function daysInMonth(month, year) {
+	return new Date(year, month, 0).getDate();
 }
 
 function getDateFilterOptions() {
-	var date = new Date();
+	var year = 2017;
+	var currentMonth = new Date().getMonth() + 1;
+	var currentDay = new Date().getDate();
+	var daysInCurrentMonth = daysInMonth(currentMonth, year);
+	var days = [];
 	var monthsArray = [];
 
 	monthsArray[0] = 'January';
@@ -373,18 +401,13 @@ function getDateFilterOptions() {
 	monthsArray[9] = 'October';
 	monthsArray[10] = 'November';
 	monthsArray[11] = 'December';
-	
+
+	var date = new Date();
 	var monthName = monthsArray[date.getMonth()];
-	var month = date.getMonth();
-	var year = 2017;
-	var date = new Date(year, month, 1);
-	var days = [];
-	while (date.getMonth() === month) {
-		var monthDay = new Date(date).getDate();
-		var monthDate = monthName + ' ' + monthDay;
-		days.push(monthDate);
-		date.setDate(date.getDate() + 1);
+
+	for (var i = currentDay; i < daysInCurrentMonth + 1; i++) {
+		days.push(monthName + ' ' + i);
 	}
+
 	return days;
 }
-
