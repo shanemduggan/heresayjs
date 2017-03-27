@@ -28,7 +28,7 @@ function setUpButtons() {
 						if ($(lis[p]).find('span').attr('data-type') == val) {
 							//$(lis[p]).show();
 							$(lis[p]).hide();
-							console.log(lis[p]);
+							//console.log(lis[p]);
 							//filterMapType(lis[p]);
 							eventNodes.push(lis[p]);
 						}
