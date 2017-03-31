@@ -124,11 +124,19 @@ function getJson(fileDir) {
 				undefinedLocationAddress += 1;
 				//console.log(undefinedLocationAddress);
 			}
+			
+			var link = '';
+			if (item.eventDetail)
+				link = item.eventDetail;
+			else if (item.locationLink)
+				link = item.locationLink;
+			else if (item.detailPage)
+				link = item.detailPage
 
 			if (filteredData[i].location == "") {
-				filteredData[i].element = '<span class="itemHeader" data-type="' + item.type + '" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span>' + summaryPiece;
+				filteredData[i].element = '<span class="itemHeader" data-index="' + i + '" data-link="' + link + '" data-type="' + item.type + '" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span>' + summaryPiece;
 			} else {
-				filteredData[i].element = '<span class="itemHeader" data-type="' + item.type + '" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<a target="_blank" id="' + locationAddress + '" href="' + item.locationLink + '">' + item.location + '</a>; <span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span>' + summaryPiece;
+				filteredData[i].element = '<span class="itemHeader" data-index="' + i + '" data-link="' + link + '" data-type="' + item.type + '" id="' + item.name + '"><b>' + item.name + '</b>' + ' (<a target="_blank" id="' + locationAddress + '" href="' + item.locationLink + '">' + item.location + '</a>; <span class="date" id="' + numDate + '">' + item.date + ') ' + '</span></span>' + summaryPiece;
 			}
 		}
 

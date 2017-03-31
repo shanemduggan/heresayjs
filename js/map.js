@@ -29,7 +29,9 @@ function placeMarkerAndGeoCode(address, item) {
 				animation : google.maps.Animation.DROP
 			});
 
-			markers.push(marker);
+			//markers.push(marker);
+			//markers.push(marker[item.index]);
+			markers[item.index] = marker;
 
 			if (!item)
 				return;
@@ -45,12 +47,25 @@ function placeMarkerAndGeoCode(address, item) {
 			marker.addListener('mouseout', function() {
 				infowindow.close();
 			});
-			
-			
+
+			//console.log(item.index);
+			var node = $('#sidePanel').find('li:contains("' + item.name + '")');
+			$(node).hover(function() {
+				show(item.index);
+			});
 
 			//console.log(map);
 		}
 	});
+}
+
+function show(id) {
+	myid = id;
+	//console.log(id);
+	if (markers[myid]) {
+		new google.maps.event.trigger( markers[myid], 'mouseover' );
+		//new google.maps.event.trigger(markers[myid], 'click');
+	}
 }
 
 function addMarkerOnLoad(item) {
@@ -64,14 +79,14 @@ function addMarkerOnLoad(item) {
 }
 
 // function getCoordinates(address) {
-	// var geocoder = new google.maps.Geocoder();
-	// geocoder.geocode({
-		// 'address' : address
-	// }, function(results, status) {
-		// if (status == google.maps.GeocoderStatus.OK) {
-			// var lat = results[0].geometry.location.lat();
-			// var lng = results[0].geometry.location.lng();
-			// return lat;
-		// }
-	// });
+// var geocoder = new google.maps.Geocoder();
+// geocoder.geocode({
+// 'address' : address
+// }, function(results, status) {
+// if (status == google.maps.GeocoderStatus.OK) {
+// var lat = results[0].geometry.location.lat();
+// var lng = results[0].geometry.location.lng();
+// return lat;
+// }
+// });
 // }

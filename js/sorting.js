@@ -75,18 +75,21 @@ function filterMapDate(parent) {
 		}
 		var name = $(item).find('span.itemHeader').attr('id');
 		var date = $(item).find('span.date').text().replace(')', '').trim();
+		var link = $(item).find('span').attr('data-link');
+		var index = $(item).find('span').attr('data-index');
 
 		var item = {
 			'locationAddress' : address,
 			'location' : location,
 			'name' : name,
-			'date' : date
+			'date' : date,
+			'index' : index
 		}
 
 		addMarkerOnLoad(item);
 
-		$('#sidePanel ul').append('<li>' + item.name + '</li>');
-
+		//$('#sidePanel ul').append('<li>' + item.name + '</li>');
+		$('#sidePanel ul').append('<li><a target="_blank" href="' + link + '">' + name + '</a></li>');
 	});
 }
 
