@@ -1,0 +1,69 @@
+function getFilterOption(type) {
+	if ($.inArray(type, types) == -1) {
+		types.push(type);
+		//console.log(types);
+		//console.log(types.length);
+	}
+	
+	if (type == "")
+		return "Miscellaneous";
+
+	var artKeyWords = ['Theatre', 'Theater', 'theater', 'Gallery', 'Galleries', 'Museum', 'Museums', 'Art', 'Arts'];
+	var art = _.filter(artKeyWords, function(s) {
+		return type.indexOf(s) != -1;
+	});
+	if (art.length)
+		return "Art";
+
+
+	// if (type.indexOf('Theatre') != -1 || type.indexOf('Theater') != -1 || type.indexOf('theater') != -1)
+		// return "Art";
+	// if (type.indexOf('Gallery') != -1 || type.indexOf('Museums & Galleries') != -1)
+		// return "Art";
+	// if (type.indexOf('Art') != -1 || type.indexOf('Arts') != -1)
+		// return "Art";
+	if (type.indexOf('Sports') != -1 || type.indexOf('Basketball') != -1 || type.indexOf('Baseball') != -1 || type.indexOf('Hockey') != -1)
+		return "Sports";
+	if (type.indexOf('Festivals') != -1)
+		return "Festivals";
+	if (type.indexOf('Music') != -1 || type.indexOf('Alternative') != -1 || type.indexOf('Rock') != -1)
+		return "Music";
+	if (type.indexOf('DJ') != -1 || type.indexOf('EDM') != -1 || type.indexOf('House') != -1 || type.indexOf('Country') != -1)
+		return "Music";
+	if (type.indexOf('Classical') != -1 || type.indexOf('Jazz') != -1 || type.indexOf('Funk') != -1 || type.indexOf('Punk') != -1)
+		return "Music";
+	if (type.indexOf('Latin') != -1 || type.indexOf('Rap') != -1 || type.indexOf('Pop') != -1)
+		return "Music";
+	if (type.indexOf('Educational') != -1)
+		return "Educational";
+	if (type.indexOf('Dance') != -1 || type.indexOf('Burlesque') != -1 || type.indexOf('Cabaret') != -1)
+		return "Dance";
+	if (type.indexOf('Outdoors') != -1)
+		return "Outdoors";
+	if (type.indexOf('Film, TV & Radio') != -1 || type.indexOf('film') != -1 || type.indexOf('Film') != -1)
+		return "Film & TV";
+	if (type.indexOf('Family') != -1)
+		return "Family";
+	if (type.indexOf('MuseumsZoosAquariums') != -1)
+		return "Nature";
+	if (type.indexOf('Food & Drink') != -1)
+		return "Food & Drink";
+	if (type.indexOf('Comedy') != -1)
+		return "Comedy";
+	if (type.indexOf('Museums') != -1 || type.indexOf('Museum') != -1)
+		return "Museums";
+	if (type.indexOf('Holiday') != -1 || type.indexOf('Christmas') != -1 || type.indexOf("New Year's") != -1)
+		return "Holidays";
+	if (type.indexOf('Health') != -1)
+		return "Health";
+	if (type.indexOf('Miscellaneous') != -1 || type == "" || type.indexOf('Other') != -1 || type.indexOf('Shopping') != -1)
+		return "Miscellaneous";
+	if (type.indexOf('Community') != -1 || type.indexOf('Promotional') != -1 || type.indexOf('Activism') != -1)
+		return "Miscellaneous";
+	if (type.indexOf('Spirituality') != -1 || type.indexOf('Religion') != -1 || type.indexOf('World') != -1)
+		return "Miscellaneous";
+	if (type.indexOf('Competitions') != -1 || type.indexOf('Recreation') != -1 || type.indexOf('Games') != -1)
+		return "Miscellaneous";
+	else
+		return "Miscellaneous";
+}

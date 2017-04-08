@@ -38,3 +38,4 @@ function getDateFilterOptions() {
 
 	return days;
 }
+

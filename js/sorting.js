@@ -94,9 +94,14 @@ function filterMapDate(parent) {
 }
 
 function filterMapType(nodes, type) {
-	for (var i = 0; i < markers.length; i++) {
-		markers[i].setMap(null);
-	}
+	// for (var i = 0; i < markers.length; i++) {
+	// markers[i].setMap(null);
+	// }
+
+	markers.forEach(function(marker) {
+		marker.setMap(null);
+	});
+
 	markers = [];
 	var locations = [];
 	$('#sidePanel ul').html('');

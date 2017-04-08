@@ -1,0 +1,14 @@
+// var obj = fs.readFileSync('data\\march\\discoverParentData-mar12+.json', 'utf8');
+// obj = JSON.parse(obj);
+// makeSecondRequest(obj.events[0], 0);
+
+// var json = fs.readFileSync('data\\march\\discover50.json', 'utf8');
+// //obj = JSON.parse(obj);
+//
+// //var newJson = JSON.parse(JSON.stringify(json).split('"address":').join('"locationAddress":'));
+// var newJson = JSON.parse(json.split('"address":').join('"locationAddress":'));
+//
+// //document.write(JSON.stringify(json));
+// newJson = JSON.stringify(newJson);
+// fs.writeFile('data\\march\\discover50fixed.json', newJson, 'utf8', function(err) {
+// });

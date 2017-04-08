@@ -12,6 +12,9 @@ function initMap() {
 }
 
 function placeMarkerAndGeoCode(address, item) {
+	console.log(address);
+	if (!address)
+		return;
 	var geocoder = new google.maps.Geocoder();
 	geocoder.geocode({
 		'address' : address
@@ -22,6 +25,14 @@ function placeMarkerAndGeoCode(address, item) {
 			var lat = results[0].geometry.location.lat();
 			var lng = results[0].geometry.location.lng();
 
+			//console.log(results[0].address_components[5].long_name);
+			// var state = _.find(results[0].address_components, function(data) {
+			// return data.long_name == "California";
+			// });
+			// console.log(state.long_name);
+			// if (state.long_name != "California")
+			// console.log(results)
+
 			var myLatlng = new google.maps.LatLng(lat, lng);
 			var marker = new google.maps.Marker({
 				position : myLatlng,
@@ -30,7 +41,6 @@ function placeMarkerAndGeoCode(address, item) {
 			});
 
 			//markers.push(marker);
-			//markers.push(marker[item.index]);
 			markers[item.index] = marker;
 
 			if (!item)
@@ -61,11 +71,20 @@ function placeMarkerAndGeoCode(address, item) {
 
 function show(id) {
 	myid = id;
-	//console.log(id);
 	if (markers[myid]) {
-		new google.maps.event.trigger( markers[myid], 'mouseover' );
-		//new google.maps.event.trigger(markers[myid], 'click');
+		setTimeout(function() {
+			new google.maps.event.trigger(markers[myid], 'mouseover');
+		}, 200);	
+		// mouseout, click
+		hide(myid);
 	}
+}
+
+function hide(id) {
+	setTimeout(function() {
+		new google.maps.event.trigger(markers[id], 'mouseout');
+	}, 2000);
+
 }
 
 function addMarkerOnLoad(item) {
@@ -78,15 +97,4 @@ function addMarkerOnLoad(item) {
 	}, timer);
 }
 
-// function getCoordinates(address) {
-// var geocoder = new google.maps.Geocoder();
-// geocoder.geocode({
-// 'address' : address
-// }, function(results, status) {
-// if (status == google.maps.GeocoderStatus.OK) {
-// var lat = results[0].geometry.location.lat();
-// var lng = results[0].geometry.location.lng();
-// return lat;
-// }
-// });
-// }
+

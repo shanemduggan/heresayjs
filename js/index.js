@@ -19,7 +19,11 @@ $(document).ready(function() {
 function afterDataLoaded() {
 	$('#user-data').append('<ul id="user-data-list"></ul>');
 
-	var options = $('#selectDate option')[2].text;
+	var options = $('#selectDate option');
+	if (options.length > 2)
+		var options = $('#selectDate option')[2].text;
+	else
+		var options = $('#selectDate option')[1].text;
 	setTimeout(function() {
 		$("#selectDate").val('2').trigger('change');
 	}, 1000);
@@ -70,19 +74,20 @@ function getJson(fileDir) {
 				var dateSplit = item.date.split(' ');
 			}
 
+			var monthNum = getMonth();
 			if (dateSplit.length == 4) {
 				if (dateSplit[2].length == 1) {
 					var num = '0' + dateSplit[2];
-					var numDate = '02' + num + '2017';
+					var numDate = '0' + monthNum + num + '2017';
 				} else if (dateSplit[2].length == 2) {
-					var numDate = '02' + dateSplit[2] + '2017';
+					var numDate = '0' + monthNum + dateSplit[2] + '2017';
 				}
 			} else if (dateSplit.length == 2) {
 				if (dateSplit[1].length == 1) {
 					var num = '0' + dateSplit[1];
-					var numDate = '02' + num + '2017';
+					var numDate = '0' + monthNum + num + '2017';
 				} else if (dateSplit[1].length == 2) {
-					var numDate = '02' + dateSplit[1] + '2017';
+					var numDate = '0' + monthNum + dateSplit[1] + '2017';
 				}
 			}
 

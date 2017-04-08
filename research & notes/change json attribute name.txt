@@ -1,0 +1,14 @@
+// var json = fs.readFileSync('data\\march\\laweekly.json', 'utf8');
+// json = JSON.parse(json);
+//
+// var events = json.events;
+// console.log(json.length);
+// console.log(events.length);
+
+// //var newJson = JSON.parse(JSON.stringify(json).split('"address":').join('"locationAddress":'));
+// var newJson = JSON.parse(json.split('"address":').join('"locationAddress":'));
+//
+// //document.write(JSON.stringify(json));
+// newJson = JSON.stringify(newJson);
+// fs.writeFile('data\\march\\laweeklyfixed.json', newJson, 'utf8', function(err) {
+// });

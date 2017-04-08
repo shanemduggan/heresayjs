@@ -3,6 +3,7 @@ function setUpButtons() {
 		$('#show-data').show();
 		var index = $('#typeFilter select').val();
 		var val = $("#typeFilter select option[value='" + index + "']").text();
+		$("#selectDate").val('0');
 		//console.log(val);
 
 		var uls = $('#show-data ul');
@@ -25,12 +26,16 @@ function setUpButtons() {
 				$(lis).hide();
 				for (var p = 0; p < lis.length; p++) {
 					if ($(lis[p]).find('span').attr('data-type') != "") {
-						if ($(lis[p]).find('span').attr('data-type') == val) {
-							//$(lis[p]).show();
-							$(lis[p]).hide();
-							//console.log(lis[p]);
-							//filterMapType(lis[p]);
-							eventNodes.push(lis[p]);
+						var currentDate = checkDate();
+						var nodeDate = $(lis[p]).find('span.date').attr('id');
+						if (nodeDate >= currentDate) {
+							if ($(lis[p]).find('span').attr('data-type') == val) {
+								//$(lis[p]).show();
+								$(lis[p]).hide();
+								//console.log(lis[p]);
+								//filterMapType(lis[p]);
+								eventNodes.push(lis[p]);
+							}
 						}
 					}
 				}
@@ -104,4 +109,27 @@ function setUpButtons() {
 	// $("#show-data").toggle();
 	// $("#user-data").toggle();
 	// });
+}
+
+function checkDate() {
+	var date = new Date();
+	var utcDate = new Date(date.toUTCString());
+	utcDate.setHours(utcDate.getHours() - 8);
+	var usDate = new Date(utcDate);
+	var month = usDate.getUTCMonth() + 1;
+	month = month.toString();
+	if (month.length == 1)
+		month = '0' + month;
+	var day = usDate.getUTCDate().toString();
+	var year = usDate.getUTCFullYear().toString();
+	var newdate = month + day + year;
+	return newdate;
+}
+
+function getMonth() {
+	var date = new Date();
+	var utcDate = new Date(date.toUTCString());
+	utcDate.setHours(utcDate.getHours() - 8);
+	var usDate = new Date(utcDate);
+	return usDate.getUTCMonth() + 1;
 }
