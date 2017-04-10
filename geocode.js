@@ -17,64 +17,51 @@
 // provider: 'google'
 // }]
 
-var fs = require('fs');
-var NodeGeocoder = require('node-geocoder');
-
 var options = {
 	provider : 'google',
-	apiKey : 'AIzaSyDcIb1KF-PhD_-R1NkUiuWpMhftyrJlQck', // for Mapquest, OpenCage, Google Premier
-	formatter : null // 'gpx', 'string', ...
+	apiKey : 'AIzaSyDcIb1KF-PhD_-R1NkUiuWpMhftyrJlQck',
+	formatter : null
 };
-
+var NodeGeocoder = require('node-geocoder');
 var geocoder = NodeGeocoder(options);
+var fs = require('fs');
 
-var locations = fs.readFileSync('marchLocations.json', 'utf8');
-locations = JSON.parse(locations);
-console.log(locations);
-//geoCodeLocations();
-
-var num = 0;
-var updatedLocationData = [];
+// geo options
+var requestWait = 5000;
+// wait time before next request
 var saveIndex = 200;
-requestGeoCode(locations[0], 0);
-//requestGeoCode(locations[51], 51)
+// define frequency of saving
+var startIndex = 753;
+// change this if not starting from beginning
+var locationDataDir = 'crawldata\\april\\aprilLocationsToGeo.json';
 
-//function geoCodeLocations() {
+// get file data
+var locations = fs.readFileSync(locationDataDir, 'utf8');
+locations = JSON.parse(locations);
+console.log('number of locations to be geocoded: ' + (locations.length - startIndex));
+
+// make request
+requestGeoCode(locations[startIndex], startIndex);
+
 function requestGeoCode(location, index) {
-
-	num++
-	if (location.address == undefined)
-		return;
-	if (index == 171)
+	if (location == undefined || location.address == undefined)
 		return;
 
-	console.log(location.address);
-	console.log(index);
-	//(function(index) {
+	console.log('index: ' + index, '  address pre geocode: ' + location.address);
 	geocoder.geocode(location.address).then(function(res) {
+		console.log('index: ' + index, '   address post geocode: ' + location.address);
 
 		var nextNum = index + 1;
-		//if (nextNum < 6) {
 		setTimeout(function() {
 			requestGeoCode(locations[nextNum], nextNum);
-		}, 5000);
-		//}
-
-		console.log(res);
-		console.log(index);
-		console.log(location.address);
-		updatedLocationData.push({
-			neightborhood : res[0].extra.neighborhood,
-			lat : res[0].latitude,
-			lng : res[0].longitude,
-			zipcode : res[0].zipcode
-		});
+		}, requestWait);
 
 		locations[index].formattedAddress = res[0].formattedAddress;
-		locations[index].neighborhood = res[0].extra.neighborhood;
 		locations[index].lat = res[0].latitude;
 		locations[index].lng = res[0].longitude;
 		locations[index].zipcode = res[0].zipcode;
+		if (res[0].extra.neighborhood)
+			locations[index].neighborhood = res[0].extra.neighborhood;
 
 		console.log(locations[index]);
 		console.log('');
@@ -84,60 +71,28 @@ function requestGeoCode(location, index) {
 		var nextNum = index + 1;
 		setTimeout(function() {
 			requestGeoCode(locations[nextNum], nextNum);
-		}, 5000);
+		}, requestWait);
 	});
-	//})(i);
 
-	if (num == locations.length - 1) {
-		console.log('first request completed');
-		var json = JSON.stringify(locations);
-		var length = locations.length;
-		fs.writeFile('marchLocationsFull.json', json, 'utf8', function(err) {
-			console.log("File saved with " + length + " entries");
-		});
-	} else if (index != 0 && index % saveIndex === 0) {
-		var percent = index / saveIndex;
-		saveFile('marchLocationsFull' + percent + '.json', index);
-	} else if (index == 50) {
-		saveFile('marchLocationsFull' + index + '.json', index);
+	if (index != 0) {// save stored data to file
+		if (index == locations.length - 1) {
+			console.log('geocoding completed');
+			saveFile(index, 'aprilLocationsGeo' + startIndex + '-' + index);
+		} else if (index % saveIndex === 0) {
+			//var percent = index / saveIndex;
+			saveFile(index, 'aprilLocationsGeo' + startIndex + '-' + index);
+		} else if (index == 50) {
+			saveFile(index, 'aprilLocationsGeo0-50');
+		}
 	}
 }
 
-function saveFile(dir, length) {
+function saveFile(index, dir) {
 	var json = JSON.stringify(locations);
-	fs.writeFile(dir, json, 'utf8', function(err) {
+	var length = index - startIndex;
+	fs.writeFile(dir + '.json', json, 'utf8', function(err) {
 		console.log("File saved with " + length + ' entries');
 		return;
 	});
 }
 
-// for (var i = 0; i < locations.length - 1; i++) {
-// console.log(locations[i].address);
-// (function(i) {
-// setTimeout(function() {
-// geocoder.geocode(locations[i].address).then(function(res) {
-// console.log(res);
-// console.log(i);
-// console.log(locations[i].address);
-// updatedLocationData.push({
-// neightborhood : res[0].extra.neighborhood,
-// lat : res[0].latitude,
-// lng : res[0].longitude,
-// zipcode : res[0].zipcode
-// });
-//
-// locations[i].formattedAddress = res[0].formattedAddress;
-// locations[i].neighborhood = res[0].extra.neighborhood;
-// locations[i].lat = res[0].latitude;
-// locations[i].lng = res[0].longitude;
-// locations[i].zipcode = res[0].zipcode;
-//
-// console.log(locations[i]);
-// console.log('');
-//
-// }).catch(function(err) {
-// console.log(err);
-// });
-// }, 1500);
-// })(i);
-// }

@@ -235,6 +235,7 @@ function saveFile(dir, length) {
 	var json = JSON.stringify(obj);
 	fs.writeFile(dir, json, 'utf8', function(err) {
 		console.log("File saved with " + length + ' entries');
+		console.log(obj.events.length - length + 'events to go');
 		return;
 	});
 }

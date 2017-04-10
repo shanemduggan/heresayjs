@@ -1,0 +1,197 @@
+McGinty69!&shit
+gmaps :  AIzaSyC0MK06KIq5QAHH-lIlF-c6Y5Yig1yMjPw 
+http://stackoverflow.com/questions/7474354/include-jquery-in-the-javascript-console
+use web server for chome
+la rockness (music site)
+
+How to make experience better?
+Make other peoples' experiences better?
+Make people more comfortable
+
+geocode api 2500/day cap
+json handle ~3900 parent events
+laweekly ~3100 events @ 100/day, 300 child/hr
+			parent: 1 hr; child: 12+ hr			
+discover ~ 1300 events, full: 6.5 hr
+timeout ~ 140 events (7 min)
+
+
+overall crawl length:
+		> estimating 15 hr for full crawl
+
+
+
+
+mongod --port 27017 --dbpath "C:\data\db"
+	> event collection - events03
+	> geocoded locations - locationsgeo03
+
+>> set up aws to run crawlers
+>> re-work crawlers to run all requests at once
+http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+https://seroter.wordpress.com/2013/07/29/where-the-heck-do-i-host-my-node-js-app/
+
+http://stackoverflow.com/questions/5797852/in-node-js-how-do-i-include-functions-from-my-other-files
+
+
+
+
+
+
+
+
+Timeline
+--------------------------------
+Caching location coordinates (to avoid overloading api)  < current
+
+Take a break from development
+Show app / get feedback
+
+Improve crawler run experience
+--------------------------------
+
+
+
+
+
+
+
+https://www.reddit.com/r/calvinandhobbes/comments/5yz7bn/maybe_hes_onto_something/?st=j07gqs44&sh=88ddec24
+
+https://www.reddit.com/r/explainlikeimfive/comments/5yljdm/eli5_dungeons_and_dragons/?st=j03z2mav&sh=a3bbfbb4
+
+BOOKS:
+the richest man in babylon (after 1st listen, take notes)
+the karisma myth
+< boombox artist >
+
+
+
+
+// add clickability on types
+// stop old markers from appearing (rework marker adding)
+// some names aren't added to marker window
+// think about how map / list interation should be
+
+
+
+
+
+
+
+
+
+
+Next steps:
+1. re-crawling discover for addresses (on-going)
+
+
+
+
+
+
+Saturday:
+2. retrieve april locations
+	> check db if already geocoded
+	  if not, geocode and save to db
+
+
+
+
+
+
+
+
+
+
+Sunday/Next week
+3. need to test getting location data on filter
+	> see how long it takes to find in json
+	> if quick to find all coordinates use json location files for now
+4. look into client side mongo (might not be possible)
+5. set up heroku to host crawler 
+
+
+
+
+
+
+laweekly april - 2670 events
+discover april - 
+	> 
+
+
+
+
+
+
+
+
+
+
+
+
+geocoded march locations (2130)
+	> roughly 40 addresses failed to geocode (multiple locations)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- art type could be up to 1000 events (break apart type)
+- mvc rework
+	> handle mongo requests from client/model
+- need to clean up discover crawler
+- can remove a couple node modules 
+	> bluebird, pretty?, either @google or node-geocoder (using 1)
+	
+
+
+
+
+
+
+
+
+
+					STORE LOCATION ADDRESSES
+					WILL IMPROVE CRAWL TIMES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I. brainstorm where to go from here
+	> server
+	> db? (save addresses)
+	> themes / filtering
+II. db & server research (online db or json file pref)
+	* firebase, couchdb, aws, heroku
+III. function to handle response & errors
+	- add in secondCallback 
+
+http://losangeles.ohmyrockness.com/shows > category: music
