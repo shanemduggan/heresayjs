@@ -5,33 +5,41 @@ var types = [];
 var eventData = [];
 var locationData = [];
 
+// cached data
+var cachedDateEvents = [];
+var cachedTypeEvents = [];
+
+// filtered data
+var dateEvents = [];
+var typeEvents = [];
+
+// multi filtered data 
+var dateTypeEvents = [];
+var typeDateEvents = [];
+
+// previous value pre filter change
+var prevDateFilter;
+
 $(document).ready(function() {
-	setUpButtons();
+	getJson('../../crawldata/april/aprilLocationsAllData.json', '../../locationdata/aprilLocationsGeo.json');
+	setUpFilters();
 	sortFunctions();
 	initMap();
-
-	getJson('../../crawldata/april/aprilLocationsAllData.json', '../../locationdata/aprilLocationsGeo.json');
-	afterDataLoaded();
 });
 
 function afterDataLoaded() {
 	$('#user-data').append('<ul id="user-data-list"></ul>');
-
-	var options = $('#selectDate option');
-	if (options.length > 2)
-		var options = $('#selectDate option')[2].text;
-	else
-		var options = $('#selectDate option')[1].text;
-
-	setTimeout(function() {
-		$("#selectDate").val('2').trigger('change');
-	}, 1000);
+	$("#selectDate").val('1').trigger('change');
 }
 
 function getJson(eventdir, locationdir) {
-	var showData = $('#show-data');
-	//var fullDir = 'crawldata/march/' + fileDir;
-	//$.getJSON(fullDir, function(data) {
+	$.getJSON(locationdir, function(data) {
+		if (data.length) {
+			console.log('# of locations: ' + data.length);
+			locationData = data;
+		}
+	});
+
 	$.getJSON(eventdir, function(data) {
 		var filteredData = [];
 
@@ -45,14 +53,7 @@ function getJson(eventdir, locationdir) {
 					eventData.push(data[i]);
 			}
 		}
-
-	});
-
-	$.getJSON(locationdir, function(data) {
-		if (data.length) {
-			console.log('# of locations: ' + data.length);
-			locationData = data;
-		}
+		afterDataLoaded();
 	});
 }
 
