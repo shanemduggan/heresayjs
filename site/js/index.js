@@ -212,9 +212,6 @@ function getFilterOption(type) {
 	var sportsKeyWords = ['Sports', 'Basketball', 'Baseball', 'Hockey'];
 	var musicKeyWords = ['Music', 'Alternative', 'Rock', 'DJ', 'EDM', 'House', 'Country', 'Classical', 'Jazz', 'Funk', 'Punk', 'Latin', 'Rap', 'Pop'];
 
-	// art is too large of a category
-	// pull out theater; split museums/galleries from art
-
 	if (type == "")
 		return "Miscellaneous";
 	var misc = _.filter(miscKeyWords, function(s) {
