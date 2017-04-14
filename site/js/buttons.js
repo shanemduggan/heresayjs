@@ -1,6 +1,6 @@
 function setUpButtons() {
 	$('#typeFilter select').change(function(e) {
-		$('#show-data').show();
+		//$('#show-data').show();
 		var index = $('#typeFilter select').val();
 		var val = $("#typeFilter select option[value='" + index + "']").text();
 		$("#selectDate").val('0');
@@ -8,18 +8,7 @@ function setUpButtons() {
 
 		var uls = $('#show-data ul');
 		var eventNodes = [];
-		// if (val == "Show all") {
-		// for (var i = 0; i < uls.length; i++) {
-		// // $(uls[i].parentElement).parent().show();
-		// // $('#show-data li').show();
-		// }
-		// } else if (val == "Select an event type") {
 		if (val == "Select an event type") {
-			// for (var i = 0; i < uls.length; i++) {
-			// // $(uls[i].parentElement).parent().show();
-			// // $('#show-data li').show();
-			// }
-			// $('#show-data').hide();
 		} else {
 			for (var i = 0; i < uls.length; i++) {
 				var lis = $(uls[i]).children();
@@ -41,48 +30,85 @@ function setUpButtons() {
 				}
 			}
 			filterMapType(eventNodes, val);
-
-			// var ulsArray = $.makeArray(uls);
-			// ulsArray.forEach(function(ele) {
-			// //console.log(ele);
-			// if ($(ele).find('li:visible').length === 0) {
-			// $(ele.parentElement).parent().hide();
-			// }
-			// });
-
 		}
 	});
 
 	$('#dateFilter select').change(function(e) {
-		$('#show-data').show();
 		var index = $('#dateFilter select').val();
 		var val = $("#dateFilter select option[value='" + index + "']").text();
-		var uls = $('#show-data ul');
-		if (val == "Show all") {
-			for (var i = 0; i < uls.length; i++) {
-				// $(uls[i].parentElement).parent().show();
-				$(uls[i].parentElement).parent().hide();
-			}
-		} else if (val == "Select a date") {
-			for (var i = 0; i < uls.length; i++) {
-				//$(uls[i].parentElement).parent().show();
-				//$('#show-data li').show();
-			}
-			$('#show-data').hide();
-		} else {
-			for (var i = 0; i < uls.length; i++) {
-				$(uls[i].parentElement).parent().hide();
-				var parent = $(uls[i].parentElement).parent();
-				var text = $(parent).find('h3:contains("' + val + '")').text();
-				if (text) {
-					//$(parent).show();
-					$(parent).hide();
-					filterMapDate(parent);
-				} else
-					$(parent).hide();
+		var notFound = 0;
 
+		//console.log(eventData);
+		if (eventData.length) {
+			var dateEvents = _.filter(eventData, function(e) {
+				return e.date == val;
+			});
+
+			console.log(dateEvents);
+			if (dateEvents.length && locationData.length) {
+				console.log(locationData.length);
+
+				for (var i = 0; i < dateEvents.length; i++) {
+					console.log(dateEvents[i]);
+					var locationFound = _.find(locationData, function(l) {
+						//var index = l.address.indexOf(dateEvents[i].address);
+						//return index != -1;
+						return l.location === dateEvents[i].locationName;
+					});
+
+					if (locationFound) {
+						dateEvents[i].formattedAddress = locationFound.formattedAddress;
+						dateEvents[i].lat = locationFound.lat;
+						dateEvents[i].lng = locationFound.lng;
+					} else
+						notFound++
+
+					console.log(dateEvents[i]);
+
+				}
 			}
+			console.log(notFound);
+			placeMarkers(dateEvents);
+
+			// add to side panel
+			$('#sidePanel ul').html('');
+			$('#sidePanel h3').remove();
+			$('#sidePanel').prepend('<h3>' + val + '</h3>');
+			$("#selectType").val('0');
+			dateEvents.forEach(function(item, i) {
+				$('#sidePanel ul').append('<li><a target="_blank" href="' + item.detailPage + '">' + item.name + '</a></li>');
+			});
 		}
+
+		//$('#show-data').show();
+		// var index = $('#dateFilter select').val();
+		// var val = $("#dateFilter select option[value='" + index + "']").text();
+		// var uls = $('#show-data ul');
+		// if (val == "Show all") {
+		// for (var i = 0; i < uls.length; i++) {
+		// // $(uls[i].parentElement).parent().show();
+		// $(uls[i].parentElement).parent().hide();
+		// }
+		// } else if (val == "Select a date") {
+		// for (var i = 0; i < uls.length; i++) {
+		// //$(uls[i].parentElement).parent().show();
+		// //$('#show-data li').show();
+		// }
+		// $('#show-data').hide();
+		// } else {
+		// for (var i = 0; i < uls.length; i++) {
+		// $(uls[i].parentElement).parent().hide();
+		// var parent = $(uls[i].parentElement).parent();
+		// var text = $(parent).find('h3:contains("' + val + '")').text();
+		// if (text) {
+		// //$(parent).show();
+		// $(parent).hide();
+		// filterMapDate(parent);
+		// } else
+		// $(parent).hide();
+		//
+		// }
+		// }
 	});
 
 	var monthDates = getDateFilterOptions();
@@ -92,23 +118,6 @@ function setUpButtons() {
 			text : monthDates[i]
 		}));
 	}
-
-	// $('body').on('click', 'li.user-data-node', function() {
-	// $(this).remove();
-	// });
-	//
-	// $('#user-data-clear').click(function() {
-	// $('#user-data-list').html('');
-	// });
-
-	// $('#hideMap').click(function() {
-	// $("#wrapper").toggle();
-	// });
-	//
-	// $('#hideLists').click(function() {
-	// $("#show-data").toggle();
-	// $("#user-data").toggle();
-	// });
 }
 
 function checkDate() {
