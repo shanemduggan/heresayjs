@@ -1,0 +1,24 @@
+Docs:
+https://developers.google.com/maps/documentation/javascript/reference#spherical
+http://stackoverflow.com/questions/40590797/sorting-marker-in-google-map-according-to-user-location
+
+
+
+
+
+Answers:
+http://stackoverflow.com/questions/5054515/zoom-in-to-marker-google-maps
+http://stackoverflow.com/questions/12458456/how-to-change-the-zoom-level-of-google-maps-programmatically
+http://stackoverflow.com/questions/11030730/getting-coordinates-of-marker-in-google-maps-api
+https://robertnyman.com/2010/03/15/geolocation-in-web-browsers-to-find-location-google-maps-examples/
+https://www.google.com/search?q=get+coordinates+of+current+location&oq=get+coordinates+of+current+location&aqs=chrome..69i57j0l4.18028j0j1&sourceid=chrome&ie=UTF-8#q=get+coordinates+of+current+location+chrome
+http://stackoverflow.com/questions/40590797/sorting-marker-in-google-map-according-to-user-location
+
+
+
+
+Get info window:
+http://stackoverflow.com/questions/34289634/googlemap-api-v3-can-i-get-content-from-marker
+http://stackoverflow.com/questions/8636680/want-to-get-the-contents-of-infobubble-of-a-marker
+https://www.google.com/search?q=get+marker+info+window+information&oq=get+marker+info+window+information&aqs=chrome..69i57.6788j0j1&sourceid=chrome&ie=UTF-8#q=get+content+of+marker's+info+window+stackoverflow
+https://www.google.com/search?q=filter+google+map+markers+based+off+location&oq=filter+google+map+markers+based+off+location&aqs=chrome..69i57.5645j0j1&sourceid=chrome&ie=UTF-8#q=filter+google+map+markers+based+off+user+location+stackoverflow
