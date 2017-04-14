@@ -30,31 +30,37 @@ function hide(id) {
 }
 
 function placeMarkers(events) {
-	console.log(events);
-	console.log(events.length);
+	//console.log(events);
+	//console.log(events.length);
 
 	for (var i = 0; i < events.length; i++) {
 		if (!events[i].lat)
 			continue;
-		var myLatlng = new google.maps.LatLng(events[i].lat, events[i].lng);
-		var marker = new google.maps.Marker({
-			position : myLatlng,
-			map : map,
-			animation : google.maps.Animation.DROP
-		});
 
-		var contentString = "<html><body><div><p><h4>" + events[i].name + "</h4>" + events[i].date + "<br>" + events[i].locationName + "</p></div></body></html>";
-		var infowindow = new google.maps.InfoWindow({
-			content : contentString
-		});
+		(function(i) {
+			var myLatlng = new google.maps.LatLng(events[i].lat, events[i].lng);
+			var marker = new google.maps.Marker({
+				position : myLatlng,
+				map : map,
+				animation : google.maps.Animation.DROP
+			});
 
-		marker.addListener('mouseover', function() {
-			infowindow.open(map, this);
-		});
+			var contentString = "<html><body><div><p><h4>" + events[i].name + "</h4>" + events[i].date + "<br>" + events[i].locationName + "</p></div></body></html>";
+			var infowindow = new google.maps.InfoWindow({
+				content : contentString
+			});
 
-		marker.addListener('mouseout', function() {
-			infowindow.close();
-		});
+			marker.addListener('mouseover', function() {
+				infowindow.open(map, this);
+			});
+
+			marker.addListener('mouseout', function() {
+				infowindow.close();
+			});
+			
+			markers.push(marker);
+			// markers[item.index] = marker;
+		})(i);
 	}
 }
 

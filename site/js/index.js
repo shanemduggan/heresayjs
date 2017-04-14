@@ -179,21 +179,21 @@ function getJson(eventdir, locationdir) {
 		// }
 		// }
 	});
-	
+
 	$.getJSON(locationdir, function(data) {
 		if (data.length) {
 			console.log('# of locations: ' + data.length);
 			locationData = data;
 
 			// for (var i = 0; i < data.length; i++) {
-// 
-				// if (data[i].date.indexOf('-') != -1) {
-					// data[i].date = data[i].date.split('-')[0];
-				// }
-// 
-				// if (parseInt(data[i].date.match(/\d+/)) >= new Date().getDate())
-					// eventData.push(data[i]);
-// 
+			//
+			// if (data[i].date.indexOf('-') != -1) {
+			// data[i].date = data[i].date.split('-')[0];
+			// }
+			//
+			// if (parseInt(data[i].date.match(/\d+/)) >= new Date().getDate())
+			// eventData.push(data[i]);
+			//
 			// }
 
 			//console.log(locationData);
@@ -201,16 +201,14 @@ function getJson(eventdir, locationdir) {
 	});
 }
 
-
-
-
 function getFilterOption(type) {
 	if ($.inArray(type, types) == -1) {
 		types.push(type);
 	}
 
 	var miscKeyWords = ['Miscellaneous', 'Other', 'Shopping', 'Community', 'Promotional', 'Activism', 'Spirituality', 'Religion', 'World', 'Competitions', 'Recreation', 'Games'];
-	var artKeyWords = ['Theatre', 'Theater', 'theater', 'Gallery', 'Galleries', 'Museum', 'Museums', 'Art', 'Arts'];
+	var artKeyWords = ['Gallery', 'Galleries', 'Art', 'Arts'];
+	var theaterKeyWords = ['Theatre', 'Theater', 'theater'];
 	var sportsKeyWords = ['Sports', 'Basketball', 'Baseball', 'Hockey'];
 	var musicKeyWords = ['Music', 'Alternative', 'Rock', 'DJ', 'EDM', 'House', 'Country', 'Classical', 'Jazz', 'Funk', 'Punk', 'Latin', 'Rap', 'Pop'];
 
@@ -224,6 +222,12 @@ function getFilterOption(type) {
 	});
 	if (misc.length)
 		return "Miscellanous";
+
+	var theater = _.filter(theaterKeyWords, function(s) {
+		return type.indexOf(s) != -1;
+	});
+	if (theater.length)
+		return "Theater";
 
 	var art = _.filter(artKeyWords, function(s) {
 		return type.indexOf(s) != -1;
@@ -243,6 +247,8 @@ function getFilterOption(type) {
 	if (music.length)
 		return "Music";
 
+	if (type.indexOf('Museum') != -1 || type.indexOf('Museums') != -1)
+		return "Museum";
 	if (type.indexOf('Dance') != -1 || type.indexOf('Burlesque') != -1 || type.indexOf('Cabaret') != -1)
 		return "Dance";
 	if (type.indexOf('Holiday') != -1 || type.indexOf('Christmas') != -1 || type.indexOf("New Year's") != -1)
