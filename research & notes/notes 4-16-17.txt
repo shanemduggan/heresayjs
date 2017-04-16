@@ -1,0 +1,191 @@
+McGinty69!&shit
+gmaps :  AIzaSyC0MK06KIq5QAHH-lIlF-c6Y5Yig1yMjPw 
+http://stackoverflow.com/questions/7474354/include-jquery-in-the-javascript-console
+use web server for chome
+la rockness (music site)
+
+How to make experience better?
+Make other peoples' experiences better?
+Make people more comfortable
+
+mlab can hold  roughly 500k docs (1 mill docs is 1.29 gig)
+geocode api 2500/day cap
+json handle ~3900 parent events
+laweekly ~3100 events @ 100/day, 300 child/hr
+			parent: 1 hr; child: 12+ hr			
+discover ~ 1300 events, full: 6.5 hr
+timeout ~ 140 events (7 min)
+overall crawl length: estimating 15 hr for full crawl
+
+
+
+
+mongod --port 27017 --dbpath "C:\data\db"
+	> event collection - events03
+	> geocoded locations - locationsgeo03
+
+>> set up aws or heroku to run crawlers
+>> re-work crawlers to run all requests at once
+http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+https://seroter.wordpress.com/2013/07/29/where-the-heck-do-i-host-my-node-js-app/
+
+http://stackoverflow.com/questions/5797852/in-node-js-how-do-i-include-functions-from-my-other-files
+
+
+http://www.latimes.com/world/middleeast/la-fg-cia-pentagon-isis-20160327-story.html
+
+
+
+
+
+
+
+
+Timeline
+--------------------------------
+Improve crawler run experience
+
+Data flow
+	> crawl > data clean up > geo unique locs 
+	> create necessary files > push to git
+
+UI improvements
+
+Show app / Get feedback / Take break from development 
+--------------------------------
+
+
+https://www.reddit.com/r/calvinandhobbes/comments/5yz7bn/maybe_hes_onto_something/?st=j07gqs44&sh=88ddec24
+
+https://www.reddit.com/r/explainlikeimfive/comments/5yljdm/eli5_dungeons_and_dragons/?st=j03z2mav&sh=a3bbfbb4
+
+BOOKS:
+the richest man in babylon (after 1st listen, take notes)
+the karisma myth
+< boombox artist >
+
+
+
+
+// add clickability on types
+// think about how map / list interation should be
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. personal map
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+> location file (reduce arrays so no duplicates)
+> need to do data manipulation pre-client (on types, etc.)
+> instead of saving as index % saveIndex, make more descriptive
+  i.e. start and end point
+> see if i can reduce wait time for geocoding from 5 sec	
+
+
+
+
+
+
+
+
+
+laweekly april - 2670 events
+discover april - 1166
+	> some events coming in as April 20-23
+	> happens when crawling children
+		-  necessary to re-save date in child crawl?
+		- parent crawl is correct 
+
+
+
+geocoded march locations (2130)
+	> roughly 40 addresses failed to geocode (multiple locations)
+geocoded april locations (800)
+	> found roughly 2400 events in march locations
+
+
+
+
+
+Next
+2. express sample set up (query both collections)
+	> work on getting location data from events
+		- need to save it to new array
+		- look through april events
+		   find loc doc in db
+		   update event object with location information
+3. set up heroku to host crawler 
+
+
+
+
+
+date filter:
+	- type not selected, date changed to nothing (handled)
+	- type not selected, date changed to something (handled)
+	- type selected, date changed to something (handled)
+	- type selected, date selected, date de-selected (handled)
+	- date selected, type selected, date de-selected (handled)
+
+type filter:
+	- date not selected, type changed to nothing (handled)
+	- date not selected, type changed to something (handled)
+	- date selected, type changed to something (handled)
+	- date selected, type selected, type de-selected (handled)
+	- type selected, date selected, type de-selected (handled)
+
+
+
+
+
+STORE LOCATION ADDRESSES WILL IMPROVE CRAWL TIMES
+
+
+I. brainstorm where to go from here
+	> server
+	> db? (save addresses)
+	> themes / filtering
+II. server research (aws, heroku)
+III. function to handle response & errors
+	- add in secondCallback 
+
+http://losangeles.ohmyrockness.com/shows > category: music

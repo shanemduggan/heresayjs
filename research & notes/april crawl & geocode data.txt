@@ -1,0 +1,14 @@
+
+laweekly april - 2670 events
+discover april - 1166
+	> some events coming in as April 20-23
+	> happens when crawling children
+		-  necessary to re-save date in child crawl?
+		- parent crawl is correct 
+
+
+
+geocoded march locations (2130)
+	> roughly 40 addresses failed to geocode (multiple locations)
+geocoded april locations (800)
+	> found roughly 2400 events in march locations
