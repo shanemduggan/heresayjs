@@ -11,13 +11,17 @@
 		<div id="menu">
 			<h2 id='title'>HereSay</h2>
 		</div>
-
 		<br>
+		<div class="tab">
+			<button class="tablinks" onclick="openCity(event, 'mapContainer')">My Map</button>
+		</div>
 		<div id="wrapper">
+
 			<div id="sidePanel">
 				<ul></ul>
 			</div>
 			<div id="mapContainer"></div>
+			<div id="personalMap"></div>
 		</div>
 
 		<!-- <div class="buttons">
@@ -32,41 +36,47 @@
 		</button>
 		</div> -->
 
-		<div id="typeFilter" class="buttons">
-			<select id="selectType">
-				<option value="0" selected="selected">Event Type</option>
-				<option value="1">Theater</option>
-				<option value="2">Art</option>
-				<option value="3">Food & Drink</option>
-				<option value="4">Comedy</option>
-				<option value="5">Music</option>
-				<option value="6">Festivals</option>
-				<option value="7">Sports</option>
-				<option value="8">Dance</option>
-				<option value="9">Family</option>
-				<option value="10">Film & TV</option>
-				<option value="11">Educational</option>
-				<option value="12">Outdoors</option>
-				<!-- <option value="13">Nature</option> -->
-				<option value="13">Museum</option>
-				<option value="14">Health</option>
-				<option value="15">Holidays</option>
-				<option value="16">Miscellaneous</option>
-			</select>
-		</div>
+		<div id="buttonContainer">
+			<div id="typeFilter" class="buttons">
+				<select id="selectType">
+					<option value="0" selected="selected">Event Type</option>
+					<option value="1">Theater</option>
+					<option value="2">Art</option>
+					<option value="3">Food & Drink</option>
+					<option value="4">Comedy</option>
+					<option value="5">Music</option>
+					<option value="6">Festivals</option>
+					<option value="7">Sports</option>
+					<option value="8">Dance</option>
+					<option value="9">Family</option>
+					<option value="10">Film & TV</option>
+					<option value="11">Educational</option>
+					<option value="12">Outdoors</option>
+					<!-- <option value="13">Nature</option> -->
+					<option value="13">Museum</option>
+					<option value="14">Health</option>
+					<option value="15">Holidays</option>
+					<option value="16">Miscellaneous</option>
+				</select>
+			</div>
 
-		<div id="dateFilter" class="buttons">
-			<select id="selectDate">
-				<option value="0" selected="selected">Event Date</option>
-			</select>
-		</div>
+			<div id="dateFilter" class="buttons">
+				<select id="selectDate">
+					<option value="0" selected="selected">Event Date</option>
+				</select>
+			</div>
 
-		<div id="nearMeWrapper" class="buttons">
-			<button id="nearMe" onclick="nearMeButton()" type="button">Near me</button>
-		</div>
-		
-		<div id="zoomOutWrapper" class="buttons">
-			<button id="nearMe" onclick="returnMapState()" type="button">Zoom out</button>
+			<div id="nearMeWrapper" class="buttons">
+				<button id="nearMe" onclick="nearMeButton()" type="button">
+					Near me
+				</button>
+			</div>
+
+			<div id="zoomOutWrapper" class="buttons">
+				<button id="nearMe" onclick="returnMapState()" type="button">
+					Zoom out
+				</button>
+			</div>
 		</div>
 
 		<div id="show-data" class="containers" style="display:none"></div>

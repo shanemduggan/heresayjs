@@ -169,7 +169,6 @@ function nearMeButton() {
 	}
 }
 
-
 function updateSideBar(heading, sideBarEvents) {
 	$('#sidePanel ul').html('');
 	$('#sidePanel h3').remove();
@@ -178,7 +177,8 @@ function updateSideBar(heading, sideBarEvents) {
 		var liFound = $("#sidePanel ul li:contains('" + e.name + "')");
 		if (liFound.length)
 			return;
-		$('#sidePanel ul').append('<li><a target="_blank" href="' + e.detailPage + '">' + e.name + '</a></li>');
+		//$('#sidePanel ul').append('<li><a target="_blank" href="' + e.detailPage + '">' + e.name + '</a></li>');
+		$('#sidePanel ul').append('<li>' + e.name + '</li>');
 	});
 
 	$('#sidePanel li').mouseover(function() {
@@ -188,8 +188,25 @@ function updateSideBar(heading, sideBarEvents) {
 	$('#sidePanel li').mouseout(function() {
 		hide(this);
 	});
+
+	$('#sidePanel li').click(function() {
+		addToPersonalMap(this);
+		flashTab();
+	});
 }
 
+function flashTab() {
+	$('.tablinks').css('background-color', 'white');
+	$('.tablinks').css('opacity', '1.0');
+	$('.tablinks').css('color', 'black');
+	//color: black;
+	setTimeout(function() {
+		// background-color: black;   	color: white;   opacity: 0.8;
+		$('.tablinks').css('background-color', 'black');
+		$('.tablinks').css('opacity', '0.8');
+		$('.tablinks').css('color', 'white');
+	}, 500);
+}
 
 function createDateFilterOptions() {
 	var monthDates = getDateFilterOptions();

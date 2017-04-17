@@ -1,4 +1,5 @@
 var map;
+var personalMap;
 var markers = [];
 var undefinedLocationAddress = 0;
 var types = [];
@@ -14,7 +15,7 @@ var cachedTypeEvents = [];
 var dateEvents = [];
 var typeEvents = [];
 
-// multi filtered data 
+// multi filtered data
 var dateTypeEvents = [];
 var typeDateEvents = [];
 
@@ -26,24 +27,25 @@ $(document).ready(function() {
 	setUpFilters();
 	sortFunctions();
 	initMap();
+	initMyMap();
 });
 
 function afterDataLoaded() {
 	$('#user-data').append('<ul id="user-data-list"></ul>');
 	$("#selectDate").val('1').trigger('change');
 	$("#selectType").val('2').trigger('change');
-	
+
 	var browserHeight = screen.height;
 	var headerHeight = Math.ceil(browserHeight * .0338);
 	var mapHeight = Math.ceil(browserHeight * .715);
 	var buttonHeight = Math.ceil(browserHeight * .026);
-	
+
 	$('#menu').height(headerHeight)
 	$('#mapContainer').height(mapHeight)
 	$('#typeFilter').height(buttonHeight);
 	$('#dateFilter').height(buttonHeight);
 	$('#nearMeWrapper').height(buttonHeight);
-	
+	$('#personalMap').hide();
 }
 
 function getJson(eventdir, locationdir) {
@@ -140,6 +142,20 @@ function getFilterOption(type) {
 		return "Educational";
 	else
 		return "Miscellaneous";
+}
+
+function openCity(evt, cityName) {
+	var buttonText = $('.tablinks').text();
+	console.log(buttonText);
+	if (buttonText == "My Map") {
+		$('#mapContainer').hide();
+		$('#personalMap').show();
+		$('.tablinks').text('General Map');
+	} else {
+		$('#mapContainer').show();
+		$('#personalMap').hide();
+		$('.tablinks').text('My Map');
+	}
 }
 
 // date parsing
