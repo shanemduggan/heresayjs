@@ -15,6 +15,7 @@ function setUpFilters() {
 		if (typeIndex == 0 && dateIndex == 0) {
 			$('#sidePanel ul').html('');
 			$('#sidePanel h3').remove();
+			clearMarkers();
 			return;
 		}
 
@@ -73,6 +74,7 @@ function setUpFilters() {
 		if (dateIndex == 0 && typeIndex == 0) {
 			$('#sidePanel ul').html('');
 			$('#sidePanel h3').remove();
+			clearMarkers();
 			return;
 		}
 
