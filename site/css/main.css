@@ -1,142 +1,89 @@
-li {
-	margin: 0 5px 10px 0;
-}
-body {
-	/*height: 100%;*/
-	background-image: url("../images/palmtreesbackground.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	position: relative;
+
+html, body {
+	min-height: 100%;
+	padding: 0;
 	margin: 0;
-}
-html {
-	height: 100%;
-}
-.containers {
-	display: inline;
-}
-a:visited {
-	color: blue;
-}
-a#user-data-close {
-	float: right;
-	padding-right: .5%;
-}
-a#user-data-clear {
-	float: right;
-}
-#show-data {
-	width: 64%;
-	height: auto;
-	margin-left: 8px;
-	float: left;
-	display: none;
-}
-.show-data-box {
-	background-color: white;
-	border-width: 2px;
-	border-style: solid;
-	border-color: #808080;
-	margin-bottom: 2%;
-	border-radius: 10px;
-}
-.show-data-box div {
-	padding: 10px;
-}
-.show-data-box ul {
-	list-style-type: none;
-}
-#user-data {
-	margin-right: 8px;
-	width: 34%;
-	height: 100%;
-	background-color: white;
-	border-width: 2px;
-	border-style: solid;
-	border-color: #808080;
-	border-radius: 10px;
-	display: none;
-}
-#user-data-expand {
-	float: right;
-	padding-right: .5%;
-}
-#user-data-collapse {
-	float: right;
-	padding-right: .5%;
-}
-#user-data div {
-	padding: 5% 30% 0 30%;
-}
-.containers {
-}
-#mapContainer {
-	height: 550px;
-	width: 77.5%;
-	background-color: white;
-	display: inline-block;
-	float: left;
+	overflow: hidden;
 }
 
-#personalMap {
-	height: 550px;
-	width: 77.5%;
-	background-color: white;
-	display: inline-block;
-	float: left;
+#wrapper {
+	width: 100%;
+	height: 100%;
 }
-#sidePanel {
-	width: 22.5%;
-	height: 550px;
-	display: inline-block;
+
+#header {
+	width: 100%;
+	color: black;
+}
+
+#title {
+	float: left;
+	padding: 20px;
+	font-family: 'Roboto Slab', serif;
+}
+
+#filters {
 	float: right;
+	display: inline-block;
+	z-index: 1;
+}
+
+#filters div {
+	display: inline-block;
+}
+
+#typeFilter select {
+	text-align-last: center;
+}
+
+#dateFilter select {
+	padding: 0 7.5px 0 7.5px;
+	text-align: center;
+}
+
+select {
+	text-align: center;
+	border-color: white;
+}
+
+select:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+#map_canvas {
+	width: 80%;
+	display: inline-block;
+}
+
+#sidebar {
+	float: right;
+	width: 20%;
 	background-color: #EEDD82;
-	/*padding-top: 10%;*/
+	z-index: 2;
+	display: inline-block;
 	overflow: auto;
 	opacity: 0.8;
 }
-#sidePanel ul {
+
+#sidebar ul {
 	list-style-type: none;
 	padding-left: 7.5px;
 }
-#sidePanel li {
-	padding-bottom: 2.5px;
-	font-size: 16px;
+
+#sidebar li {
+	padding-bottom: 7.5px;
+	font-size: 14px;
 	font-family: 'Roboto Slab', serif;
-}
-#sidePanel li:hover {
-	font-weight: bold;
-}
-#sidePanel h3 {
 	text-align: center;
 }
-#title {
-	color: white;
-	font-size: 22px;
+
+#sidebar h3 {
+	text-align: center;
 }
-#wrapper {
-	/*margin-top: 5%;*/
-}
-select {
-	border-radius: 7px;
-	font-size: 14px;
-}
-#typeFilter {
-	display: inline-block;
-}
-#dateFilter {
-}
-.buttons {
-	margin-bottom: 20px;
-	float: left;
-	margin: 8px;
-	margin-bottom: 20px;
-}
-#menu {
-	margin: 2.5px;
-}
+
 a {
-	text-decoration: none;
+	text-decoration: underline;
 	color: black;
 }
 a:visited {
@@ -152,6 +99,39 @@ a:focus {
 a:hover, a:active {
 	text-decoration: none;
 }
+
+
+
+
+
+/*li {
+	margin: 0 5px 10px 0;
+}
+body {
+	/*height: 100%;
+	background-image: url("../images/palmtreesbackground.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	margin: 0;
+}
+
+select {
+	border-radius: 7px;
+	font-size: 14px;
+}
+#typeFilter {
+	display: inline-block;
+}
+#dateFilter {
+}
+.buttons {
+	margin-bottom: 20px;
+	float: left;
+	margin: 8px;
+	margin-bottom: 20px;
+}
+
 #nearMe {
 	border-radius: 7px;
 	background-color: white;
@@ -169,18 +149,20 @@ a:hover, a:active {
 	margin-bottom: .33em;
 }
 
-/* Style the tab */
+
+// jquery tab example
+/* Style the tab
 div.tab {
 	/*overflow: hidden;
 	border: 1px solid #ccc;*/
-	/*background-color: #f1f1f1;*/
+	/*background-color: #f1f1f1;
 	opacity: 0.8;
 }
 
-/* Style the buttons inside the tab */
+/* Style the buttons inside the tab
 div.tab button {
 	background-color: inherit;
-	/*float: left;*/
+	/*float: left;
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -191,9 +173,9 @@ div.tab button {
 	text-align: center;
 }
 
-/* Change background color of buttons on hover */
+/* Change background color of buttons on hover 
 div.tab button:hover {
-	/*background-color: #ddd;*/
+	/*background-color: #ddd;
 	background-color: white;
 	opacity: 1.0;
 	color: black;
@@ -204,10 +186,10 @@ div.tab button:hover {
 	background-color: #ccc;
 }*/
 
-/* Style the tab content */
+/* Style the tab content
 .tabcontent {
 	display: none;
 	padding: 6px 12px;
 	border: 1px solid #ccc;
 	border-top: none;
-}
+}*/
