@@ -120,21 +120,6 @@ a:hover, a:active {
 	background-color: white;
 }
 
-/*#card {
-	z-index: 5;
-	margin-top: 25%;
-	width: 400px;
-	height: 400px;
-	display:none;
-}*/
-
-
-/*a.selected {
-  background-color:#1F75CC;
-  color:white;
-  z-index:100;
-}*/
-
 .messagepop {
   background-color:#FFFFFF;
   border:1px solid #999999;
@@ -163,6 +148,10 @@ a:hover, a:active {
     right: 0;
     padding-bottom: 7px;
     padding-right: 7px;
+}
+
+.details {
+	display:none;
 }
 
 

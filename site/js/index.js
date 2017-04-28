@@ -55,28 +55,6 @@ function getJson(eventdir, locationdir) {
 }
 
 function afterDataLoaded() {
-	// Split(['#map_canvas', '#sidebar'], {
-	// sizes : [78, 21.5],
-	// direction : 'horizontal',
-	// guttersize : 5,
-	// onDragStart : function() {
-	// $(".map-mask").show();
-	// },
-	// onDragEnd : function() {
-	// $(".map-mask").hide();
-	// google.maps.event.trigger(map, 'resize');
-	// map.fitBounds(bounds);
-	// },
-	// minSize : 50
-	// });
-
-	// onresize_start: function(){
-	// $(".map-mask").show();
-	// },
-	// onresize_end: function(){
-	// $(".map-mask").hide();
-	// },
-
 	var browserWidth = $('html').width();
 	var browserHeight = $('html').height();
 	var headerHeight = Math.ceil(browserHeight * .07);
@@ -90,7 +68,6 @@ function afterDataLoaded() {
 
 	$('#map_canvas').height(mapHeight);
 	$('#sidebar').height(mapHeight);
-	//$('.gutter.gutter-horizontal').height(mapHeight);
 	$('#gutter').height(mapHeight);
 
 	$("#selectDate").val('1').trigger('change');
@@ -100,15 +77,39 @@ function afterDataLoaded() {
 		var sideBarWidth = $('#sidebar').width();
 		var sideBarPercent = Math.ceil((sideBarWidth / browserWidth) * 100);
 		if (sideBarPercent == 40) {
-			$('#map_canvas').css('width', '79.5%');
-			$('#sidebar').css('width', '20%');
-			$('#sidebar li').css('text-align', 'center');
+			smallSidebar();
 		} else {
-			$('#map_canvas').css('width', '59.5%');
-			$('#sidebar').css('width', '40%');
-			$('#sidebar li').css('text-align', 'left');
+			largeSidebar();
+
 		}
 	});
+
+	$('.close').click(function() {
+		$('.pop').hide();
+		$('#popName').html('');
+		$('#popDateType').html('');
+		return false;
+	});
+}
+
+function largeSidebar() {
+	$('#map_canvas').css('width', '59.5%');
+	$('#sidebar').css('width', '40%');
+	$('#sidebar li').css('text-align', 'left');
+	$('#sidebar li').css('padding-bottom', '0');
+	$('#sidebar li').css('margin-bottom', '25px');
+	$('#sidebar li').css('border-bottom', '1px solid black');
+	$('.details').css('display', 'block');
+}
+
+function smallSidebar() {
+	$('#map_canvas').css('width', '79.5%');
+	$('#sidebar').css('width', '20%');
+	$('#sidebar li').css('text-align', 'center');
+	$('#sidebar li').css('padding-bottom', '7.5px');
+	$('#sidebar li').css('margin-bottom', '0px');
+	$('#sidebar li').css('border-bottom', 'none');
+	$('.details').css('display', 'none');
 }
 
 function initMap() {
@@ -169,35 +170,35 @@ function placeMarkers(events) {
 				animation : google.maps.Animation.DROP
 			});
 
-			// var contentString = "<html class='infoWindow'><body><div class='infoWindow' style='text-align: center'><p><h4><a target='_blank' href='" + events[i].detailPage + "'>" + events[i].name + "</a></h4>" + events[i].locationName + "<br>" + events[i].date + "</p></div></body></html>";
-			// var infowindow = new google.maps.InfoWindow({
-			// content : contentString
-			// });
-			//
-			// marker.addListener('click', function() {
-			// infowindow.open(map, this);
-			// });
-			//
-			// marker.addListener('mouseover', function() {
-			// infoWindowOpen++;
-			// infowindow.open(map, this);
-			// setTimeout(function() {
-			// map.panTo(marker.position);
-			// }, 150);
-			// });
-			//
-			// marker.addListener('mouseout', function() {
-			// openInfoWindows.push(infowindow);
-			// setTimeout(function() {
-			// if (!($('.infoWindow:hover').length > 0))
-			// openInfoWindows[0].close();
-			// openInfoWindows.shift();
-			// }, 1500);
-			// });
-			//
-			// google.maps.event.addListener(marker, 'click', function() {
-			// window.open(this.__link, '_blank');
-			// });
+			var contentString = "<html class='infoWindow'><body><div class='infoWindow' style='text-align: center'><p><h4><a target='_blank' href='" + events[i].detailPage + "'>" + events[i].name + "</a></h4>" + events[i].locationName + "<br>" + events[i].date + "</p></div></body></html>";
+			var infowindow = new google.maps.InfoWindow({
+				content : contentString
+			});
+
+			marker.addListener('click', function() {
+				infowindow.open(map, this);
+			});
+
+			marker.addListener('mouseover', function() {
+				infoWindowOpen++;
+				infowindow.open(map, this);
+				setTimeout(function() {
+					map.panTo(marker.position);
+				}, 150);
+			});
+
+			marker.addListener('mouseout', function() {
+				openInfoWindows.push(infowindow);
+				setTimeout(function() {
+					if (!($('.infoWindow:hover').length > 0))
+						openInfoWindows[0].close();
+					openInfoWindows.shift();
+				}, 1500);
+			});
+
+			google.maps.event.addListener(marker, 'click', function() {
+				window.open(this.__link, '_blank');
+			});
 
 			markers[events[i].name] = marker;
 		})(i);
@@ -206,26 +207,17 @@ function placeMarkers(events) {
 	console.log('after creating markers we have: ' + Object.keys(markers).length, 'should have around: ' + events.length);
 }
 
-function showMarker(ele) {
-	console.log(ele);
-	var name = $(ele).text();
-
-	// if (markers[name]) {
-	// map.panTo(markers[name].position);
-	// map.setZoom(13);
-	// //new google.maps.event.trigger(markers[name], 'click');
-	// new google.maps.event.trigger(markers[name], 'mouseover');
-	// }
-
-}
-
-// function sideBarMouseOut(ele) {
+// function showMarker(ele) {
 // console.log(ele);
 // var name = $(ele).text();
 //
-// if (markers[name]) {
-// new google.maps.event.trigger(markers[name], 'mouseout');
-// }
+// // if (markers[name]) {
+// // map.panTo(markers[name].position);
+// // map.setZoom(13);
+// // //new google.maps.event.trigger(markers[name], 'click');
+// // new google.maps.event.trigger(markers[name], 'mouseover');
+// // }
+//
 // }
 
 function clearMarkers() {
@@ -371,31 +363,35 @@ function updateSideBar(heading, sideBarEvents) {
 		var liFound = $("#sidebar ul li:contains('" + e.name + "')");
 		if (liFound.length)
 			return;
-		$('#sidebar ul').append('<li>' + e.name + '</li>');
+		$('#sidebar ul').append('<li><span class="name">' + e.name + '</span><span class="details">' + e.locationName + '<br><span class="eventDate">' + e.date + '</span></span></li>');
 	});
+
+	// address :"110 E. Broadway Glendale, CA 91205 818-506-1983" date
+	// :"April 28" detailPage
+	// :"http://www.laweekly.com/event/cat-on-a-hot-tin-roof-8080934" formattedAddress
+	// :"110 E Broadway, Glendale, CA 91205, USA" lat
+	// :34.1461412 lng
+	// :-118.2543168 locationName
+	// :"Antaeus Theatre Company" name
+	// :"Cat on a Hot Tin Roof" summary
+	// :"By Deborah Klugman Tennessee Williams’ 1955 potboiler Cat on a Hot Tin Roof has more than one story to tell, and in the premiere performance I saw last week, directed by Cameron Watson at Antaeus Theatre Company’s new digs in Glendale, it was Big Daddy’s story that captivated my attention. As the salty, take-no-prisoners Southern patriarch, facing his own mortality and the disappointment engendered by an alcoholic son, Harry Groener delivers a gritty and gripping portrayal that compensates for the production’s weaknesses. His work is chiefly on display in the second act, where Big Daddy attempts to talk to his favorite son Brick (Ross Philips) who has been depressed and drinking heavily since the suicide of his best friend Skipper some time back. Brick is as disinclined to speak with his father as he is with his wife Maggie (Rebecca Mozo). (Note: the show is double cast.) The couple’s encounter, in Act 1, is mostly a diatribe by the bitter frustrated Maggie who’s been shut out by her husband, physically and otherwise. Maggie longs for Brick’s touch; she also acutely aware of her childlessness, of the importance of delivering a grandchild to Big Daddy to preserve her and Brick’s portion of their inheritance. And she’s begun to suspect the real reason for Brick’s dark recalcitrance and disaffection: his repressed physical longing, which he vehemently denies, for the now deceased Skip. And here's where we have a problem. Maggie isn't just smart; she's famously "
+	// hot.
+	// " But while Mozo does respectable work — strutting and strategizing around her bedroom, talking nonstop — the sizzle factor is missing. And that’s hardly surprising: As Brick, Philips is credible as a depressive and an alcoholic, but the magnetism and masculinity that compels both his wife and his father to want to be close to him regardless does not manifest. We never get a sense of what Brick had and what’s been lost before the triggering event left him an emotional invalid. Other problems exist with the blocking and the set (Steven Kemp), admittedly a terrific eye-catcher when you first enter the theater. With its broken molding, skewed windows and ripped up flooring, it’s a vivid on-point commentary on the lacerated lives of this family. But then the play begins, and you watch as the performers have to maneuver, constrained, on the cramped shortened dais, around the bulky furniture. The bar where Brick gets his alcohol is positioned (in the first act) so that it blocks the view of some of the audience. And a lot of Maggie’s speeches are delivered as she sits at her dresser, with her back to to us, face concealed. Still, Groener delivers enough mesmerizing moments in the second act to make up for for the limitations of the first, and to make us want to see the story through to the end. There are other strong performances: Dawn Didawick as a fluttery Big Mama, who’s lived 40 years in valiant denial of her husband’s disdain, and Patrick Wenk-Wolff as Brick’s elder brother Gooper, who bears his parents' rejection with steely resolve. Also, it’s a pleasure to again bask in the eloquent passages in Williams’ writing, and in that special decadence that belongs to him alone. If the shortcomings of this production can’t be overlooked, well, in this case, they surely can be forgiven." type
+	// :"Theater"
 
 	$('#sidebar li').click(function() {
-		//showMarker(this);
 		showCard(this);
 	});
-
-	// $("#sidebar li").mouseout(function() {
-	// sideBarMouseOut(this);
-	// });
 }
 
 function showCard(ele) {
-	$('.pop').show();
-	var name = $(ele).text();
+	//var name = $(ele).find('.name').text();
+	var name = $(ele).find(".name").text();
 	if (markers[name]) {
-		$('#popName').text(name);
+		$('.pop').show();
+		$('#popName').append('<a target="_blank" href="' + markers[name].__link + '">' + name + '</a>');
 		$('#popDateType').text(markers[name].__date + ' || ' + markers[name].__type);
 	}
-
-	$('.close').click(function() {
-		$('.pop').hide();
-		return false;
-	});
 }
 
 function createDateFilterOptions() {
