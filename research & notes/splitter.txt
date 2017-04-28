@@ -1,0 +1,5 @@
+http://stackoverflow.com/questions/15830299/google-map-splitter-layout < splitter fix
+
+http://layout.jquery-dev.com/index.cfm
+https://github.com/nathancahill/Split.js <<
+http://www.dreamchain.com/split-pane/

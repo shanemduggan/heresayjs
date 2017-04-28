@@ -55,10 +55,31 @@ function getJson(eventdir, locationdir) {
 }
 
 function afterDataLoaded() {
+	// Split(['#map_canvas', '#sidebar'], {
+	// sizes : [78, 21.5],
+	// direction : 'horizontal',
+	// guttersize : 5,
+	// onDragStart : function() {
+	// $(".map-mask").show();
+	// },
+	// onDragEnd : function() {
+	// $(".map-mask").hide();
+	// google.maps.event.trigger(map, 'resize');
+	// map.fitBounds(bounds);
+	// },
+	// minSize : 50
+	// });
+
+	// onresize_start: function(){
+	// $(".map-mask").show();
+	// },
+	// onresize_end: function(){
+	// $(".map-mask").hide();
+	// },
+
+	var browserWidth = $('html').width();
 	var browserHeight = $('html').height();
-	//var headerHeight = Math.ceil(browserHeight * .10);
 	var headerHeight = Math.ceil(browserHeight * .07);
-	//var mapHeight = Math.ceil(browserHeight * .90);
 	var mapHeight = Math.ceil(browserHeight * .93);
 
 	$('#header').height(headerHeight);
@@ -69,9 +90,25 @@ function afterDataLoaded() {
 
 	$('#map_canvas').height(mapHeight);
 	$('#sidebar').height(mapHeight);
+	//$('.gutter.gutter-horizontal').height(mapHeight);
+	$('#gutter').height(mapHeight);
 
 	$("#selectDate").val('1').trigger('change');
 	$("#selectType").val('2').trigger('change');
+
+	$("#gutter").click(function() {
+		var sideBarWidth = $('#sidebar').width();
+		var sideBarPercent = Math.ceil((sideBarWidth / browserWidth) * 100);
+		if (sideBarPercent == 40) {
+			$('#map_canvas').css('width', '79.5%');
+			$('#sidebar').css('width', '20%');
+			$('#sidebar li').css('text-align', 'center');
+		} else {
+			$('#map_canvas').css('width', '59.5%');
+			$('#sidebar').css('width', '40%');
+			$('#sidebar li').css('text-align', 'left');
+		}
+	});
 }
 
 function initMap() {
@@ -93,6 +130,19 @@ function initMap() {
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
+
+	//var mapContainer = $('#map_canvas');
+	//google.maps.event.addDomListener(document.getElementById('map_canvas'), "resize", function() {
+
+	// attempt #1
+	// var center = map.getCenter();
+	// google.maps.event.trigger(map, "resize");
+	// map.setCenter(center);
+
+	// attempt #2
+	// google.maps.event.trigger(map, "resize");
+	// map.fitBounds(bounds);
+	//});
 }
 
 function placeMarkers(events) {
@@ -119,35 +169,35 @@ function placeMarkers(events) {
 				animation : google.maps.Animation.DROP
 			});
 
-			var contentString = "<html class='infoWindow'><body><div class='infoWindow' style='text-align: center'><p><h4><a target='_blank' href='" + events[i].detailPage + "'>" + events[i].name + "</a></h4>" + events[i].locationName + "<br>" + events[i].date + "</p></div></body></html>";
-			var infowindow = new google.maps.InfoWindow({
-				content : contentString
-			});
-
-			marker.addListener('click', function() {
-				infowindow.open(map, this);
-			});
-
-			marker.addListener('mouseover', function() {
-				infoWindowOpen++;
-				infowindow.open(map, this);
-				setTimeout(function() {
-					map.panTo(marker.position);
-				}, 150);
-			});
-
-			marker.addListener('mouseout', function() {
-				openInfoWindows.push(infowindow);
-				setTimeout(function() {
-					if (!($('.infoWindow:hover').length > 0))
-						openInfoWindows[0].close();
-					openInfoWindows.shift();
-				}, 1500);
-			});
-
-			google.maps.event.addListener(marker, 'click', function() {
-				window.open(this.__link, '_blank');
-			});
+			// var contentString = "<html class='infoWindow'><body><div class='infoWindow' style='text-align: center'><p><h4><a target='_blank' href='" + events[i].detailPage + "'>" + events[i].name + "</a></h4>" + events[i].locationName + "<br>" + events[i].date + "</p></div></body></html>";
+			// var infowindow = new google.maps.InfoWindow({
+			// content : contentString
+			// });
+			//
+			// marker.addListener('click', function() {
+			// infowindow.open(map, this);
+			// });
+			//
+			// marker.addListener('mouseover', function() {
+			// infoWindowOpen++;
+			// infowindow.open(map, this);
+			// setTimeout(function() {
+			// map.panTo(marker.position);
+			// }, 150);
+			// });
+			//
+			// marker.addListener('mouseout', function() {
+			// openInfoWindows.push(infowindow);
+			// setTimeout(function() {
+			// if (!($('.infoWindow:hover').length > 0))
+			// openInfoWindows[0].close();
+			// openInfoWindows.shift();
+			// }, 1500);
+			// });
+			//
+			// google.maps.event.addListener(marker, 'click', function() {
+			// window.open(this.__link, '_blank');
+			// });
 
 			markers[events[i].name] = marker;
 		})(i);
@@ -160,13 +210,23 @@ function showMarker(ele) {
 	console.log(ele);
 	var name = $(ele).text();
 
-	if (markers[name]) {
-		map.panTo(markers[name].position);
-		map.setZoom(13);
-		//new google.maps.event.trigger(markers[name], 'click');
-		new google.maps.event.trigger(markers[name], 'mouseover');
-	}
+	// if (markers[name]) {
+	// map.panTo(markers[name].position);
+	// map.setZoom(13);
+	// //new google.maps.event.trigger(markers[name], 'click');
+	// new google.maps.event.trigger(markers[name], 'mouseover');
+	// }
+
 }
+
+// function sideBarMouseOut(ele) {
+// console.log(ele);
+// var name = $(ele).text();
+//
+// if (markers[name]) {
+// new google.maps.event.trigger(markers[name], 'mouseout');
+// }
+// }
 
 function clearMarkers() {
 	if (!Object.keys(markers).length)
@@ -315,7 +375,26 @@ function updateSideBar(heading, sideBarEvents) {
 	});
 
 	$('#sidebar li').click(function() {
-		showMarker(this);
+		//showMarker(this);
+		showCard(this);
+	});
+
+	// $("#sidebar li").mouseout(function() {
+	// sideBarMouseOut(this);
+	// });
+}
+
+function showCard(ele) {
+	$('.pop').show();
+	var name = $(ele).text();
+	if (markers[name]) {
+		$('#popName').text(name);
+		$('#popDateType').text(markers[name].__date + ' || ' + markers[name].__type);
+	}
+
+	$('.close').click(function() {
+		$('.pop').hide();
+		return false;
 	});
 }
 

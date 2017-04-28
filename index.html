@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="utf-8">
 		<title>HereSay</title>
+		<link rel="shortcut icon" href="site/images/favicon.ico" type="image/x-icon">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="site/css/main.css">
 		<script src="site/libs/underscore-min.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.2.0/split.min.js"></script> -->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcIb1KF-PhD_-R1NkUiuWpMhftyrJlQck&libraries=geometry"></script>
 		<script src="site/js/index.js"></script>
+
 	</head>
 	<body>
 
@@ -47,7 +50,22 @@
 				</div>
 			</div>
 
+			<!-- <div class="map-mask"></div>  -->
+			<!-- <div id="card"></div> -->
+
+			<div class="messagepop pop">
+				<h4 id="popName"></h4>
+				<p id="popDateType"></p>
+				<!-- <p id="popDate"></p>
+				<p id="popType"></p> -->
+				<p>
+					<a class="close" href="/">Close</a>
+				</p>
+				<!-- share button goes here -->
+				<!-- <input type="submit" value="Send Message" name="commit" id="message_submit"/>-->
+			</div>
 			<div id="map_canvas"></div>
+			<div id="gutter"></div>
 			<div id="sidebar">
 				<ul></ul>
 			</div>
