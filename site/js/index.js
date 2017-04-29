@@ -102,32 +102,11 @@ function largeSidebar() {
 	$('#sidebar li').css('border-bottom', '1px solid black');
 	$('.details').css('display', 'block');
 
-	// setTimeout(function() {
-	// google.maps.event.trigger(map, 'resize');
-	// var center = map.getCenter();
-	// map.setCenter(center);
-	// }, 2000);
-
-	//var mapCanvas = $('#map_canvas');
-	//mapCanvas.addClass('smallMap');
-	//google.maps.event.trigger(map, 'resize');
-
+	map = null;
 	$('#map_canvas').empty();
 	initMap();
-	
-	console.log(markers);
 
-
-	// var marker = new google.maps.Marker({
-	// position : myLatlng,
-	// __name : events[i].name,
-	// __link : events[i].detailPage,
-	// __date : events[i].date,
-	// __type : events[i].type,
-	// map : map,
-	// animation : google.maps.Animation.DROP
-	// });
-
+	reAddMarkers();
 }
 
 function smallSidebar() {
@@ -139,22 +118,64 @@ function smallSidebar() {
 	$('#sidebar li').css('border-bottom', 'none');
 	$('.details').css('display', 'none');
 
+	map = null;
 	$('#map_canvas').empty();
 	initMap();
+	reAddMarkers();
+}
 
-	//$('#map_canvas').removeClass('smallMap');
-	//google.maps.event.trigger(map, 'resize');
+function reAddMarkers() {
+	console.log(markers);
+	for (var key in markers) {
+		if (!markers.hasOwnProperty(key))
+			continue;
+		(function(key) {
+			var marker = markers[key];
+			var myLatlng = new google.maps.LatLng(marker.__lat, marker.__lng);
+			var marker = new google.maps.Marker({
+				position : myLatlng,
+				__name : marker.__name,
+				__link : marker.__link,
+				__loc : marker.__loc,
+				__date : marker.__date,
+				__type : marker.__type,
+				__lng : marker.__lng,
+				__lat : marker.__lat,
+				map : map,
+			});
 
-	// setTimeout(function() {
-	// google.maps.event.trigger(map, 'resize');
-	// var center = map.getCenter();
-	// map.setCenter(center);
-	// }, 1000);
+			var contentString = "<html class='infoWindow'><body><div class='infoWindow' style='text-align: center'><p><h4><a target='_blank' href='" + marker.__link + "'>" + marker.__name + "</a></h4>" + marker.__loc + "<br>" + marker.__date + "</p></div></body></html>";
+			var infowindow = new google.maps.InfoWindow({
+				content : contentString
+			});
 
-	// $('#resizeuno').click(function() {
-	// $mapCanvas.addClass('map_resize');
-	// google.maps.event.trigger(map, 'resize');
-	// });
+			// marker.addListener('click', function() {
+			// infowindow.open(map, this);
+			// });
+			//
+			// marker.addListener('mouseover', function() {
+			// infoWindowOpen++;
+			// infowindow.open(map, this);
+			// setTimeout(function() {
+			// map.panTo(marker.position);
+			// }, 150);
+			// });
+			//
+			// marker.addListener('mouseout', function() {
+			// openInfoWindows.push(infowindow);
+			// setTimeout(function() {
+			// if (!($('.infoWindow:hover').length > 0))
+			// openInfoWindows[0].close();
+			// openInfoWindows.shift();
+			// }, 1500);
+			// });
+			//
+			// google.maps.event.addListener(marker, 'click', function() {
+			// window.open(this.__link, '_blank');
+			// });
+
+		})(key);
+	}
 }
 
 function initMap() {
@@ -177,45 +198,9 @@ function initMap() {
 		map.setCenter(center);
 	});
 
-	// google.maps.event.addListener(map, "bounds_changed", function() {
-	// console.log('bounds changed');
-	// google.maps.event.trigger(map, "resize");
-	// var center = map.getCenter();
-	// var bounds = new google.maps.LatLngBounds();
-	// console.log(bounds);
-	// //map.setCenter(bounds);
-	// //map.setCenter(center);
-	// console.log(map.getCenter());
-	// });
-
-	// var mapEl = $('#map_canvas');
-	// google.maps.event.addDomListener(mapEl, 'resize', function(e) {
-	// console.log('Resize', e);
-	// //mapEl already triggers this function when it's resized and so forms a circular loop (BAD IDEA)
-	// //google.maps.event.trigger(map, 'resize');
-	// });
-	// google.maps.event.addDomListener(document.getElementById('gutter'), 'click', function(e) {
-	// google.maps.event.trigger(map, 'resize');
-	// });
-
-	// google.maps.event.addListener(map, "idle", function() {
-	// google.maps.event.trigger(map, 'resize');
-	// });
-	//
-	// //var mapContainer = $('#map_canvas');
-	// google.maps.event.addDomListener(document.getElementById('map_canvas'), "resize", function() {
-	//
-	// // attempt #1
-	// // var center = map.getCenter();
-	// google.maps.event.trigger(map, "resize");
-	// // map.setCenter(center);
-	// var center = map.getCenter();
-	// console.log(center);
-	//
-	// // attempt #2
-	// // google.maps.event.trigger(map, "resize");
-	// // map.fitBounds(bounds);
-	// });
+	google.maps.event.addListener(map, "click", function(event) {
+		$('.pop').hide();
+	});
 }
 
 function placeMarkers(events) {
@@ -236,8 +221,11 @@ function placeMarkers(events) {
 				position : myLatlng,
 				__name : events[i].name,
 				__link : events[i].detailPage,
+				__loc : events[i].locationName,
 				__date : events[i].date,
 				__type : events[i].type,
+				__lng : events[i].lng,
+				__lat : events[i].lat,
 				map : map,
 				animation : google.maps.Animation.DROP
 			});
@@ -248,28 +236,9 @@ function placeMarkers(events) {
 			});
 
 			marker.addListener('click', function() {
-				infowindow.open(map, this);
-			});
-
-			marker.addListener('mouseover', function() {
-				infoWindowOpen++;
-				infowindow.open(map, this);
-				setTimeout(function() {
-					map.panTo(marker.position);
-				}, 150);
-			});
-
-			marker.addListener('mouseout', function() {
-				openInfoWindows.push(infowindow);
-				setTimeout(function() {
-					if (!($('.infoWindow:hover').length > 0))
-						openInfoWindows[0].close();
-					openInfoWindows.shift();
-				}, 1500);
-			});
-
-			google.maps.event.addListener(marker, 'click', function() {
-				window.open(this.__link, '_blank');
+				map.panTo(marker.position);
+				showCard(this);
+				toggleBounce(marker);
 			});
 
 			markers[events[i].name] = marker;
@@ -279,18 +248,19 @@ function placeMarkers(events) {
 	console.log('after creating markers we have: ' + Object.keys(markers).length, 'should have around: ' + events.length);
 }
 
-// function showMarker(ele) {
-// console.log(ele);
-// var name = $(ele).text();
-//
-// // if (markers[name]) {
-// // map.panTo(markers[name].position);
-// // map.setZoom(13);
-// // //new google.maps.event.trigger(markers[name], 'click');
-// // new google.maps.event.trigger(markers[name], 'mouseover');
-// // }
-//
-// }
+function toggleBounce(marker) {
+	if (marker.getAnimation() !== null) {
+		marker.setAnimation(null);
+	} else {
+		marker.setAnimation(google.maps.Animation.BOUNCE);
+	}
+
+	setTimeout(function() {
+		//map.panTo(marker.position);
+		marker.setAnimation(null);
+	}, 1500);
+
+}
 
 function clearMarkers() {
 	if (!Object.keys(markers).length)
@@ -438,32 +408,41 @@ function updateSideBar(heading, sideBarEvents) {
 		$('#sidebar ul').append('<li><span class="name">' + e.name + '</span><span class="details">' + e.locationName + '<br><span class="eventDate">' + e.date + '</span></span></li>');
 	});
 
-	// address :"110 E. Broadway Glendale, CA 91205 818-506-1983" date
-	// :"April 28" detailPage
-	// :"http://www.laweekly.com/event/cat-on-a-hot-tin-roof-8080934" formattedAddress
-	// :"110 E Broadway, Glendale, CA 91205, USA" lat
-	// :34.1461412 lng
-	// :-118.2543168 locationName
-	// :"Antaeus Theatre Company" name
-	// :"Cat on a Hot Tin Roof" summary
-	// :"By Deborah Klugman Tennessee Williams’ 1955 potboiler Cat on a Hot Tin Roof has more than one story to tell, and in the premiere performance I saw last week, directed by Cameron Watson at Antaeus Theatre Company’s new digs in Glendale, it was Big Daddy’s story that captivated my attention. As the salty, take-no-prisoners Southern patriarch, facing his own mortality and the disappointment engendered by an alcoholic son, Harry Groener delivers a gritty and gripping portrayal that compensates for the production’s weaknesses. His work is chiefly on display in the second act, where Big Daddy attempts to talk to his favorite son Brick (Ross Philips) who has been depressed and drinking heavily since the suicide of his best friend Skipper some time back. Brick is as disinclined to speak with his father as he is with his wife Maggie (Rebecca Mozo). (Note: the show is double cast.) The couple’s encounter, in Act 1, is mostly a diatribe by the bitter frustrated Maggie who’s been shut out by her husband, physically and otherwise. Maggie longs for Brick’s touch; she also acutely aware of her childlessness, of the importance of delivering a grandchild to Big Daddy to preserve her and Brick’s portion of their inheritance. And she’s begun to suspect the real reason for Brick’s dark recalcitrance and disaffection: his repressed physical longing, which he vehemently denies, for the now deceased Skip. And here's where we have a problem. Maggie isn't just smart; she's famously "
-	// hot.
-	// " But while Mozo does respectable work — strutting and strategizing around her bedroom, talking nonstop — the sizzle factor is missing. And that’s hardly surprising: As Brick, Philips is credible as a depressive and an alcoholic, but the magnetism and masculinity that compels both his wife and his father to want to be close to him regardless does not manifest. We never get a sense of what Brick had and what’s been lost before the triggering event left him an emotional invalid. Other problems exist with the blocking and the set (Steven Kemp), admittedly a terrific eye-catcher when you first enter the theater. With its broken molding, skewed windows and ripped up flooring, it’s a vivid on-point commentary on the lacerated lives of this family. But then the play begins, and you watch as the performers have to maneuver, constrained, on the cramped shortened dais, around the bulky furniture. The bar where Brick gets his alcohol is positioned (in the first act) so that it blocks the view of some of the audience. And a lot of Maggie’s speeches are delivered as she sits at her dresser, with her back to to us, face concealed. Still, Groener delivers enough mesmerizing moments in the second act to make up for for the limitations of the first, and to make us want to see the story through to the end. There are other strong performances: Dawn Didawick as a fluttery Big Mama, who’s lived 40 years in valiant denial of her husband’s disdain, and Patrick Wenk-Wolff as Brick’s elder brother Gooper, who bears his parents' rejection with steely resolve. Also, it’s a pleasure to again bask in the eloquent passages in Williams’ writing, and in that special decadence that belongs to him alone. If the shortcomings of this production can’t be overlooked, well, in this case, they surely can be forgiven." type
-	// :"Theater"
-
 	$('#sidebar li').click(function() {
 		showCard(this);
 	});
 }
 
 function showCard(ele) {
-	//var name = $(ele).find('.name').text();
-	var name = $(ele).find(".name").text();
-	if (markers[name]) {
-		$('.pop').show();
-		$('#popName').append('<a target="_blank" href="' + markers[name].__link + '">' + name + '</a>');
-		$('#popDateType').text(markers[name].__date + ' || ' + markers[name].__type);
+	if (ele.__name) {
+		var name = ele.__name;
+
+		if (markers[name]) {
+			$('.pop').show();
+			$('#popName').append('<a target="_blank" href="' + markers[name].__link + '">' + name + '</a>');
+			$('#popDateType').text(markers[name].__date + ' || ' + markers[name].__type);
+
+			// $(".pop").mouseover(function() {
+			// $(".pop").mouseout(function() {
+			// $('.pop').hide();
+			// });
+			// });
+
+		}
+
+		// hover show pop up
+		// if mouse over on pop up, show
+		// if mouse out, hide after .5 sec
+
+	} else {
+		var name = $(ele).find(".name").text();
+		if (markers[name]) {
+			$('.pop').show();
+			$('#popName').append('<a target="_blank" href="' + markers[name].__link + '">' + name + '</a>');
+			$('#popDateType').text(markers[name].__date + ' || ' + markers[name].__type);
+		}
 	}
+
 }
 
 function createDateFilterOptions() {
