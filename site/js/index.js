@@ -1,5 +1,5 @@
 var map;
-var personalMap;
+//var personalMap;
 var markers = [];
 var undefinedLocationAddress = 0;
 var types = [];
@@ -94,12 +94,40 @@ function afterDataLoaded() {
 
 function largeSidebar() {
 	$('#map_canvas').css('width', '59.5%');
+	//$('#map_canvas').css('width', '400px');
 	$('#sidebar').css('width', '40%');
 	$('#sidebar li').css('text-align', 'left');
 	$('#sidebar li').css('padding-bottom', '0');
 	$('#sidebar li').css('margin-bottom', '25px');
 	$('#sidebar li').css('border-bottom', '1px solid black');
 	$('.details').css('display', 'block');
+
+	// setTimeout(function() {
+	// google.maps.event.trigger(map, 'resize');
+	// var center = map.getCenter();
+	// map.setCenter(center);
+	// }, 2000);
+
+	//var mapCanvas = $('#map_canvas');
+	//mapCanvas.addClass('smallMap');
+	//google.maps.event.trigger(map, 'resize');
+
+	$('#map_canvas').empty();
+	initMap();
+	
+	console.log(markers);
+
+
+	// var marker = new google.maps.Marker({
+	// position : myLatlng,
+	// __name : events[i].name,
+	// __link : events[i].detailPage,
+	// __date : events[i].date,
+	// __type : events[i].type,
+	// map : map,
+	// animation : google.maps.Animation.DROP
+	// });
+
 }
 
 function smallSidebar() {
@@ -110,6 +138,23 @@ function smallSidebar() {
 	$('#sidebar li').css('margin-bottom', '0px');
 	$('#sidebar li').css('border-bottom', 'none');
 	$('.details').css('display', 'none');
+
+	$('#map_canvas').empty();
+	initMap();
+
+	//$('#map_canvas').removeClass('smallMap');
+	//google.maps.event.trigger(map, 'resize');
+
+	// setTimeout(function() {
+	// google.maps.event.trigger(map, 'resize');
+	// var center = map.getCenter();
+	// map.setCenter(center);
+	// }, 1000);
+
+	// $('#resizeuno').click(function() {
+	// $mapCanvas.addClass('map_resize');
+	// google.maps.event.trigger(map, 'resize');
+	// });
 }
 
 function initMap() {
@@ -132,18 +177,45 @@ function initMap() {
 		map.setCenter(center);
 	});
 
-	//var mapContainer = $('#map_canvas');
-	//google.maps.event.addDomListener(document.getElementById('map_canvas'), "resize", function() {
-
-	// attempt #1
+	// google.maps.event.addListener(map, "bounds_changed", function() {
+	// console.log('bounds changed');
+	// google.maps.event.trigger(map, "resize");
 	// var center = map.getCenter();
-	// google.maps.event.trigger(map, "resize");
-	// map.setCenter(center);
+	// var bounds = new google.maps.LatLngBounds();
+	// console.log(bounds);
+	// //map.setCenter(bounds);
+	// //map.setCenter(center);
+	// console.log(map.getCenter());
+	// });
 
-	// attempt #2
+	// var mapEl = $('#map_canvas');
+	// google.maps.event.addDomListener(mapEl, 'resize', function(e) {
+	// console.log('Resize', e);
+	// //mapEl already triggers this function when it's resized and so forms a circular loop (BAD IDEA)
+	// //google.maps.event.trigger(map, 'resize');
+	// });
+	// google.maps.event.addDomListener(document.getElementById('gutter'), 'click', function(e) {
+	// google.maps.event.trigger(map, 'resize');
+	// });
+
+	// google.maps.event.addListener(map, "idle", function() {
+	// google.maps.event.trigger(map, 'resize');
+	// });
+	//
+	// //var mapContainer = $('#map_canvas');
+	// google.maps.event.addDomListener(document.getElementById('map_canvas'), "resize", function() {
+	//
+	// // attempt #1
+	// // var center = map.getCenter();
 	// google.maps.event.trigger(map, "resize");
-	// map.fitBounds(bounds);
-	//});
+	// // map.setCenter(center);
+	// var center = map.getCenter();
+	// console.log(center);
+	//
+	// // attempt #2
+	// // google.maps.event.trigger(map, "resize");
+	// // map.fitBounds(bounds);
+	// });
 }
 
 function placeMarkers(events) {
