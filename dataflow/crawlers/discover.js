@@ -6,61 +6,47 @@ var URL = require('url-parse');
 var fs = require('fs');
 var $ = require("jquery");
 var moment = require('moment');
-var utils = require('utils');
+require('../utils.js')();
 
 var startURL = "http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=";
 
-var allEventNames = [];
+var URLlist = [];
 var obj = {
 	events : []
 };
-var URLlist = [];
 
-
-// test utils
-var daysInMonth = utils.daysInMonth(5, 2017);
-console.log(daysInMonth);
-
-// function daysInMonth(month, year) {
-// return new Date(year, month, 0).getDate();
-// }
-//
-// var currentDay = new Date().getDate();
-// var year = new Date().getFullYear();
-// var currentMonth = new Date().getMonth() + 1;
-// var currentDay = new Date().getDate();
-// var daysInCurrentMonth = daysInMonth(currentMonth, year);
-// var monthName = 'may';
-// var searchWord = getMonthName(currentMonth);
-
-for (var i = currentDay; i < daysInCurrentMonth + 1; i++) {
-	if (currentMonth.toString().length == 1)
-		currentMonth = '0' + currentMonth;
-	var dynamicURL = startURL + currentMonth + '/' + i + '/' + year;
-	URLlist.push(dynamicURL);
-}
-
+var dateData = getDateData();
+var monthName = dateData.monthName;
+// should this be capitalized?
+var searchWord = dateData.monthName;
 var num = 0;
 var saveIndex = 150;
 
-console.log("starting crawl for " + searchWord);
-createFolder();
+for (var i = dateData.currentDay; i < dateData.numOfDays; i++) {
+	if (dateData.currentMonth.toString().length == 1)
+		dateData.currentMonth = '0' + dateData.currentMonth;
+	var dynamicURL = startURL + dateData.currentMonth + '/' + i + '/' + dateData.year;
+	URLlist.push(dynamicURL);
+}
+
+console.log("starting crawl for " + monthName);
+createFolder(monthName);
 firstRequest(URLlist[0], 0);
 
 function firstRequest(url, index) {
 	if (url == undefined)
 		return;
 
-	var length = obj.events.length;
-	if (length >= 3000)
-		console.log('reached 3000 entries');
-	if (length >= 5000)
-		console.log('reached 5000 entries');
-	if (length >= 7000)
-		console.log('reached 7000 entries');
-	length = 0;
-
 	num++;
+	logNumOfEvents(obj.events.length);
+	// var length = obj.events.length;
+	// if (length >= 3000)
+	// console.log('reached 3000 entries');
+	// if (length >= 5000)
+	// console.log('reached 5000 entries');
+	// if (length >= 7000)
+	// console.log('reached 7000 entries');
+	// length = 0;
 
 	request(url, function(error, response, body) {
 		if (response) {
@@ -102,8 +88,6 @@ function firstRequest(url, index) {
 						var locationText = $(this).find('.field-name-field-event-venue').children().children().text().trim();
 						var eventDetailLink = $(this).find("h2").children().attr("href");
 						eventDetailLink = 'http://www.discoverlosangeles.com' + eventDetailLink;
-
-						allEventNames.push(nameText);
 
 						obj.events.push({
 							name : nameText,
@@ -153,7 +137,7 @@ function firstRequest(url, index) {
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
 	var eventDate = event.date;
-	if (url == undefined || parseInt(eventDate.split(' ')[1]) < currentDay) {
+	if (url == undefined || parseInt(eventDate.split(' ')[1]) < dateData.currentDay) {
 		// want to remove event from array if url is undefined or old event
 		var nextIndex = index + 1;
 		setTimeout(function() {
@@ -162,8 +146,7 @@ function makeSecondRequest(event, index) {
 		return;
 	}
 
-	console.log('crawling event details for ' + url);
-	console.log('\r\n');
+	console.log('crawling event details for ' + url + '\r\n');
 
 	request(url, function(error, response, body) {
 		if (response) {
@@ -199,18 +182,15 @@ function makeSecondRequest(event, index) {
 
 					var summary = $(summaryNodes).text();
 					if (summary.indexOf('function') != -1)
-						// start end with /* */
+						// parse if start end with /* */
 						console.log(summary);
 					obj.events[index].summary = summary;
 				} else
 					return;
 				// handle responses that aren't on correct page
 
-				console.log('\r\n');
-				console.log(index);
-				console.log('\r\n');
-				console.log(obj.events[index]);
-				console.log('\r\n\r\n');
+				console.log('\r\n' + index + '\r\n');
+				console.log(obj.events[index] + '\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
 					var percent = index / saveIndex;
@@ -235,45 +215,3 @@ function makeSecondRequest(event, index) {
 		}
 	});
 }
-
-// function saveFile(dir, length) {
-// var json = JSON.stringify(obj);
-// fs.writeFile(dir, json, 'utf8', function(err) {
-// console.log("File saved with " + length + ' entries');
-// console.log(obj.events.length - length + 'events to go');
-// return;
-// });
-// }
-//
-// // check if works
-// function createFolder() {
-// fs.stat("data/" + monthName, function(err, stats) {
-// if (err) {
-// console.log('Folder doesn\'t exist, so I made the folder ' + err);
-// return fs.mkdir("data/" + monthName, callback);
-// }
-// if (!stats.isDirectory()) {
-// callback(new Error('temp is not a directory!'));
-// } else {
-// console.log('Folder for ' + monthName + ' data exists');
-// }
-// });
-// }
-//
-// function getMonthName(month) {
-// var monthsArray = [];
-// monthsArray[1] = 'January';
-// monthsArray[2] = 'February';
-// monthsArray[3] = 'March';
-// monthsArray[4] = 'April';
-// monthsArray[5] = 'May';
-// monthsArray[6] = 'June';
-// monthsArray[7] = 'July';
-// monthsArray[8] = 'August';
-// monthsArray[9] = 'September';
-// monthsArray[10] = 'October';
-// monthsArray[11] = 'November';
-// monthsArray[12] = 'December';
-//
-// return monthsArray[month];
-// }
