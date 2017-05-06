@@ -18,7 +18,7 @@ MongoClient.connect('mongodb://admin:admin@ds155490.mlab.com:55490/sample', func
 		return console.log(err);
 	db = database;
 	app.listen(3000, function() {
-		console.log('listening on 3000')
+		console.log('listening on 3000');
 	});
 });
 

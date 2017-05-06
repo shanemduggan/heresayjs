@@ -1,0 +1,216 @@
+McGinty69!&shit
+network solutions - Bengals69!
+gmaps :  AIzaSyC0MK06KIq5QAHH-lIlF-c6Y5Yig1yMjPw 
+http://stackoverflow.com/questions/7474354/include-jquery-in-the-javascript-console
+
+HereSay 2.0 - Sharing
+Google analytics
+
+How to make experience better?
+Make other peoples' experiences better?
+Make people more comfortable
+
+mlab can hold  roughly 500k docs (1 mill docs is 1.29 gig)
+geocode api 2500/day cap
+json handle ~3900 parent events
+laweekly ~3100 events @ 100/day, 300 child/hr
+			parent: 1 hr; child: 12+ hr			
+discover ~ 1300 events, full: 6.5 hr
+timeout ~ 140 events (7 min)
+overall crawl length: estimating 15 hr for full crawl
+
+https://www.reddit.com/r/AskReddit/comments/68fmkk/soldiers_of_reddit_whats_the_scariest_or_weirdest/?st=j25f3wr7&sh=50fe6a5c
+https://www.reddit.com/r/history/comments/66pwmm/today_is_the_2700th_birthday_of_rome_here_is_a_3d/?st=j1s94ns9&sh=952d10bf
+
+
+https://seroter.wordpress.com/2013/07/29/where-the-heck-do-i-host-my-node-js-app/
+
+http://stackoverflow.com/questions/5797852/in-node-js-how-do-i-include-functions-from-my-other-files
+
+
+
+If he doesn't do anything too evil, he might be idolized like crazy in future generations as one of the greatest characters of the capitalist era.
+
+Musk, Bezos, and Gates, among many others could probably be seen as our modern-day "Captains of Industry."
+
+At the time of their careers there were not considered nice people. Bill Gates didn't start his career by being a nice guy, nor did Rockefeller, both were cut-throat in their competitive actions. Both in their later years though dedicated their entire lives to giving away their money.
+
+
+
+
+
+Provo - now til October
+https://foursquare.com/
+http://stackoverflow.com/questions/18444161/google-maps-responsive-resize
+https://www.reddit.com/r/todayilearned/comments/66inyw/til_two_time_medal_of_honor_recipient_major/?st=j1r5dop3&sh=504a9259
+https://www.reddit.com/r/heroesofthestorm/comments/66k9t5/what_bundle_should_you_pick_for_lol_and_dota_2/?utm_content=comments&utm_medium=hot&utm_source=reddit&utm_name=heroesofthestorm
+
+
+GET ELON MUSK & BILL GATES BIOGRAPHY (AUTOBIO?)
+Roth or 401k?
+
+How to start a start up - Chris video
+
+
+
+
+
+
+
+
+https://www.reddit.com/r/worldnews/comments/66ok41/elon_musk_says_brain_interface_will_be_ready/?st=j1sqka2n&sh=4bba7f4c
+https://www.reddit.com/r/worldnews/comments/66s1zn/sources_russia_tried_to_use_trump_advisers_to/?st=j1sqk2cc&sh=98acfefe
+https://www.reddit.com/r/worldnews/comments/66p33u/trump_officials_negotiated_release_of_us_aid/?st=j1sqjfal&sh=919c5165
+https://www.reddit.com/r/worldnews/comments/66vm7r/the_fbi_gathered_intelligence_in_the_summer_of/?st=j1tl7rj3&sh=da0a0c70
+
+
+
+https://www.reddit.com/r/Music/comments/66wa5m/my_cousin_playing_around_with_talk_box/?st=j1tl1tqp&sh=6c67dcde
+
+
+
+
+
+
+
+
+Timeline
+--------------------------------
+Improve crawler run experience
+
+Data flow
+	> crawl > data clean up > geo unique locs 
+	> create necessary files > push to git
+
+UI improvements (spitter / share / cards)
+
+Show app / Get feedback / Take break from development 
+--------------------------------
+
+
+
+http://stackoverflow.com/questions/1328723/how-to-generate-a-simple-popup-using-jquery
+
+
+
+
+
+
+2. hover on marker rework
+	> show tooltip
+	> clear card info on click
+
+
+> card show/hide after expanding sidebar
+> clean out marker array
+> center / animate marker on sidebar click
+
+
+
+3. share on facebook button
+
+https://developers.facebook.com/docs/plugins/share-button
+http://jsfiddle.net/subodhghulaxe/96sSe/
+https://developers.facebook.com/docs/sharing/reference/share-dialog  < login not required
+
+
+
+
+
+
+5/4 > discover crawler   < run tonight
+5/6 or 5/7 > laweekly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. personal map
+	> + icon besides ul items
+	> remove from my list
+
+
+4. share event research (twitter, facebook)
+
+https://developers.facebook.com/docs/plugins/share-button
+http://jsfiddle.net/subodhghulaxe/96sSe/
+https://developers.facebook.com/docs/sharing/reference/share-dialog  < login not required
+
+https://dev.twitter.com/web/tweet-button
+
+
+
+
+
+
+Is discover crawler fully dynamic?
+Is laweekly crawler fully dynamic?
+
+i.e. i can run it on 1st day without any changes required
+
+next steps
+	- data parsing
+	- db push
+	- file concat
+
+
+data flow
+	1. get data (run crawler)
+	2. normalize data
+	3. unique locations 
+	4. geocode
+	5. concat files
+	6. put in specific folders
+	7. push to mongo required?
+	8. logging issues
+
+
+
+
+
+
+
+
+Backlog:
+> location file (reduce arrays so no duplicates)
+> need to do data manipulation pre-client (on types, etc.)
+> instead of saving as index % saveIndex, make more descriptive
+  i.e. start and end point
+> see if i can reduce wait time for geocoding from 5 sec	
+
+
+
+
+
+
+
+Next steps
+0. express sample set up (query both collections)
+	> work on getting location data from events
+		- need to save it to new array
+		- look through april events
+		   find loc doc in db
+		   update event object with location information
+0. set up heroku to host crawler 
+
+
+
+I. brainstorm where to go from here
+	> server
+	> db? (save addresses)
+	> themes / filtering
+II. server research (aws, heroku)
+III. function to handle response & errors
+	- add in secondCallback 
+
+http://losangeles.ohmyrockness.com/shows > category: music

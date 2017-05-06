@@ -59,21 +59,17 @@ var insertDocuments = function(db, callback) {
 
 	var laweekly = fs.readFileSync('crawldata\\march\\' + dataFiles[0], 'utf8');
 	var discover = fs.readFileSync('crawldata\\march\\' + dataFiles[1], 'utf8');
-	var timeout = fs.readFileSync('crawldata\\march\\' + dataFiles[2], 'utf8');
 
 	laweekly = JSON.parse(laweekly);
 	discover = JSON.parse(discover);
-	timeout = JSON.parse(timeout);
 
 	laweekly = laweekly.events;
 	discover = discover.events;
-	timeout = timeout.events;
 
-	console.log(laweekly.length, discover.length, timeout.length);
+	console.log(laweekly.length, discover.length);
 
 	allData = allData.concat(laweekly);
 	allData = allData.concat(discover);
-	allData = allData.concat(timeout);
 	console.log(allData.length);
 
 	var collection = db.collection('events03');
@@ -105,7 +101,8 @@ var insertDocuments = function(db, callback) {
 	//
 	// callback();
 	// });
-}
+};
+
 var findDocuments = function(db, callback) {
 	var collection = db.collection('events03');
 	collection.find({}).toArray(function(err, docs) {
@@ -115,7 +112,7 @@ var findDocuments = function(db, callback) {
 		console.log(docs.length);
 		callback(docs);
 	});
-}
+};
 // var findDocuments = function(db, callback) {
 // var collection = db.collection('events03');
 // collection.find({
@@ -131,13 +128,14 @@ var findDocuments = function(db, callback) {
 var cleanDocument = function(db, callback) {
 	db.collection('events03').drop();
 	callback();
-}
+};
+
 function getSaveTime() {
 	var currentdate = new Date();
 	var datetime = currentdate.getDate() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getFullYear() + "-" + currentdate.getHours() + "-" + currentdate.getMinutes() + "-" + currentdate.getSeconds();
 	//var datetime = currentdate.getDate() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getFullYear();
 	return datetime;
-}
+};
 
 var insertLocations = function(db, callback) {
 
@@ -158,10 +156,10 @@ var insertLocations = function(db, callback) {
 
 		callback();
 	});
-}
+};
+
 var findLocations = function(db, callback) {
 	var collection = db.collection('locationsgeo03');
-
 
 	collection.find({}).toArray(function(err, docs) {
 		assert.equal(err, null);
@@ -187,8 +185,7 @@ var findLocations = function(db, callback) {
 
 		console.log(badLocations);
 		callback();
-	}); 
-
+	});
 
 	// db.collection("collection_name").findAndModify({
 	// _id : _id
@@ -213,22 +210,20 @@ var findLocations = function(db, callback) {
 	// });
 
 	// collection.findAndModify({
-		// lat : null,
-		// remove:true
+	// lat : null,
+	// remove:true
 	// });
 	// callback();
-}
-
-
+};
 
 function logLocation(doc) {
 	console.log(doc);
-}
+};
 
 function logCoords(coords) {
 	console.log(coords);
 	console.log(coords.json.results);
-}
+};
 
 // function logRecordID(id) {
 // console.log(id);

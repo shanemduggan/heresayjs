@@ -6,24 +6,32 @@ var URL = require('url-parse');
 var fs = require('fs');
 var $ = require("jquery");
 var moment = require('moment');
+var utils = require('utils');
 
 var startURL = "http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=";
-var searchWord = "April";
-var currentDay = new Date().getDate();
+
 var allEventNames = [];
 var obj = {
 	events : []
 };
 var URLlist = [];
 
-function daysInMonth(month, year) {
-	return new Date(year, month, 0).getDate();
-}
 
-var year = 2017;
-var currentMonth = new Date().getMonth() + 1;
-var currentDay = new Date().getDate();
-var daysInCurrentMonth = daysInMonth(currentMonth, year);
+// test utils
+var daysInMonth = utils.daysInMonth(5, 2017);
+console.log(daysInMonth);
+
+// function daysInMonth(month, year) {
+// return new Date(year, month, 0).getDate();
+// }
+//
+// var currentDay = new Date().getDate();
+// var year = new Date().getFullYear();
+// var currentMonth = new Date().getMonth() + 1;
+// var currentDay = new Date().getDate();
+// var daysInCurrentMonth = daysInMonth(currentMonth, year);
+// var monthName = 'may';
+// var searchWord = getMonthName(currentMonth);
 
 for (var i = currentDay; i < daysInCurrentMonth + 1; i++) {
 	if (currentMonth.toString().length == 1)
@@ -35,7 +43,9 @@ for (var i = currentDay; i < daysInCurrentMonth + 1; i++) {
 var num = 0;
 var saveIndex = 150;
 
-//firstRequest(URLlist[0], 0);
+console.log("starting crawl for " + searchWord);
+createFolder();
+firstRequest(URLlist[0], 0);
 
 function firstRequest(url, index) {
 	if (url == undefined)
@@ -50,7 +60,7 @@ function firstRequest(url, index) {
 		console.log('reached 7000 entries');
 	length = 0;
 
-	num++
+	num++;
 
 	request(url, function(error, response, body) {
 		if (response) {
@@ -63,14 +73,13 @@ function firstRequest(url, index) {
 				}, 10000);
 
 				var urlSplit = url.split('=');
-				var dateSplit = urlSplit[1].split('/')
+				var dateSplit = urlSplit[1].split('/');
 				var monthNum = dateSplit[0];
 				var dayNum = dateSplit[1];
 				var formattedMonth = moment(monthNum, 'MM').format('MMMM');
 				var monthText = formattedMonth + ' ' + dayNum;
 
 				var $ = cheerio.load(body);
-				var isWordFound = searchForWord($, searchWord);
 				var dayElement;
 				var element = $('.field-content');
 				for (var i = 0; i < element.length; i++) {
@@ -108,8 +117,9 @@ function firstRequest(url, index) {
 					console.log(obj);
 
 					var json = JSON.stringify(obj);
+					// use save method here
 					var length = obj.events.length;
-					fs.writeFile('data\\april\\discoverParentData.json', json, 'utf8', function(err) {
+					fs.writeFile('data\\' + monthName + '\\discoverParentData.json', json, 'utf8', function(err) {
 						console.log("File saved with " + length + ' entries');
 					});
 
@@ -136,18 +146,13 @@ function firstRequest(url, index) {
 	});
 }
 
-function searchForWord($, word) {
-	var bodyText = $('html > body').text().toLowerCase();
-	return (bodyText.indexOf(word.toLowerCase()) !== -1);
-}
-
-var obj = fs.readFileSync('data\\april\\discoverParentData.json', 'utf8');
-obj = JSON.parse(obj);
-makeSecondRequest(obj.events[0], 0);
+//var obj = fs.readFileSync('data\\' + monthName + '\\discoverParentData.json', 'utf8');
+//obj = JSON.parse(obj);
+//makeSecondRequest(obj.events[0], 0);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
-	var eventDate = event.date
+	var eventDate = event.date;
 	if (url == undefined || parseInt(eventDate.split(' ')[1]) < currentDay) {
 		// want to remove event from array if url is undefined or old event
 		var nextIndex = index + 1;
@@ -166,7 +171,7 @@ function makeSecondRequest(event, index) {
 
 				var nextIndex = index + 1;
 				if (nextIndex == Math.ceil(obj.events.length * .999)) {
-					saveFile('data\\april\\discover99.json', index);
+					saveFile('data\\' + monthName + '\\discover99.json', index);
 					console.log('crawl finished');
 					return;
 				} else {
@@ -191,28 +196,28 @@ function makeSecondRequest(event, index) {
 					obj.events[index].date = $(eventHTML).find('.detail-page-date-time .date').text();
 					var type = $(eventHTML).find('.detail-page-breadcrumb')[0].childNodes[2].data;
 					obj.events[index].type = type.replace('/', '').trim();
-					
+
 					var summary = $(summaryNodes).text();
 					if (summary.indexOf('function') != -1)
 						// start end with /* */
 						console.log(summary);
-					obj.events[index].summary = summary; 
+					obj.events[index].summary = summary;
 				} else
 					return;
-				// this is handling responses that aren't on correct page
+				// handle responses that aren't on correct page
 
 				console.log('\r\n');
 				console.log(index);
 				console.log('\r\n');
 				console.log(obj.events[index]);
-				console.log('\r\n');
-				console.log('\r\n');
+				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
 					var percent = index / saveIndex;
-					saveFile('data\\april\\discover' + percent + '.json', index);
+					// better file naming
+					saveFile('data\\' + monthName + '\\discover' + percent + '.json', index);
 				} else if (index == obj.events.length) {
-					saveFile('data\\april\\discover100.json', index);
+					saveFile('data\\' + monthName + '\\discover100.json', index);
 				}
 			} else {
 				var nextIndex = index + 1;
@@ -231,11 +236,44 @@ function makeSecondRequest(event, index) {
 	});
 }
 
-function saveFile(dir, length) {
-	var json = JSON.stringify(obj);
-	fs.writeFile(dir, json, 'utf8', function(err) {
-		console.log("File saved with " + length + ' entries');
-		console.log(obj.events.length - length + 'events to go');
-		return;
-	});
-}
+// function saveFile(dir, length) {
+// var json = JSON.stringify(obj);
+// fs.writeFile(dir, json, 'utf8', function(err) {
+// console.log("File saved with " + length + ' entries');
+// console.log(obj.events.length - length + 'events to go');
+// return;
+// });
+// }
+//
+// // check if works
+// function createFolder() {
+// fs.stat("data/" + monthName, function(err, stats) {
+// if (err) {
+// console.log('Folder doesn\'t exist, so I made the folder ' + err);
+// return fs.mkdir("data/" + monthName, callback);
+// }
+// if (!stats.isDirectory()) {
+// callback(new Error('temp is not a directory!'));
+// } else {
+// console.log('Folder for ' + monthName + ' data exists');
+// }
+// });
+// }
+//
+// function getMonthName(month) {
+// var monthsArray = [];
+// monthsArray[1] = 'January';
+// monthsArray[2] = 'February';
+// monthsArray[3] = 'March';
+// monthsArray[4] = 'April';
+// monthsArray[5] = 'May';
+// monthsArray[6] = 'June';
+// monthsArray[7] = 'July';
+// monthsArray[8] = 'August';
+// monthsArray[9] = 'September';
+// monthsArray[10] = 'October';
+// monthsArray[11] = 'November';
+// monthsArray[12] = 'December';
+//
+// return monthsArray[month];
+// }

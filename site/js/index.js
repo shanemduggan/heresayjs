@@ -8,6 +8,9 @@ var locationData = [];
 var infoWindowOpen = 0;
 var openInfoWindows = [];
 
+var currentMonth = new Date().getMonth() + 1;
+var monthName = getMonthName(currentMonth);
+
 // cached data
 var cachedDateEvents = [];
 var cachedTypeEvents = [];
@@ -21,20 +24,21 @@ var dateTypeEvents = [];
 var typeDateEvents = [];
 
 // previous value pre filter change
-var prevDateFilter;
+//var prevDateFilter;
 
 $(window).on('load', function() {
-	getJson('../../crawldata/april/aprilLocationsAllData.json', '../../locationdata/aprilLocationsGeo.json');
+	//getJson('../../crawldata/april/aprilLocationsAllData.json', '../../locationdata/aprilLocationsGeo.json');
+	getJson('../crawlers/data/' + monthName + '/discover.json');
 	setUpFilters();
 });
 
 function getJson(eventdir, locationdir) {
-	$.getJSON(locationdir, function(data) {
-		if (data.length) {
-			console.log('# of locations: ' + data.length);
-			locationData = data;
-		}
-	});
+	// $.getJSON(locationdir, function(data) {
+		// if (data.length) {
+			// console.log('# of locations: ' + data.length);
+			// locationData = data;
+		// }
+	// });
 
 	$.getJSON(eventdir, function(data) {
 		var filteredData = [];
@@ -614,4 +618,22 @@ function getFilterOption(type) {
 		return "Educational";
 	else
 		return "Miscellaneous";
+}
+
+function getMonthName(month) {
+	var monthsArray = [];
+	monthsArray[1] = 'january';
+	monthsArray[2] = 'february';
+	monthsArray[3] = 'march';
+	monthsArray[4] = 'april';
+	monthsArray[5] = 'may';
+	monthsArray[6] = 'june';
+	monthsArray[7] = 'july';
+	monthsArray[8] = 'august';
+	monthsArray[9] = 'september';
+	monthsArray[10] = 'october';
+	monthsArray[11] = 'november';
+	monthsArray[12] = 'december';
+
+	return monthsArray[month];
 }
