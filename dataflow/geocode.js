@@ -6,22 +6,37 @@ var options = {
 var NodeGeocoder = require('node-geocoder');
 var geocoder = NodeGeocoder(options);
 var fs = require('fs');
+require('./locUtils.js')();
+require('../utils.js')();
 
+var dateData = getDateData();
+var monthName = dateData.monthName;
 // geo options
-var requestWait = 5000;
+var requestWait = 10000;
 // wait time before next request
-var saveIndex = 200;
+var saveIndex = 50;
 // define frequency of saving
-var startIndex = 500;
+var startIndex = 301;
 // change this if not starting from beginning
-var locationDataDir = 'crawldata\\may\\mayLocationsToGeo.json';
+var locationDataDir = '..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsToGeo.json';
+
+// run location utils (step 1 & 2)
+var locationData = retrieveMonthLocations();
+var locations = locationsToGeocode(locationData);
+
+// put this when geocoding is finished
+// step 4
+//getFullMonthLocationsData();
 
 // get file data
-var locations = fs.readFileSync(locationDataDir, 'utf8');
-locations = JSON.parse(locations);
+if (!locations) {
+	var locations = fs.readFileSync(locationDataDir, 'utf8');
+	locations = JSON.parse(locations);
+}
+
 console.log('number of locations to be geocoded: ' + (locations.length - startIndex));
 
-// make request
+// make request (step 3)
 requestGeoCode(locations[startIndex], startIndex);
 
 function requestGeoCode(location, index) {
@@ -49,6 +64,7 @@ function requestGeoCode(location, index) {
 		console.log('');
 
 	}).catch(function(err) {
+		// this is causing dupliation of calls every error
 		console.log(err);
 		var nextNum = index + 1;
 		setTimeout(function() {
@@ -58,15 +74,12 @@ function requestGeoCode(location, index) {
 
 	if (index == locations.length - 1) {
 		console.log('geocoding completed');
-		saveFile(index, 'mayLocationsPartialGeo' + startIndex + '-' + index);
-	} else if (index % saveIndex === 0 && index != 0) {
-		//var percent = index / saveIndex;
-		saveFile(index, 'mayLocationsPartialGeo' + startIndex + '-' + index);
-	} else if (index == 50) {
-		saveFile(index, 'mayLocationsPartialGeo0-50');
-	}
+		saveFile(index, '..\\' + monthName + 'LocationsPartialGeo' + startIndex + '-' + index);
+	} else if (index % saveIndex === 0 && index != 0)
+		saveFile(index, '..\\' + monthName + 'LocationsPartialGeo' + startIndex + '-' + index);
 }
 
+// use utils
 function saveFile(index, dir) {
 	var json = JSON.stringify(locations);
 	var length = index - startIndex;

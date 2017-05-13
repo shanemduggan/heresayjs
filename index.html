@@ -8,6 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="site/css/main.css">
 		<script src="site/libs/underscore-min.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="site/js/map.js"></script>
+		<script src="site/js/utility.js"></script>
+		<script src="site/js/buttons.js"></script>
 		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.2.0/split.min.js"></script> -->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcIb1KF-PhD_-R1NkUiuWpMhftyrJlQck&libraries=geometry"></script>
 		<script src="site/js/index.js"></script>
@@ -49,12 +52,14 @@
 					</div>
 				</div>
 			</div>
-
+		
+			<div class="arrow-up"></div>
 			<div class="messagepop pop">
-				<h4 id="popName"></h4>
+				<!-- <h4 id="popName"></h4> -->
+				<p id="popName"></p>
 				<p id="popDateType"></p>
 				<p>
-					<a class="close" href="/">Close</a>
+					<a class="close" href="/">X</a>
 				</p>
 				<!-- share button goes here -->
 				<!-- <input type="submit" value="Send Message" name="commit" id="message_submit"/>-->
