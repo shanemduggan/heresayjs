@@ -1,5 +1,4 @@
 var map;
-//var personalMap;
 var markers = [];
 var undefinedLocationAddress = 0;
 var types = [];
@@ -22,9 +21,6 @@ var typeEvents = [];
 // multi filtered data
 var dateTypeEvents = [];
 var typeDateEvents = [];
-
-// previous value pre filter change
-//var prevDateFilter;
 
 $(window).on('load', function() {
 	var eventdir = '../data/crawldata/' + monthName + '/mayEvents.json';
@@ -70,24 +66,11 @@ function afterDataLoaded() {
 	$('#dateFilter select').height(headerHeight - 2);
 	$('#typeFilter').height(headerHeight);
 	$('#typeFilter select').height(headerHeight - 2);
-
 	$('#map_canvas').height(mapHeight);
 	$('#sidebar').height(mapHeight);
-	$('#gutter').height(mapHeight);
 
 	$("#selectDate").val('1').trigger('change');
 	$("#selectType").val('2').trigger('change');
-
-	$("#gutter").click(function() {
-		var sideBarWidth = $('#sidebar').width();
-		var sideBarPercent = Math.ceil((sideBarWidth / browserWidth) * 100);
-		if (sideBarPercent == 40) {
-			smallSidebar();
-		} else {
-			largeSidebar();
-
-		}
-	});
 
 	$('.close').click(function() {
 		$('.pop').hide();
@@ -107,14 +90,7 @@ function showCard(ele) {
 		if (markers[name]) {
 			$('.pop').show();
 			$('#popName').append('<a target="_blank" href="' + markers[name].__link + '">' + name + '</a>');
-			// $('#popDateType').text(markers[name].__date + ' || ' + markers[name].__type);
 			$('#popDateType').html(markers[name].__type + '<br>' + markers[name].__date);
-
-			// $(".pop").mouseover(function() {
-			// $(".pop").mouseout(function() {
-			// $('.pop').hide();
-			// });
-			// });
 			$('.arrow-up').show();
 		}
 

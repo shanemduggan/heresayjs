@@ -141,7 +141,8 @@ function placeMarkers(events) {
 					});
 				}
 
-				// The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+				// The API automatically applies 0.7 opacity to the button after the mouseout event. 
+				// This function reverses this event to the desired value.
 				iwCloseBtn.mouseout(function() {
 					$(this).css({
 						opacity : '0.7'
@@ -154,73 +155,6 @@ function placeMarkers(events) {
 	}
 
 	console.log('after creating markers we have: ' + Object.keys(markers).length, 'should have around: ' + events.length);
-}
-
-function reAddMarkers() {
-	console.log(markers);
-	for (var key in markers) {
-		if (!markers.hasOwnProperty(key))
-			continue;
-		(function(key) {
-			var marker = markers[key];
-			var myLatlng = new google.maps.LatLng(marker.__lat, marker.__lng);
-			var marker = new google.maps.Marker({
-				position : myLatlng,
-				__name : marker.__name,
-				__link : marker.__link,
-				__loc : marker.__loc,
-				__date : marker.__date,
-				__type : marker.__type,
-				__lng : marker.__lng,
-				__lat : marker.__lat,
-				map : map,
-			});
-
-			// var tooltip;
-			// tooltip = new Tooltip(marker.__name);
-			//
-			// // On mouseover, open the Tooltip
-			// google.maps.event.addListener(marker, 'mouseover', function(e) {
-			// tooltip.open(map, this);
-			// });
-			//
-			// // On mouseout, close the Tooltip
-			// google.maps.event.addListener(marker, 'mouseout', function() {
-			// tooltip.close();
-			// });
-
-			// var contentString = "<html class='infoWindow'><body><div class='infoWindow' style='text-align: center'><p><h4><a target='_blank' href='" + marker.__link + "'>" + marker.__name + "</a></h4>" + marker.__loc + "<br>" + marker.__date + "</p></div></body></html>";
-			// var infowindow = new google.maps.InfoWindow({
-			// content : contentString
-			// });
-
-			// marker.addListener('click', function() {
-			// infowindow.open(map, this);
-			// });
-			//
-			// marker.addListener('mouseover', function() {
-			// infoWindowOpen++;
-			// infowindow.open(map, this);
-			// setTimeout(function() {
-			// map.panTo(marker.position);
-			// }, 150);
-			// });
-			//
-			// marker.addListener('mouseout', function() {
-			// openInfoWindows.push(infowindow);
-			// setTimeout(function() {
-			// if (!($('.infoWindow:hover').length > 0))
-			// openInfoWindows[0].close();
-			// openInfoWindows.shift();
-			// }, 1500);
-			// });
-			//
-			// google.maps.event.addListener(marker, 'click', function() {
-			// window.open(this.__link, '_blank');
-			// });
-
-		})(key);
-	}
 }
 
 // need new event. change colors?
@@ -263,108 +197,3 @@ function returnMapState() {
 	map.setZoom(11);
 	centerMarker.setMap(null);
 }
-
-// function initMyMap() {
-// var losAngeles = {
-// lat : 34.0416,
-// lng : -118.328661
-// }
-// personalMap = new google.maps.Map(document.getElementById('personalMap'), {
-// zoom : 11,
-// center : losAngeles,
-// mapTypeControl : false
-// });
-// }
-
-// function show(id) {
-// var myid = $(id).find('a').text();
-// if (markers[myid]) {
-// map.panTo(markers[myid].position);
-// map.setZoom(13);
-// new google.maps.event.trigger(markers[myid], 'mouseover');
-// }
-//
-// }
-//
-// function hide(id) {
-// var myid = $(id).find('a').text();
-// if (markers[myid])
-// new google.maps.event.trigger(markers[myid], 'mouseout');
-// }
-
-// function returnMapState() {
-// var losAngeles = {
-// lat : 34.0416,
-// lng : -118.328661
-// }
-//
-// var centerLoc = new window.google.maps.LatLng(losAngeles.lat, losAngeles.lng);
-// var centerMarker = new google.maps.Marker({
-// position : centerLoc,
-// map : map,
-// animation : google.maps.Animation.DROP
-// });
-//
-// map.panTo(centerMarker.position);
-// map.setZoom(11);
-// centerMarker.setMap(null);
-// }
-
-/*function addToPersonalMap(event) {
- // if (!event.lat)
- // return;
-
- console.log($(event).text());
- if ($(event).text())
- var name = $(event).text();
- else
- return;
- // var locationFound = _.find(markers, function(m) {
- // return l.location === event.locationName;
- // });
- var oldMarker = markers[name];
- if (!oldMarker)
- return;
-
- var marker = new google.maps.Marker({
- position : oldMarker.position,
- __name : oldMarker.__name,
- __link : oldMarker.__detailPage,
- __date : oldMarker.__date,
- __type : oldMarker.__type,
- map : personalMap,
- animation : google.maps.Animation.DROP
- });
-
- var locationName = "";
- var contentString = "<html><body><div class='infoWindow'><p><h4><a target='_blank' href='" + oldMarker.__detailPage + "'>" + oldMarker.__name + "</a></h4>" + locationName + "<br>" + oldMarker.__date + "</p></div></body></html>";
- var infowindow = new google.maps.InfoWindow({
- content : contentString
- });
-
- marker.addListener('mouseover', function() {
- //infoWindowOpen++;
- infowindow.open(map, this);
- });
-
- marker.addListener('mouseout', function() {
- //if (infoWindowOpen < 5) {
- //	setTimeout(function() {
- //		infoWindowOpen--;
- infowindow.close();
- //	}, 3000);
- //} else {
- //	setTimeout(function() {
- //	infoWindowOpen--;
- //		infowindow.close();
- //	}, 100);
- //}
- });
-
- google.maps.event.addListener(marker, 'click', function() {
- window.open(this.__link, '_blank');
- });
-
- //markers[event.name] = marker;
- console.log('added ' + event + ' to personal map');
- }*/

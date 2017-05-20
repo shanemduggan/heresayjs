@@ -54,7 +54,8 @@ select:focus {
 }
 
 #map_canvas {
-	width: 79.5%;
+	/*width: 79.5%;*/
+	width: 80%;
 	display: inline-block;
 	float: left;
 }
@@ -112,7 +113,7 @@ a:hover, a:active {
 	text-decoration: none;
 }
 
-#gutter {
+/*#gutter {
 	width: .5%;
 	background-color: black;
 	float: left;
@@ -120,7 +121,7 @@ a:hover, a:active {
 
 #gutter:hover {
 	background-color: white;
-}
+}*/
 
 .messagepop {
 	background-color: #FFFFFF;
