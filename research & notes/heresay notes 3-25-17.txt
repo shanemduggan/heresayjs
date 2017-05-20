@@ -1,0 +1,122 @@
+
+
+Database flow
+
+
+> Run crawls
+> Load event data in to collection
+
+Currently need to save events after all crawls have been completed
+Events have location name and address
+
+
+> Create json file for locations and get lat/lng
+
+Create file with just location names and addresses
+Run geocoding on these and save to db
+
+
+
+> How to associate event location with location collection
+
+
+Now we have roughly 2,000 geocoded locations
+
+
+
+> Associating locations and events
+
+_id: "The EchoPlex"
+
+location_id: "The EchoPlex"
+
+
+{
+   _id: "joe",
+}
+
+{
+   patron_id: "joe",
+   street: "123 Fake Street",
+}
+
+
+
+_____________________________________________
+| Locations	|	Events	 	    |
+| Address	-->	Name 		    |
+| Coordinates	|	Date		    |
+|		|	Type		    |
+|		|	Location	    |
+|_______________|___________________________|
+
+
+
+Get all events from date
+Get all locations for events
+
+
+
+
+
+
+
+> Load event data into db for storage (done)
+
+> Geocode addresses and save locations
+
+> Build up db of locations
+  - 2000 locations currently
+
+> No more markers on load, implementing date filter - create marker cluster for dates
+
+> Alleviate front end from having to geocode everytime
+
+> Important to cache location addresses and their coordiantes
+
+
+
+Mongo node docs:
+https://www.npmjs.com/package/mongodb
+http://mongodb.github.io/node-mongodb-native/
+http://mongodb.github.io/node-mongodb-native/2.2/api/
+
+
+
+Run node modules from cmd:
+http://justindavis.co/2014/11/16/running-node-modules-from-the-command-line/
+
+
+
+Mongo info:
+http://mongodb.github.io/node-mongodb-native/2.2/tutorials/connect/
+http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/
+https://docs.mongodb.com/manual/reference/command/
+
+
+
+
+Firebase:
+https://crisp.im/blog/why-you-should-never-use-firebase-realtime-database/
+
+
+
+
+Geocoding on server side:
+
+
+https://www.npmjs.com/package/node-geocoder
+https://github.com/googlemaps/google-maps-services-js
+https://github.com/moshen/node-googlemaps
+
+
+
+
+
+Marker clustering:
+http://stackoverflow.com/questions/32565950/loading-100-200k-markers-on-google-map
+
+
+
+
+
