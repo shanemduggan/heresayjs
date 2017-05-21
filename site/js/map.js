@@ -21,12 +21,18 @@ function initMap() {
 	google.maps.event.addListener(map, "click", function(event) {
 		$('.pop').hide();
 	});
+	var centerCoords = new google.maps.LatLng(34.0416, -118.328661);
+	centerMarker = new google.maps.Marker({
+		map : map,
+		visible : false,
+		position : centerCoords
+	});
 }
 
 function placeMarkers(events) {
 	if (appType == 'mobile')
 		return;
-	
+
 	if (events.length)
 		console.log('# of events pre-clean: ' + events.length);
 
@@ -168,7 +174,7 @@ function clearMarkers() {
 function returnMapState() {
 	if (appType == 'mobile')
 		return;
-	
+
 	var centerLoc = new window.google.maps.LatLng(34.0416, -118.328661);
 	var centerMarker = new google.maps.Marker({
 		position : centerLoc,
