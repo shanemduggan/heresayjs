@@ -5,6 +5,7 @@ var types = [];
 var eventData = [];
 var locationData = [];
 var openCards = [];
+var appType = '';
 
 var currentMonth = new Date().getMonth() + 1;
 var monthName = getMonthName(currentMonth);
@@ -50,37 +51,59 @@ function getJson(eventdir, locationdir) {
 			}
 		}
 
+		// test sorry message
+		//locationData = [];
+		//eventData = [];
+		
+		if ($('html').width() <= 480)
+			appType = 'mobile';
+
 		if (locationData.length && eventData.length) {
-			initMap();
+			if (appType != 'mobile')
+				initMap();
 			afterDataLoaded();
-		} else
+		} else {
 			$('#wrapper').hide();
+			$('#sorryMessage').show();
+		}
 	});
 }
 
 function afterDataLoaded() {
 	var browserWidth = $('html').width();
 	var browserHeight = $('html').height();
-	var headerHeight = Math.ceil(browserHeight * .07);
-	var mapHeight = Math.ceil(browserHeight * .93);
 
-	$('#header').height(headerHeight);
-	$('#dateFilter').height(headerHeight);
-	$('#dateFilter select').height(headerHeight - 2);
-	$('#typeFilter').height(headerHeight);
-	$('#typeFilter select').height(headerHeight - 2);
-	$('#map_canvas').height(mapHeight);
-	$('#sidebar').height(mapHeight);
+	if (browserWidth > 480) {
+		var headerHeight = Math.ceil(browserHeight * .07);
+		var mapHeight = Math.ceil(browserHeight * .93);
 
-	$("#selectDate").val('1').trigger('change');
-	$("#selectType").val('2').trigger('change');
+		$('#header').height(headerHeight);
+		$('#dateFilter').height(headerHeight);
+		$('#dateFilter select').height(headerHeight - 2);
+		$('#typeFilter').height(headerHeight);
+		$('#typeFilter select').height(headerHeight - 2);
+		$('#map_canvas').height(mapHeight);
+		$('#sidebar').height(mapHeight);
 
-	// $('.close').click(function() {
-	// $('.pop').hide();
-	// $('#popName').html('');
-	// $('#popDateType').html('');
-	// return false;
-	// });
+		$("#selectDate").val('1').trigger('change');
+		$("#selectType").val('2').trigger('change');
+	} else {
+		$('#map_canvas').hide();
+
+		var headerHeight = Math.ceil(browserHeight * .07);
+		var sideBarHeight = Math.ceil(browserHeight * .93);
+
+		$('#header').height(headerHeight);
+		$('#sidebar').height(sideBarHeight);
+		$('#sidebar').width(browserWidth);
+		$('#dateFilter').height(headerHeight);
+		$('#dateFilter select').height(headerHeight - 2);
+		$('#typeFilter').height(headerHeight);
+		$('#typeFilter select').height(headerHeight - 2);
+
+		$("#selectDate").val('1').trigger('change');
+		$("#selectType").val('2').trigger('change');
+	}
 }
 
 function showCard(ele, action) {
