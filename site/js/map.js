@@ -41,7 +41,17 @@ function placeMarkers(events) {
 		console.log('# of unique events: ' + events.length);
 
 	for (var i = 0; i < events.length; i++) {
-		if (!events[i].lat)
+		//if (!events[i].lat)
+		//	continue;
+		var event = events[i];
+		var location = _.find(locationData, function(l) {
+			return l.address == event.address;
+		});
+		
+		if (location)
+			console.log(location);
+		
+		if (!location)
 			continue;
 
 		(function(i) {
@@ -61,7 +71,8 @@ function placeMarkers(events) {
 			});
 
 			if (events[i].name.length > 50) {
-				var fullName = events[i].name; events[i].name.replace(/^(.{50}[^\s]*).*/, "$1") + "\n";
+				var fullName = events[i].name;
+				events[i].name.replace(/^(.{50}[^\s]*).*/, "$1") + "\n";
 				var title = '<div class="iw-title" title="' + fullName + '"><a target="_blank" href="' + events[i].detailPage + '">' + events[i].name + '</a></div>';
 			} else
 				var title = '<div class="iw-title"><a target="_blank" href="' + events[i].detailPage + '">' + events[i].name + '</a></div>';
@@ -70,11 +81,12 @@ function placeMarkers(events) {
 			events[i].type = getFilterOption(events[i].type);
 			var type = '<p>' + events[i].type + '</p>';
 
-			var fbShare = '<button class="fb-share-button" data-href="' + events[i].detailPage + '"' + 'data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank"' + 'href="https://www.facebook.com/sharer/sharer.php?u=' + events[i].detailPage + '&amp;src=sdkpreparse">Share on Facebook</a></button>';
+			var fbShare = '<button class="fb-share-button" data-href="' + events[i].detailPage + '"' + 'data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank"' + 'href="https://www.facebook.com/sharer/sharer.php?u=' + events[i].detailPage + '&amp;src=sdkpreparse">Share</a></button>';
 
 			var lengthOfTweet = events[i].detailPage.length + events[i].name.length + 25;
-			var twitterShare = '<button id="twitterButton"><a target="_blank" href="https://twitter.com/share?url=' + events[i].detailPage + '&text=Found this on HereSay - ' + events[i].name + '"</a>Share on Twitter</button>';
-			var content = '<div id="iw-container">' + title + '<div class="iw-content">' + '<p></p>' + date + type + fbShare + twitterShare + '</div>' + '<div class="iw-bottom-gradient"></div>' + '</div>';
+			var twitterShare = '<button id="twitterButton"><a target="_blank" href="https://twitter.com/share?url=' + events[i].detailPage + '&text=Found this on HereSay - ' + events[i].name + '"</a>Tweet</button>';
+			//var content = '<div id="iw-container">' + title + '<div class="iw-content">' + '<p></p>' + date + type + fbShare + twitterShare + '</div>' + '<div class="iw-bottom-gradient"></div>' + '</div>';
+			var content = '<div id="iw-container">' + title + '<div class="iw-content">' + date + '<br/><p>' + fbShare + twitterShare + '</p></div></div>';
 
 			var infowindow = new google.maps.InfoWindow({
 				content : content,
@@ -99,9 +111,9 @@ function placeMarkers(events) {
 				infowindow.close();
 			});
 
-			marker.addListener('mouseover', function() {
-				toggleBounce(marker);
-			});
+			// marker.addListener('mouseover', function() {
+			// toggleBounce(marker);
+			// });
 
 			google.maps.event.addListener(infowindow, 'domready', function() {
 				var iwOuter = $('.gm-style-iw');
@@ -139,19 +151,12 @@ function placeMarkers(events) {
 }
 
 function toggleBounce(marker) {
-	// if (marker.getAnimation() !== null) {
-	// marker.setAnimation(null);
-	// } else {
-	// marker.setAnimation(google.maps.Animation.BOUNCE);
-	// }
-
 	marker.setAnimation(google.maps.Animation.BOUNCE);
 	var interval = 700 * (Math.floor(Math.random() * 5) + 1);
 
 	setTimeout(function() {
 		marker.setAnimation(null);
 	}, interval);
-	//}, 1400);
 }
 
 function toggleDrop(marker) {

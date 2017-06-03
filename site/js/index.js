@@ -24,8 +24,9 @@ var dateTypeEvents = [];
 var typeDateEvents = [];
 
 $(window).on('load', function() {
-	var eventdir = '../data/crawldata/' + monthName + '/mayEvents.json';
-	var locationdir = '../data/locationdata/mayLocationsGeo.json';
+	//var eventdir = '../data/crawldata/' + monthName + '/' + monthName + 'Events.json';
+	var eventdir = '../data/crawldata/june/juneEvents.json';
+	var locationdir = '../data/locationdata/' + monthName + 'LocationsGeo.json';
 	getJson(eventdir, locationdir);
 	setUpFilters();
 });
@@ -47,7 +48,7 @@ function getJson(eventdir, locationdir) {
 					data[i].date = data[i].date.split('-')[0];
 				}
 
-				if (parseInt(data[i].date.match(/\d+/)) >= new Date().getDate())
+				if (parseInt(data[i].date.match(/\d+/)[0]) >= new Date().getDate())
 					eventData.push(data[i]);
 			}
 		}
@@ -68,6 +69,7 @@ function getJson(eventdir, locationdir) {
 			$('#sorryMessage').show();
 		}
 	});
+
 }
 
 function afterDataLoaded() {
@@ -112,16 +114,25 @@ function showCard(ele, action) {
 	if (name) {
 		var marker = markers[name];
 		if (marker) {
-			if (action == 'hover')
-				toggleDrop(marker);
-			else if (action == 'click') {
+			if (action == 'hover') {
+				//toggleDrop(marker);
+				toggleBounce(marker);
+			} else if (action == 'click') {
 				google.maps.event.trigger(marker, 'click');
 			}
 			//} else {
 		} else if (action == 'click') {
 			// show card with hidden marker
 
-			var content = '<div id="iw-container"><div class="iw-title"><a target="_blank" href="http://www.laweekly.com/event/tag-gallery-reopening-show-artists-reception-8141010">TAG Gallery Reopening Show Artists Reception</a></div><div class="iw-content"><p></p><div class="iw-subTitle">May 20 @ TAG Gallery</div><p>Art</p><button class="fb-share-button" data-href="http://www.laweekly.com/event/tag-gallery-reopening-show-artists-reception-8141010"data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank"href="https://www.facebook.com/sharer/sharer.php?u=http://www.laweekly.com/event/tag-gallery-reopening-show-artists-reception-8141010&amp;src=sdkpreparse">Share on Facebook</a></button><button id="twitterButton"><a target="_blank" href="https://twitter.com/share?url=http://www.laweekly.com/event/tag-gallery-reopening-show-artists-reception-8141010&text=Found this on HereSay - TAG Gallery Reopening Show Artists Reception"</a>Share on Twitter</button></div><div class="iw-bottom-gradient"></div></div>';
+			// cachedDateEvents
+			var event = _.find(eventData, function(e) {
+				return e.name == name;
+			});
+
+			var fbButton = '<button class="fb-share-button" data-href="' + event.detailPage + '"data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank"href="https://www.facebook.com/sharer/sharer.php?u=' + event.detailPage + '&amp;src=sdkpreparse">Share</a></button>';
+			var twitterButton = '<button id="twitterButton"><a target="_blank" href="https://twitter.com/share?url=' + event.detailPage + '&text=Found this on HereSay - ' + name + '"</a>Tweet</button>';
+			var content = '<div id="iw-container"><div class="iw-title"><a target="_blank" href="' + event.detailPage + '">' + name + '</a></div><div class="iw-content"><div class="iw-subTitle">' + event.date + ' @ ' + event.locationName + '</div><br/><p>' + fbButton + twitterButton + '</p></div></div>';
+
 			var infowindow = new google.maps.InfoWindow({
 				content : content,
 				maxWidth : 350

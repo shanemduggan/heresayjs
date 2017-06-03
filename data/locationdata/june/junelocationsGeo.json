@@ -1,0 +1,3117 @@
+[{
+	"location": "New Beverly Cinema",
+	"address": "7165 Beverly Blvd. Los Angeles, ",
+	"formattedAddress": "7165 Beverly Blvd, Los Angeles, CA 90036, USA",
+	"lat": 34.0764408,
+	"lng": -118.3457564,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Gallery 1988 West",
+	"address": "7308 Melrose Ave. Los Angeles, ",
+	"formattedAddress": "7308 Melrose Ave, Los Angeles, CA 90046, USA",
+	"lat": 34.08331140000001,
+	"lng": -118.3490178,
+	"zipcode": "90046",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "The Reef",
+	"address": "1933 S. Broadway Ave. Los Angeles, Downtown / LA Metro 90007",
+	"formattedAddress": "1933 S Broadway #409, Los Angeles, CA 90007, USA",
+	"lat": 34.031115,
+	"lng": -118.266445,
+	"zipcode": "90007",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "The Broad",
+	"address": "221 S. Grand Ave. Los Angeles, California 90012 213-232-6200",
+	"formattedAddress": "221 S Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0544656,
+	"lng": -118.2505568,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Museum of Contemporary Art (The Geffen Contemporary at MOCA)",
+	"address": "152 N. Central Ave. Los Angeles, ",
+	"formattedAddress": "152 N Central Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.049694,
+	"lng": -118.2390978,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Son of Semele",
+	"address": "3301 Beverly Blvd. Los Angeles, ",
+	"formattedAddress": "3301 Beverly Blvd, Los Angeles, CA 90004, USA",
+	"lat": 34.073261,
+	"lng": -118.2847325,
+	"zipcode": "90004",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Geffen Playhouse",
+	"address": "10886 Le Conte Ave. Los Angeles, ",
+	"formattedAddress": "10886 Le Conte Ave, Los Angeles, CA 90024, USA",
+	"lat": 34.0630407,
+	"lng": -118.4440547,
+	"zipcode": "90024",
+	"city": "Los Angeles",
+	"neighborhood": "Westwood"
+}, {
+	"location": "JOAN",
+	"address": "4300 W. Jefferson Blvd. Los Angeles, ",
+	"formattedAddress": "4300 W Jefferson Blvd, Los Angeles, CA 90016, USA",
+	"lat": 34.0253401,
+	"lng": -118.3430869,
+	"zipcode": "90016",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "California African American Museum",
+	"address": "600 State Drive, Exposition Park Los Angeles, ",
+	"formattedAddress": "600 State Dr, Los Angeles, CA 90037, USA",
+	"lat": 34.0158918,
+	"lng": -118.2834514,
+	"zipcode": "90037",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "Hollywood Bowl",
+	"address": "2301 N. Highland Ave. Los Angeles, ",
+	"formattedAddress": "2301 Highland Ave, Los Angeles, CA 90068, USA",
+	"lat": 34.1127392,
+	"lng": -118.3388562,
+	"zipcode": "90068",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood Hills"
+}, {
+	"location": "Zebulon",
+	"address": "2478 Fletcher Dr. Los Angeles, ",
+	"formattedAddress": "2478 Fletcher Dr, Los Angeles, CA 90039, USA",
+	"lat": 34.1071933,
+	"lng": -118.2547325,
+	"zipcode": "90039",
+	"city": "Los Angeles"
+}, {
+	"location": "Sacred Fools Theater",
+	"address": "1078 Lillian Way Hollywood, ",
+	"formattedAddress": "1078 Lillian Way, Los Angeles, CA 90038, USA",
+	"lat": 34.09045880000001,
+	"lng": -118.327609,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Character Projects",
+	"address": "6042 Monte Vista St. Los Angeles, ",
+	"formattedAddress": "6042 Monte Vista St, Los Angeles, CA 90042, USA",
+	"lat": 34.1137715,
+	"lng": -118.1900498,
+	"zipcode": "90042",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Mas Malo",
+	"address": "515 W. Seventh St. Los Angeles, ",
+	"formattedAddress": "515 W 7th St, Los Angeles, CA 90014, USA",
+	"lat": 34.047132,
+	"lng": -118.2558135,
+	"zipcode": "90014",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "St. Cornelius Catholic Church",
+	"address": "5500 E. Wardlow Rd. Long Beach, ",
+	"formattedAddress": "5500 E Wardlow Rd, Long Beach, CA 90808, USA",
+	"lat": 33.8184305,
+	"lng": -118.1240797,
+	"zipcode": "90808",
+	"city": "Long Beach",
+	"neighborhood": "South of Conant"
+}, {
+	"location": "Amplyfi",
+	"address": "5617 Melrose Ave. Los Angeles, ",
+	"formattedAddress": "5617 Melrose Ave, Los Angeles, CA 90038, USA",
+	"lat": 34.0837318,
+	"lng": -118.322817,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Night Gallery",
+	"address": "2276 E. 16th St. Los Angeles, ",
+	"formattedAddress": "2276 E 16th St, Los Angeles, CA 90021, USA",
+	"lat": 34.0197767,
+	"lng": -118.23173,
+	"zipcode": "90021",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "The Park Restaurant",
+	"address": "1400 Sunset Blvd. Los Angeles, ",
+	"formattedAddress": "1400 Sunset Blvd, Los Angeles, CA 90026, USA",
+	"lat": 34.0742603,
+	"lng": -118.252415,
+	"zipcode": "90026",
+	"city": "Los Angeles",
+	"neighborhood": "Echo Park"
+}, {
+	"location": "The Frog Spot",
+	"address": "2825 Benedict St. Los Angeles, ",
+	"formattedAddress": "2825 Benedict St, Los Angeles, CA 90039, USA",
+	"lat": 34.10108,
+	"lng": -118.243121,
+	"zipcode": "90039",
+	"city": "Los Angeles",
+	"neighborhood": "Echo Park"
+}, {
+	"location": "Warner Center Park",
+	"address": "5800 Topanga Canyon Blvd. Woodland Hills, ",
+	"formattedAddress": "5800 Topanga Canyon Blvd, Woodland Hills, CA 91367, USA",
+	"lat": 34.1753396,
+	"lng": -118.6057517,
+	"zipcode": "91367",
+	"city": "Los Angeles",
+	"neighborhood": "Woodland Hills"
+}, {
+	"location": "Children's Book World",
+	"address": "10580 1/2 W. Pico Blvd. Los Angeles, ",
+	"formattedAddress": "10615 1/2 W Pico Blvd, Los Angeles, CA 90064, USA",
+	"lat": 34.0433793,
+	"lng": -118.4226656,
+	"zipcode": "90064",
+	"city": "Los Angeles",
+	"neighborhood": "Rancho Park"
+}, {
+	"location": "3Labs",
+	"address": "8461 Warner Dr. Culver City, ",
+	"formattedAddress": "8461 Warner Dr, Culver City, CA 90232, USA",
+	"lat": 34.0236083,
+	"lng": -118.3792257,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Lucerne - Higuera"
+}, {
+	"location": "Pershing Square",
+	"address": "532 S. Olive St. Los Angeles, ",
+	"formattedAddress": "532 S Olive St, Los Angeles, CA 90013, USA",
+	"lat": 34.0485099,
+	"lng": -118.2532776,
+	"zipcode": "90013",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "The Colburn School of Music, Thayer Hall",
+	"address": "200 S. Grand Ave. Los Angeles, ",
+	"formattedAddress": "200 S Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0540039,
+	"lng": -118.2498686,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "UCLA Tamkin Auditorium",
+	"address": "757 Westwood Plaza Los Angeles, ",
+	"formattedAddress": "757 Westwood Plaza, Los Angeles, CA 90095, USA",
+	"lat": 34.0664494,
+	"lng": -118.4463318,
+	"zipcode": "90095",
+	"city": "Los Angeles",
+	"neighborhood": "Westwood"
+}, {
+	"location": "Jesse Owens Park",
+	"address": "9651 S. Western Ave. Los Angeles, ",
+	"formattedAddress": "9651 S Western Ave, Los Angeles, CA 90047, USA",
+	"lat": 33.946177,
+	"lng": -118.310779,
+	"zipcode": "90047",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "Sacred Fools Theater Studio",
+	"address": "1078 Lillian Way Los Angeles, ",
+	"formattedAddress": "1078 Lillian Way, Los Angeles, CA 90038, USA",
+	"lat": 34.09045880000001,
+	"lng": -118.327609,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Beverly Hills Public Library",
+	"address": "444 N. Rexford Dr. Beverly Hills, California 90210 310-288-2244",
+	"formattedAddress": "Beverly Hills Public Library, 444 N Rexford Dr, Beverly Hills, CA 90210, USA",
+	"lat": 34.0730103,
+	"lng": -118.399058,
+	"zipcode": "90210",
+	"city": "Beverly Hills"
+}, {
+	"location": "Olsons Scandinavian Deli",
+	"address": "5660 W. Pico Blvd. Los Angeles, ",
+	"formattedAddress": "5660 W Pico Blvd, Los Angeles, CA 90019, USA",
+	"lat": 34.050312,
+	"lng": -118.3621224,
+	"zipcode": "90019",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "BILLINGS Auction House",
+	"address": "1919 Bay St. Los Angeles, California 90021 213-947-3784",
+	"formattedAddress": "1919 Bay St, Los Angeles, CA 90021, USA",
+	"lat": 34.0317947,
+	"lng": -118.2332963,
+	"zipcode": "90021",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Avenue 50 Studio",
+	"address": "131 N. Ave. 50 Highland Park, ",
+	"formattedAddress": "131 N Avenue 50, Los Angeles, CA 90042, USA",
+	"lat": 34.1059648,
+	"lng": -118.2025694,
+	"zipcode": "90042",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "West Hollywood Public Library",
+	"address": "625 N. San Vicente Blvd. West Hollywood, California 90069 310-652-5340",
+	"formattedAddress": "625 N San Vicente Blvd, West Hollywood, CA 90069, USA",
+	"lat": 34.0818442,
+	"lng": -118.384113,
+	"zipcode": "90069",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Lure Film Studios",
+	"address": "671 N. Berendo St. Los Angeles, California 90004 805-895-5143",
+	"formattedAddress": "671 N Berendo St, Los Angeles, CA 90004, USA",
+	"lat": 34.0832878,
+	"lng": -118.2941745,
+	"zipcode": "90004",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Palace Theatre",
+	"address": "630 S. Broadway Los Angeles, ",
+	"formattedAddress": "630 S Broadway, Los Angeles, CA 90014, USA",
+	"lat": 34.0457263,
+	"lng": -118.252351,
+	"zipcode": "90014",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Oak Creek Golf Club",
+	"address": "1 Golf Club Dr. Irvine, ",
+	"formattedAddress": "1 Golf Club Dr, Irvine, CA 92618, USA",
+	"lat": 33.6769321,
+	"lng": -117.7707106,
+	"zipcode": "92618",
+	"city": "Irvine",
+	"neighborhood": "Oak Creek"
+}, {
+	"location": "Beckman Institute Auditorium",
+	"address": "400 S. Wilson Ave. Pasadena, ",
+	"formattedAddress": "400 S Wilson Ave, Pasadena, CA 91106, USA",
+	"lat": 34.1390183,
+	"lng": -118.1267315,
+	"zipcode": "91106",
+	"city": "Pasadena"
+}, {
+	"location": "BlueCollar Working Dog",
+	"address": "1320 Glendale Blvd Los Angeles, ",
+	"formattedAddress": "1320 Glendale Blvd, Los Angeles, CA 90026, USA",
+	"lat": 34.07863200000001,
+	"lng": -118.259735,
+	"zipcode": "90026",
+	"city": "Los Angeles",
+	"neighborhood": "Echo Park"
+}, {
+	"location": "Desert View Tower",
+	"address": "48652-48682 In-Koh-Pa Park Rd. Jacumba, "
+}, {
+	"location": "Ramon C. Cortines School of Visual & Performing Arts",
+	"address": "450 N. Grand Ave. Los Angeles, ",
+	"formattedAddress": "450 N Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0599295,
+	"lng": -118.2442035,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Downtown Santa Monica, Metro Expo Station",
+	"address": "402 Colorado Ave. Santa Monica, ",
+	"formattedAddress": "402 Colorado Ave, Santa Monica, CA 90401, USA",
+	"lat": 34.0139778,
+	"lng": -118.4914584,
+	"zipcode": "90401",
+	"city": "Santa Monica"
+}, {
+	"location": "The Museum of Tolerance",
+	"address": "9786 W. Pico Blvd. Los Angeles, ",
+	"formattedAddress": "9786 W Pico Blvd, Los Angeles, CA 90035, USA",
+	"lat": 34.053697,
+	"lng": -118.401716,
+	"zipcode": "90035",
+	"city": "Los Angeles",
+	"neighborhood": "Pico - Robertson"
+}, {
+	"location": "Diesel, A Bookstore in Brentwood",
+	"address": "225 26th St. Santa Monica, ",
+	"formattedAddress": "225 26th St, Santa Monica, CA 90402, USA",
+	"lat": 34.04765280000001,
+	"lng": -118.4905284,
+	"zipcode": "90402",
+	"city": "Santa Monica",
+	"neighborhood": "Brentwood"
+}, {
+	"location": "Los Angeles LGBT Center's Renberg Theatre",
+	"address": "1125 N. McCadden Los Angeles, ",
+	"formattedAddress": "1125 N McCadden Pl, Los Angeles, CA 90038, USA",
+	"lat": 34.0918968,
+	"lng": -118.3376887,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "LA Plaza de Cultura y Artes",
+	"address": "501 N. Main St. Los Angeles, ",
+	"formattedAddress": "501 N Main St, Los Angeles, CA 90012, USA",
+	"lat": 34.0564554,
+	"lng": -118.2398448,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Los Feliz Village",
+	"address": "Hillhurst at Franklin Los Angeles, ",
+	"formattedAddress": "Franklin Ave & Hillhurst Ave, Los Angeles, CA 90027, USA",
+	"lat": 34.105421,
+	"lng": -118.2874489,
+	"zipcode": "90027",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Downtown Los Angeles",
+	"address": "Downtown Los Angeles, ",
+	"formattedAddress": "Downtown, Los Angeles, CA, USA",
+	"lat": 34.040713,
+	"lng": -118.2467693,
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "The Hudson Theatres",
+	"address": "6539 Santa Monica Blvd. Los Angeles, ",
+	"formattedAddress": "6539 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0909327,
+	"lng": -118.3322547,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Self Help Graphics & Art",
+	"address": "1300 E. 1st St. Los Angeles, ",
+	"formattedAddress": "1300 E 1st St, Los Angeles, CA 90033, USA",
+	"lat": 34.0473649,
+	"lng": -118.226468,
+	"zipcode": "90033",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Private Gallery",
+	"address": "929 E. 2nd St. Los Angeles, California 90012 424-279-9424",
+	"formattedAddress": "929 E 2nd St, Los Angeles, CA 90012, USA",
+	"lat": 34.04758899999999,
+	"lng": -118.2341523,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Barnes and Noble",
+	"address": "23630 Valencia Blvd Santa Clarita, ",
+	"formattedAddress": "23630 Valencia Blvd, Santa Clarita, CA 91355, USA",
+	"lat": 34.4165129,
+	"lng": -118.5483184,
+	"zipcode": "91355",
+	"city": "Santa Clarita"
+}, {
+	"location": "Battleship Iowa",
+	"address": "250 S. Harbor Blvd. Los Angeles, "
+}, {
+	"location": "Action Fund for the Blind: Creators of Twin Vision Books",
+	"address": "18440 Oxnard St. Tarzana, ",
+	"formattedAddress": "18440 Oxnard St, Tarzana, CA 91356, USA",
+	"lat": 34.1798048,
+	"lng": -118.5349751,
+	"zipcode": "91356",
+	"city": "Los Angeles",
+	"neighborhood": "Tarzana"
+}, {
+	"location": "South Robertson Community Street Festival",
+	"address": "2801 S. Robertson Blvd. Los Angeles, ",
+	"formattedAddress": "2801 Robertson Blvd, Los Angeles, CA 90034, USA",
+	"lat": 34.0366894,
+	"lng": -118.3891037,
+	"zipcode": "90034",
+	"city": "Los Angeles",
+	"neighborhood": "Beverlywood"
+}, {
+	"location": "Laemmle Ahrya Fine Arts",
+	"address": "8556 Wilshire Blvd. Beverly Hills, ",
+	"formattedAddress": "8556 Wilshire Blvd, Beverly Hills, CA 90211, USA",
+	"lat": 34.0653227,
+	"lng": -118.3779504,
+	"zipcode": "90211",
+	"city": "Beverly Hills"
+}, {
+	"location": "Sacred Fools Theater — Black Box",
+	"address": "6322 Santa Monica Blvd. Los Angeles, ",
+	"formattedAddress": "6322 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905417,
+	"lng": -118.327535,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Culver City Senior Center",
+	"address": "4095 Overland Ave. Culver City, California 90232 818-353-5734",
+	"formattedAddress": "4095 Overland Ave, Culver City, CA 90232, USA",
+	"lat": 34.0138985,
+	"lng": -118.4031826,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Washington Culver"
+}, {
+	"location": "Monrovia Library Park",
+	"address": "321 S. Myrtle Ave. Monrovia, ",
+	"formattedAddress": "321 S Myrtle Ave, Monrovia, CA 91016, USA",
+	"lat": 34.1486232,
+	"lng": -118.0022547,
+	"zipcode": "91016",
+	"city": "Monrovia"
+}, {
+	"location": "Harvard & Stone",
+	"address": "5221 Hollywood Blvd. Los Angeles, ",
+	"formattedAddress": "5221 Hollywood Blvd, Los Angeles, CA 90027, USA",
+	"lat": 34.1019041,
+	"lng": -118.3042997,
+	"zipcode": "90027",
+	"city": "Los Angeles",
+	"neighborhood": "Los Feliz"
+}, {
+	"location": "Asylum  Studio C",
+	"address": "6448 Santa Monica Blvd. Los Angeles, ",
+	"formattedAddress": "6448 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905205,
+	"lng": -118.3304997,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Microsoft Store Westfield Topanga",
+	"address": "6600 Topanga Canyon Blvd Canoga Park, ",
+	"formattedAddress": "6600 Topanga Canyon Blvd, Canoga Park, CA 91303, USA",
+	"lat": 34.1854111,
+	"lng": -118.6045941,
+	"zipcode": "91303",
+	"city": "Los Angeles",
+	"neighborhood": "Canoga Park"
+}, {
+	"location": "The McLoughlin Gallery",
+	"address": "49 Geary St. San Francisco, ",
+	"formattedAddress": "49 Geary St, San Francisco, CA 94108, USA",
+	"lat": 37.787698,
+	"lng": -122.4042883,
+	"zipcode": "94108",
+	"city": "San Francisco",
+	"neighborhood": "Financial District"
+}, {
+	"location": "Olvera Street",
+	"address": "845 N. Alameda St. Los Angeles, ",
+	"formattedAddress": "845 North Alameda Street, Los Angeles, CA 90012, USA",
+	"lat": 34.0574412,
+	"lng": -118.2376558,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Gallery 417",
+	"address": "417 S. Hill St Los Angeles, California 90013 213-620-0095",
+	"formattedAddress": "417 Hill St, Los Angeles, CA 90013, USA",
+	"lat": 34.0500845,
+	"lng": -118.2511794,
+	"zipcode": "90013",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Flappers Comedy Club Burbank",
+	"address": "102 E. Magnolia Blvd. Burbank, ",
+	"formattedAddress": "102 E Magnolia Blvd, Burbank, CA 91502, USA",
+	"lat": 34.181928,
+	"lng": -118.3125083,
+	"zipcode": "91502",
+	"city": "Burbank"
+}, {
+	"location": "Civita Park",
+	"address": "7960 Civita Blvd. San Diego, Ca 92108 800-888-8888",
+	"formattedAddress": "7960 Civita Blvd, San Diego, CA 92108, USA",
+	"lat": 32.7774486,
+	"lng": -117.1506029,
+	"zipcode": "92108",
+	"city": "San Diego",
+	"neighborhood": "Serra Mesa"
+}, {
+	"location": "Macgowan Little Theater, UCLA",
+	"address": "245 Charles E. Young Drive East Los Angeles, ",
+	"formattedAddress": "Macgowan Hall, 245 Charles E Young Dr E, Los Angeles, CA 90095, USA",
+	"lat": 34.0758815,
+	"lng": -118.4396813,
+	"zipcode": "90095",
+	"city": "Los Angeles",
+	"neighborhood": "Westwood"
+}, {
+	"location": "The Point",
+	"address": "850 S. Sepulveda Blvd. El Segundo, ",
+	"formattedAddress": "850 S Sepulveda Blvd, El Segundo, CA 90245, USA",
+	"lat": 33.9031445,
+	"lng": -118.3954149,
+	"zipcode": "90245",
+	"city": "El Segundo"
+}, {
+	"location": "Caliber Collision",
+	"address": "3020 Riverside Dr. Los Angeles, ",
+	"formattedAddress": "3020 Riverside Dr, Los Angeles, CA 90039, USA",
+	"lat": 34.111901,
+	"lng": -118.2673221,
+	"zipcode": "90039",
+	"city": "Los Angeles",
+	"neighborhood": "Silver Lake"
+}, {
+	"location": "The Roar Room",
+	"address": "3645 Foothill Blvd. La Crescenta, ",
+	"formattedAddress": "3645 Foothill Blvd, La Crescenta, CA 91214, USA",
+	"lat": 34.2362374,
+	"lng": -118.258962,
+	"zipcode": "91214",
+	"city": "Glendale",
+	"neighborhood": "La Crescenta"
+}, {
+	"location": "Grand Park",
+	"address": "200 N. Grand Ave. Los Angeles, ",
+	"formattedAddress": "200 N Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0562797,
+	"lng": -118.2467434,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Shomrei Torah Synagogue",
+	"address": "7353 Valley Circle Blvd. West Hills, ",
+	"formattedAddress": "7353 Valley Cir Blvd, West Hills, CA 91304, USA",
+	"lat": 34.2061873,
+	"lng": -118.6544053,
+	"zipcode": "91304",
+	"city": "Los Angeles",
+	"neighborhood": "West Hills"
+}, {
+	"location": "Artists and Fleas",
+	"address": "647 Mateo St. Los Angeles, ",
+	"formattedAddress": "647 Mateo St, Los Angeles, CA 90021, USA",
+	"lat": 34.0364202,
+	"lng": -118.2328638,
+	"zipcode": "90021",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Salt's Cure",
+	"address": "1155 N. Highland Ave. Los Angeles, ",
+	"formattedAddress": "1155 Highland Ave, Los Angeles, CA 90038, USA",
+	"lat": 34.0923795,
+	"lng": -118.3389548,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "San Luis Obispo Museum of Art",
+	"address": "1010 Broad St. San Luis Obispo, ",
+	"formattedAddress": "1010 Broad St, San Luis Obispo, CA 93401, USA",
+	"lat": 35.2795805,
+	"lng": -120.6649827,
+	"zipcode": "93401",
+	"city": "San Luis Obispo",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Gender Free Arts",
+	"address": "1732 Aviation Blvd. Redondo Beach, ",
+	"formattedAddress": "1732 Aviation Blvd, Redondo Beach, CA 90278, USA",
+	"lat": 33.8716714,
+	"lng": -118.3812209,
+	"zipcode": "90278",
+	"city": "Redondo Beach",
+	"neighborhood": "North Redondo"
+}, {
+	"location": "The New Townhouse",
+	"address": "6835 La Tijera Blvd. Los Angeles, ",
+	"formattedAddress": "6835 La Tijera Blvd, Los Angeles, CA 90045, USA",
+	"lat": 33.9768124,
+	"lng": -118.3732336,
+	"zipcode": "90045",
+	"city": "Los Angeles"
+}, {
+	"location": "The Cat & Fiddle Restaurant & Pub",
+	"address": "742 N. Highland Ave. Los Angeles, ",
+	"formattedAddress": "742 Highland Ave, Los Angeles, CA 90038, USA",
+	"lat": 34.08473,
+	"lng": -118.3382807,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "The Mar Vista Art Dept",
+	"address": "12513 Venice Blvd Venice, ",
+	"formattedAddress": "12513 Venice Blvd, Los Angeles, CA 90066, USA",
+	"lat": 34.0032782,
+	"lng": -118.4350314,
+	"zipcode": "90066",
+	"city": "Los Angeles",
+	"neighborhood": "Mar Vista"
+}, {
+	"location": "The Beverly Hilton",
+	"address": "9876 Wilshire Blvd Beverly Hills, CA 2016 323-592-3132",
+	"formattedAddress": "9876 Wilshire Blvd, Beverly Hills, CA 90210, USA",
+	"lat": 34.0660988,
+	"lng": -118.4127053,
+	"zipcode": "90210",
+	"city": "Beverly Hills",
+	"neighborhood": "Century City"
+}, {
+	"location": "University of Philosophical Research",
+	"address": "3910 Los Feliz Blvd. Los Angeles, ",
+	"formattedAddress": "3910 Los Feliz Blvd, Los Angeles, CA 90027, USA",
+	"lat": 34.1131146,
+	"lng": -118.2775278,
+	"zipcode": "90027",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Ibid.",
+	"address": "670 S Anderson St. Los Angeles, ",
+	"formattedAddress": "670 S Anderson St, Los Angeles, CA 90023, USA",
+	"lat": 34.036029,
+	"lng": -118.222954,
+	"zipcode": "90023",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Busby's East",
+	"address": "5364 Wilshire Blvd. Los Angeles, ",
+	"formattedAddress": "5364 Wilshire Blvd, Los Angeles, CA 90036, USA",
+	"lat": 34.0619906,
+	"lng": -118.3458395,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Mid-Wilshire"
+}, {
+	"location": "Taiwan Academy in Los Angeles",
+	"address": "1137 Westwood Blvd Los Angeles, California 90024 213-403-0168",
+	"formattedAddress": "1137 Westwood Blvd, Los Angeles, CA 90024, USA",
+	"lat": 34.0600624,
+	"lng": -118.444956,
+	"zipcode": "90024",
+	"city": "Los Angeles",
+	"neighborhood": "Westwood"
+}, {
+	"location": "TAG Gallery",
+	"address": "5458 Wilshire Blvd. Los Angeles, ",
+	"formattedAddress": "5458 Wilshire Blvd, Los Angeles, CA 90036, USA",
+	"lat": 34.061976,
+	"lng": -118.347685,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Mid-Wilshire"
+}, {
+	"location": "Pomona College Art Department Chan Gallery",
+	"address": "370 Columbia Ave. Claremont, California 91711 909-621-8079",
+	"formattedAddress": "370 Columbia Ave, Claremont, CA 91711, USA",
+	"lat": 34.0966139,
+	"lng": -117.711123,
+	"zipcode": "91711",
+	"city": "Claremont"
+}, {
+	"location": "The Lincoln",
+	"address": "2536 Lincoln Blvd Venice, ",
+	"formattedAddress": "2536 Lincoln Blvd, Venice, CA 90291, USA",
+	"lat": 33.9915689,
+	"lng": -118.4483632,
+	"zipcode": "90291",
+	"city": "Los Angeles",
+	"neighborhood": "Venice"
+}, {
+	"location": "Hollywood Heritage Museum",
+	"address": "2100 N. Highland Ave. Los Angeles, ",
+	"formattedAddress": "2100 Highland Ave, Los Angeles, CA 90068, USA",
+	"lat": 34.1085324,
+	"lng": -118.3361204,
+	"zipcode": "90068",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood Hills"
+}, {
+	"location": "Regal Cinemas L.A. Live Stadium 14",
+	"address": "1000 W. Olympic Blvd. Los Angeles, ",
+	"formattedAddress": "1000 W Olympic Blvd, Los Angeles, CA 90015, USA",
+	"lat": 34.045746,
+	"lng": -118.2680369,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Long Beach Convention and Entertainment Center",
+	"address": "300 E Ocean Blvd Long Beach, California 90802 805-477-8725",
+	"formattedAddress": "300 E Ocean Blvd, Long Beach, CA 90802, USA",
+	"lat": 33.76520350000001,
+	"lng": -118.1893341,
+	"zipcode": "90802",
+	"city": "Long Beach",
+	"neighborhood": "Waterfront"
+}, {
+	"location": "Whitefire Theatre",
+	"address": "13500 Ventura Blvd. Sherman Oaks, ",
+	"formattedAddress": "13500 Ventura Blvd, Sherman Oaks, CA 91423, USA",
+	"lat": 34.1471717,
+	"lng": -118.4273501,
+	"zipcode": "91423",
+	"city": "Los Angeles",
+	"neighborhood": "Sherman Oaks"
+}, {
+	"location": "LA County Arboretum and Botanic Garden",
+	"address": "301 N. Baldwin Ave Arcadia, ",
+	"formattedAddress": "301 N Baldwin Ave, Arcadia, CA 91007, USA",
+	"lat": 34.1448279,
+	"lng": -118.0508813,
+	"zipcode": "91007",
+	"city": "Arcadia"
+}, {
+	"location": "Arts District Brewing Company",
+	"address": "828 Traction Ave Los Angeles, California 90013 213-817-5321",
+	"formattedAddress": "828 Traction Ave, Los Angeles, CA 90013, USA",
+	"lat": 34.0445635,
+	"lng": -118.2355338,
+	"zipcode": "90013",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Laemmle Monica Film Center",
+	"address": "1332 2nd St. Santa Moncia, ",
+	"formattedAddress": "1332 2nd St, Santa Monica, CA 90401, USA",
+	"lat": 34.0152416,
+	"lng": -118.4979955,
+	"zipcode": "90401",
+	"city": "Santa Monica"
+}, {
+	"location": "Millwick Los Angeles",
+	"address": "800 E. 4th Place Los Angeles, ",
+	"formattedAddress": "800 E 4th Pl, Los Angeles, CA 90013, USA",
+	"lat": 34.0441305,
+	"lng": -118.2368571,
+	"zipcode": "90013",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "ETA Highland Park",
+	"address": "5630 N. Figueroa St. Highland Park, ",
+	"formattedAddress": "5630 N Figueroa St, Los Angeles, CA 90042, USA",
+	"lat": 34.1092354,
+	"lng": -118.1929553,
+	"zipcode": "90042",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Le Magyzn",
+	"address": "904 Pacific Ave Venice, ",
+	"formattedAddress": "904 Pacific Ave, Venice, CA 90291, USA",
+	"lat": 33.9915385,
+	"lng": -118.4751099,
+	"zipcode": "90291",
+	"city": "Los Angeles",
+	"neighborhood": "Venice"
+}, {
+	"location": "Bar 20",
+	"address": "8462 W. Sunset Blvd. West Hollywood, ",
+	"formattedAddress": "8462 Sunset Blvd, West Hollywood, CA 90069, USA",
+	"lat": 34.0943618,
+	"lng": -118.3749108,
+	"zipcode": "90069",
+	"city": "West Hollywood",
+	"neighborhood": "Sunset Strip"
+}, {
+	"location": "Pretend City",
+	"address": "29 Hubble Irvine, ",
+	"formattedAddress": "29 Hubble, Irvine, CA 92618, USA",
+	"lat": 33.64200960000001,
+	"lng": -117.7396999,
+	"zipcode": "92618",
+	"city": "Irvine",
+	"neighborhood": "Irvine Research Center"
+}, {
+	"location": "The Lexington",
+	"address": "129 E. Third St. Los Angeles, ",
+	"formattedAddress": "129 E 3rd St, Los Angeles, CA 90013, USA",
+	"lat": 34.0489489,
+	"lng": -118.2450565,
+	"zipcode": "90013",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Lonny Chapman Group Repertory Theatre",
+	"address": "10900 Burbank Blvd. North Hollywood, ",
+	"formattedAddress": "10900 Burbank Blvd, North Hollywood, CA 91601, USA",
+	"lat": 34.1718698,
+	"lng": -118.3683542,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "Los Angeles Zoo & Botanical Gardens",
+	"address": "5333 Zoo Dr. Los Angeles, ",
+	"formattedAddress": "5333 Zoo Dr, Los Angeles, CA 90027, USA",
+	"lat": 34.1490401,
+	"lng": -118.2840485,
+	"zipcode": "90027",
+	"city": "Los Angeles"
+}, {
+	"location": "Mount Olive Lutheran Church",
+	"address": "1343 Ocean Park Blvd. Santa Monica, ",
+	"formattedAddress": "1343 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+	"lat": 34.0105458,
+	"lng": -118.4708061,
+	"zipcode": "90405",
+	"city": "Santa Monica",
+	"neighborhood": "Sunset Park"
+}, {
+	"location": "Skandia Lodge & Hall",
+	"address": "2031 E. Villa St. Pasadena, ",
+	"formattedAddress": "2031 E Villa St, Pasadena, CA 91107, USA",
+	"lat": 34.1547448,
+	"lng": -118.1085884,
+	"zipcode": "91107",
+	"city": "Pasadena",
+	"neighborhood": "Mid Central"
+}, {
+	"location": "Industry Hills Expo Center",
+	"address": "16200 Temple Ave. La Puente, ",
+	"formattedAddress": "16200 E Temple Ave, La Puente, CA 91744, USA",
+	"lat": 34.02802820000001,
+	"lng": -117.9391738,
+	"zipcode": "91744",
+	"city": "La Puente"
+}, {
+	"location": "Union Station",
+	"address": "800 N. Alameda St. Los Angeles, ",
+	"formattedAddress": "800 North Alameda Street, Los Angeles, CA 90012, USA",
+	"lat": 34.0561182,
+	"lng": -118.2375182,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Hella Fresh Theater",
+	"address": "3826 Mentone Ave. Culver City, ",
+	"formattedAddress": "3826 Mentone Ave, Culver City, CA 90232, USA",
+	"lat": 34.0194234,
+	"lng": -118.4041295,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Washington Culver"
+}, {
+	"location": "West Hollywood Park",
+	"address": "647 San Vicente Blvd. West Hollywood, ",
+	"formattedAddress": "647 N San Vicente Blvd, West Hollywood, CA 90069, USA",
+	"lat": 34.082437,
+	"lng": -118.3842211,
+	"zipcode": "90069",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "The Road on Lankershim",
+	"address": "5108 Lankershim Blvd North Hollywood, ",
+	"formattedAddress": "5108 Lankershim Blvd, North Hollywood, CA 91601, USA",
+	"lat": 34.1632645,
+	"lng": -118.3732982,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "Mitsuwa Marketplace",
+	"address": "21515 S. Western Ave. Torrance, ",
+	"formattedAddress": "21515 S Western Ave, Torrance, CA 90501, USA",
+	"lat": 33.8334388,
+	"lng": -118.3099721,
+	"zipcode": "90501",
+	"city": "Torrance",
+	"neighborhood": "Old Town Torrance"
+}, {
+	"location": "The YAS Theatre",
+	"address": "5918 Van Nuys Blvd Sherman Oaks, California 91401 818-785-7979",
+	"formattedAddress": "5918 Van Nuys Blvd, Van Nuys, CA 91401, USA",
+	"lat": 34.1781186,
+	"lng": -118.4483603,
+	"zipcode": "91401",
+	"city": "Los Angeles",
+	"neighborhood": "Van Nuys"
+}, {
+	"location": "Casa 0101",
+	"address": "2102 E. First St. Los Angeles, ",
+	"formattedAddress": "2102 E 1st St, Los Angeles, CA 90033, USA",
+	"lat": 34.0446827,
+	"lng": -118.2136746,
+	"zipcode": "90033",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "L.A. County Arboretum & Botanic Garden",
+	"address": "301 N. Baldwin Ave. Arcadia, ",
+	"formattedAddress": "301 N Baldwin Ave, Arcadia, CA 91007, USA",
+	"lat": 34.1448279,
+	"lng": -118.0508813,
+	"zipcode": "91007",
+	"city": "Arcadia"
+}, {
+	"location": "St. Bede's Episcopal Church",
+	"address": "3590 Grand View Blvd. Los Angeles, ",
+	"formattedAddress": "3590 Grand View Blvd, Los Angeles, CA 90066, USA",
+	"lat": 34.009435,
+	"lng": -118.4340113,
+	"zipcode": "90066",
+	"city": "Los Angeles",
+	"neighborhood": "Mar Vista"
+}, {
+	"location": "Crowell Public Library, City of San Marino",
+	"address": "1890 Huntington Dr. San Marino, ",
+	"formattedAddress": "1890 Huntington Dr, Pasadena, CA 91108, USA",
+	"lat": 34.1190091,
+	"lng": -118.1126926,
+	"zipcode": "91108",
+	"city": "Pasadena"
+}, {
+	"location": "The Colburn School of Music, Zipper Concert Hall",
+	"address": "200 S. Grand Ave. Los Angeles, ",
+	"formattedAddress": "200 S Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0540039,
+	"lng": -118.2498686,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Bouchon Bistro",
+	"address": "235 N. Canon Dr. Beverly Hills, ",
+	"formattedAddress": "235 N Canon Dr, Beverly Hills, CA 90210, USA",
+	"lat": 34.068347,
+	"lng": -118.3992155,
+	"zipcode": "90210",
+	"city": "Beverly Hills"
+}, {
+	"location": "The Dark Art Emporium",
+	"address": "252 Elm Ave. Long Beach, ",
+	"formattedAddress": "252 Long Beach Blvd, Long Beach, CA 90802, USA",
+	"lat": 33.7700628,
+	"lng": -118.1892999,
+	"zipcode": "90802",
+	"city": "Long Beach",
+	"neighborhood": "East Village"
+}, {
+	"location": "Ark Gallery & Studios",
+	"address": "2599 Fair Oaks Ave. Altadena, ",
+	"formattedAddress": "2599 Fair Oaks Ave, Altadena, CA 91001, USA",
+	"lat": 34.1902903,
+	"lng": -118.1497237,
+	"zipcode": "91001",
+	"city": "Altadena"
+}, {
+	"location": "Edendale Library",
+	"address": "2011 W. Sunset Blvd. Los Angeles, ",
+	"formattedAddress": "2011 Sunset Blvd, Los Angeles, CA 90026, USA",
+	"lat": 34.07817,
+	"lng": -118.262319,
+	"zipcode": "90026",
+	"city": "Los Angeles",
+	"neighborhood": "Echo Park"
+}, {
+	"location": "Regal Inn",
+	"address": "6753 E. Carson St. Lakewood, ",
+	"formattedAddress": "6753 E Carson St, Lakewood, CA 90713, USA",
+	"lat": 33.832746,
+	"lng": -118.099656,
+	"zipcode": "90713",
+	"city": "Lakewood"
+}, {
+	"location": "Warner Grand Theatre",
+	"address": "478 W. Sixth St. San Pedro, ",
+	"formattedAddress": "478 W 6th St, San Pedro, CA 90731, USA",
+	"lat": 33.739035,
+	"lng": -118.2872852,
+	"zipcode": "90731",
+	"city": "Los Angeles",
+	"neighborhood": "San Pedro"
+}, {
+	"location": "E.B.'s Beer & Wine Bar, Farmers Market",
+	"address": "6333 W. Third St. Los Angeles, ",
+	"formattedAddress": "6333 W 3rd St, Los Angeles, CA 90036, USA",
+	"lat": 34.0719955,
+	"lng": -118.360253,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "La Brea"
+}, {
+	"location": "National Online Art Competition",
+	"address": "National Online Online, All All 111-111-1111"
+}, {
+	"location": "Disneyland Resort",
+	"address": "1313 S. Harbor Blvd. Anaheim, ",
+	"formattedAddress": "1313 S Harbor Blvd, Anaheim, CA 92802, USA",
+	"lat": 33.8105102,
+	"lng": -117.9169948,
+	"zipcode": "92802",
+	"city": "Anaheim",
+	"neighborhood": "Anaheim Resort"
+}, {
+	"location": "Emily Anne Evans",
+	"address": "18312 Oxnard St. Tarzana, ",
+	"formattedAddress": "18312 Oxnard St, Tarzana, CA 91356, USA",
+	"lat": 34.17962120000001,
+	"lng": -118.5314765,
+	"zipcode": "91356",
+	"city": "Los Angeles",
+	"neighborhood": "Tarzana"
+}, {
+	"location": "Media Park",
+	"address": "9070 Venice Blvd. Culver City, ",
+	"formattedAddress": "9070 Venice Blvd, Culver City, CA 90232, USA",
+	"lat": 34.0264535,
+	"lng": -118.3929385,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Palms"
+}, {
+	"location": "Luther Middle School",
+	"address": "3700 W Jeffries Ave Burbank, California 91505 818-558-4646",
+	"formattedAddress": "3700 Jeffries Ave, Burbank, CA 91505, USA",
+	"lat": 34.1809279,
+	"lng": -118.3513812,
+	"zipcode": "91505",
+	"city": "Burbank"
+}, {
+	"location": "Church of the Angels",
+	"address": "1100 Avenue 64 Pasadena, ",
+	"formattedAddress": "1100 Avenue 64, Pasadena, CA 91105, USA",
+	"lat": 34.1255288,
+	"lng": -118.1761117,
+	"zipcode": "91105",
+	"city": "Pasadena",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Balboa Strawberry Festival",
+	"address": "17019 Ventura Blvd Encino, ",
+	"formattedAddress": "17019 Ventura Blvd, Encino, CA 91316, USA",
+	"lat": 34.1602693,
+	"lng": -118.5040185,
+	"zipcode": "91316",
+	"city": "Los Angeles",
+	"neighborhood": "Encino"
+}, {
+	"location": "Ice House",
+	"address": "24 N. Mentor Ave. Pasadena, ",
+	"formattedAddress": "24 N Mentor Ave, Pasadena, CA 91106, USA",
+	"lat": 34.1465176,
+	"lng": -118.1306991,
+	"zipcode": "91106",
+	"city": "Pasadena"
+}, {
+	"location": "Rolling Hills United Methodist Church",
+	"address": "26438 Crenshaw Blvd. Palos Verdes Peninsula, ",
+	"formattedAddress": "26438 Crenshaw Blvd, Rolling Hills, CA 90274, USA",
+	"lat": 33.783095,
+	"lng": -118.350654,
+	"zipcode": "90274",
+	"city": "Rolling Hills"
+}, {
+	"location": "Private Residence",
+	"address": "Private Residence Los Angeles, ",
+	"formattedAddress": "3121 S La Cienega Blvd, Los Angeles, CA 90016, USA",
+	"lat": 34.0299761,
+	"lng": -118.3721683,
+	"zipcode": "90016",
+	"city": "Los Angeles"
+}, {
+	"location": "Old World Huntington Beach",
+	"address": "7561 Center Ave Huntington Beach, California 92647 714-895-8020",
+	"formattedAddress": "7561 Center Ave, Huntington Beach, CA 92647, USA",
+	"lat": 33.7345525,
+	"lng": -117.9971374,
+	"zipcode": "92647",
+	"city": "Huntington Beach"
+}, {
+	"location": "seven-degrees",
+	"address": "891 Laguna Canyon Rd. Laguna Beach, ",
+	"formattedAddress": "891 Laguna Canyon Rd, Laguna Beach, CA 92651, USA",
+	"lat": 33.5502031,
+	"lng": -117.7789825,
+	"zipcode": "92651",
+	"city": "Laguna Beach"
+}, {
+	"location": "El Segundo Library",
+	"address": "111 W. Mariposa Ave. El Segundo, ",
+	"formattedAddress": "111 W Mariposa Ave, El Segundo, CA 90245, USA",
+	"lat": 33.9239692,
+	"lng": -118.4167775,
+	"zipcode": "90245",
+	"city": "El Segundo"
+}, {
+	"location": "St. Ambrose Church",
+	"address": "1281 N. Fairfax Ave. West Hollywood, California 90046 323-656-4433",
+	"formattedAddress": "1281 N Fairfax Ave, West Hollywood, CA 90046, USA",
+	"lat": 34.0943012,
+	"lng": -118.361864,
+	"zipcode": "90046",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "The Actors Company",
+	"address": "916-A N. Formosa Ave. Los Angeles, ",
+	"formattedAddress": "916 N Formosa Ave, Los Angeles, CA 90046, USA",
+	"lat": 34.0877004,
+	"lng": -118.3458947,
+	"zipcode": "90046",
+	"city": "Los Angeles",
+	"neighborhood": "Fairfax"
+}, {
+	"location": "Greater Palm Springs",
+	"address": "Coachella Valley Coachella Valley, California 92211 760-770-9000",
+	"formattedAddress": "Coachella Valley, Palm Desert, CA 92211, USA",
+	"lat": 33.7666873,
+	"lng": -116.3591772,
+	"zipcode": "92211",
+	"city": "Palm Desert"
+}, {
+	"location": "The Road on Magnolia",
+	"address": "10747 Magnolia Blvd. Los Angeles, ",
+	"formattedAddress": "10747 W Magnolia Blvd, Los Angeles, CA 91601, USA",
+	"lat": 34.1656165,
+	"lng": -118.3650551,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "NoHo Arts District"
+}, {
+	"location": "California Junior Lifeguard Programs",
+	"address": "15569 Graham St Huntington Beach, ",
+	"formattedAddress": "15569 Graham St, Huntington Beach, CA 92649, USA",
+	"lat": 33.736161,
+	"lng": -118.0331282,
+	"zipcode": "92649",
+	"city": "Huntington Beach"
+}, {
+	"location": "Hahn Hall, UC Santa Barbara",
+	"address": "1070 Fairway Rd. Santa Barbara, ",
+	"formattedAddress": "1070 Fairway Rd, Montecito, CA 93108, USA",
+	"lat": 34.420342,
+	"lng": -119.649511,
+	"zipcode": "93108",
+	"city": "Montecito"
+}, {
+	"location": "The Help Group Autism Center",
+	"address": "13164 Burbank Blvd. Sherman Oaks, California 91401 818-781-0360",
+	"formattedAddress": "13164 Burbank Blvd, Sherman Oaks, CA 91401, USA",
+	"lat": 34.171325,
+	"lng": -118.42022,
+	"zipcode": "91401",
+	"city": "Los Angeles",
+	"neighborhood": "Sherman Oaks"
+}, {
+	"location": "Homibing",
+	"address": "3300 W. Sixth St. Los Angeles, ",
+	"formattedAddress": "3300 W 6th St, Los Angeles, CA 90020, USA",
+	"lat": 34.06341099999999,
+	"lng": -118.2943457,
+	"zipcode": "90020",
+	"city": "Los Angeles",
+	"neighborhood": "Koreatown"
+}, {
+	"location": "Fleming's Prime Steakhouse",
+	"address": "179 E. Colorado Blvd, Pasadena, ",
+	"formattedAddress": "179 E Colorado Blvd, Pasadena, CA 91101, USA",
+	"lat": 34.1458062,
+	"lng": -118.1466612,
+	"zipcode": "91101",
+	"city": "Pasadena"
+}, {
+	"location": "Oeno Vino Wine Shop & Bar",
+	"address": "3111 Glendale Blvd. #2 Los Angeles (Atwater Village), ",
+	"formattedAddress": "3111 Glendale Blvd #2, Los Angeles, CA 90039, USA",
+	"lat": 34.1162782,
+	"lng": -118.2628216,
+	"zipcode": "90039",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Century City 15",
+	"address": "10250 Santa Monica Boulevard, Suite 200 Los Angeles, California 90067 310-277-2262",
+	"formattedAddress": "10250 Santa Monica Blvd #200, Los Angeles, CA 90067, USA",
+	"lat": 34.0599924,
+	"lng": -118.4200376,
+	"zipcode": "90067",
+	"city": "Los Angeles",
+	"neighborhood": "Century City"
+}, {
+	"location": "Immanuel Presbyterian Church",
+	"address": "3300 Wilshire Blvd. Los Angeles, ",
+	"formattedAddress": "3300 Wilshire Blvd, Los Angeles, CA 90010, USA",
+	"lat": 34.0614542,
+	"lng": -118.294485,
+	"zipcode": "90010",
+	"city": "Los Angeles",
+	"neighborhood": "Koreatown"
+}, {
+	"location": "Edemar center",
+	"address": "2437 main st Santa Monica, ",
+	"formattedAddress": "2437 Main St, Santa Monica, CA 90405, USA",
+	"lat": 34.0035616,
+	"lng": -118.4847408,
+	"zipcode": "90405",
+	"city": "Santa Monica",
+	"neighborhood": "Ocean Park"
+}, {
+	"location": "De Re Gallery",
+	"address": "8920 Melrose Ave. West Hollywood, ",
+	"formattedAddress": "8920 Melrose Ave, West Hollywood, CA 90069, USA",
+	"lat": 34.0806171,
+	"lng": -118.3874756,
+	"zipcode": "90069",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Online Contest",
+	"address": "1215 Cushman Ave. San Diego, California 92110 619-234-0345",
+	"formattedAddress": "1215 Cushman Ave, San Diego, CA 92110, USA",
+	"lat": 32.7683292,
+	"lng": -117.1986237,
+	"zipcode": "92110",
+	"city": "San Diego",
+	"neighborhood": "Morena"
+}, {
+	"location": "The Federal",
+	"address": "5303 N. Lankershim Blvd. North Hollywood, ",
+	"formattedAddress": "5303 Lankershim Blvd, Los Angeles, CA 91601, USA",
+	"lat": 34.1671534,
+	"lng": -118.3762863,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "NoHo Arts District"
+}, {
+	"location": "The Braid Theater",
+	"address": "2912 Colorado Ave. #102 Santa Monica, ",
+	"formattedAddress": "2912 Colorado Ave #102, Santa Monica, CA 90404, USA",
+	"lat": 34.0329685,
+	"lng": -118.4678207,
+	"zipcode": "90404",
+	"city": "Santa Monica"
+}, {
+	"location": "356 Mission",
+	"address": "356 S. Mission Rd. Los Angeles, ",
+	"formattedAddress": "356 S Mission Rd, Los Angeles, CA 90033, USA",
+	"lat": 34.0430115,
+	"lng": -118.2269939,
+	"zipcode": "90033",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "TCL Chinese 6 Theatres",
+	"address": "Hollywood & Highland, 6801 Hollywood Blvd Hollywood, ",
+	"formattedAddress": "6801 Hollywood Blvd #170, Los Angeles, CA 90028, USA",
+	"lat": 34.1024368,
+	"lng": -118.3400872,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "All Star Lanes",
+	"address": "4459 Eagle Rock Blvd. Los Angeles, ",
+	"formattedAddress": "4459 Eagle Rock Blvd, Los Angeles, CA 90041, USA",
+	"lat": 34.1255418,
+	"lng": -118.2202094,
+	"zipcode": "90041",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Vibiana",
+	"address": "214 S. Main St. Los Angeles, ",
+	"formattedAddress": "214 S Main St, Los Angeles, CA 90012, USA",
+	"lat": 34.0504491,
+	"lng": -118.2444335,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Second Stage at Sacred Fools Theater",
+	"address": "6320 Santa Monica Blvd. Hollywood, ",
+	"formattedAddress": "6320 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905418,
+	"lng": -118.3276065,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "The Old Spaghetti Factory",
+	"address": "1431 Buena Vista St Duarte, California 91010 818-862-0002",
+	"formattedAddress": "1431 Buena Vista St, Duarte, CA 91010, USA",
+	"lat": 34.1363631,
+	"lng": -117.9782606,
+	"zipcode": "91010",
+	"city": "Duarte"
+}, {
+	"location": "College of the Canyons",
+	"address": "26455 Rockwell Canyon Rd Santa Clarita, California 91355 661-259-7800",
+	"formattedAddress": "26455 Rockwell Canyon Rd, Santa Clarita, CA 91355, USA",
+	"lat": 34.4043812,
+	"lng": -118.5705894,
+	"zipcode": "91355",
+	"city": "Santa Clarita"
+}, {
+	"location": "ArcLight Hollywood",
+	"address": "6360 W. Sunset Blvd. Los Angeles, ",
+	"formattedAddress": "6360 Sunset Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.0973718,
+	"lng": -118.3278725,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Hilton Los Angeles/ Universal City",
+	"address": "555 Universal Hollywood Dr. Universal City, Ca 91608 818-506-2500",
+	"formattedAddress": "555 Universal Hollywood Dr, Universal City, CA 91608, USA",
+	"lat": 34.1372715,
+	"lng": -118.3583672,
+	"zipcode": "91608",
+	"city": "Universal City",
+	"neighborhood": "Studio City"
+}, {
+	"location": "Harold's Place",
+	"address": "1908 S. Pacific Ave. San Pedro, ",
+	"formattedAddress": "1908 S Pacific Ave, San Pedro, CA 90731, USA",
+	"lat": 33.7266762,
+	"lng": -118.2877575,
+	"zipcode": "90731",
+	"city": "Los Angeles",
+	"neighborhood": "San Pedro"
+}, {
+	"location": "Casa Escobar",
+	"address": "22969 Pacific Coast Highway Malibu, ",
+	"formattedAddress": "22969 Pacific Coast Hwy, Malibu, CA 90265, USA",
+	"lat": 34.037747,
+	"lng": -118.677028,
+	"zipcode": "90265",
+	"city": "Malibu",
+	"neighborhood": "Eastern Malibu"
+}, {
+	"location": "The Row DTLA",
+	"address": "777 S. Alameda St. Los Angeles, ",
+	"formattedAddress": "777 S Alameda St, Los Angeles, CA 90021, USA",
+	"lat": 34.0336927,
+	"lng": -118.2414879,
+	"zipcode": "90021",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Los Encinos State Historic Park",
+	"address": "16756 Moorpark St. Encino, ",
+	"formattedAddress": "16756 Moorpark St, Encino, CA 91436, USA",
+	"lat": 34.1602379,
+	"lng": -118.4987068,
+	"zipcode": "91436",
+	"city": "Los Angeles",
+	"neighborhood": "Encino"
+}, {
+	"location": "Ann & Jerry Moss Theater, New Roads School",
+	"address": "3131 Olympic Blvd. Santa Monica, ",
+	"formattedAddress": "3131 Olympic Blvd, Santa Monica, CA 90404, USA",
+	"lat": 34.0312851,
+	"lng": -118.4612321,
+	"zipcode": "90404",
+	"city": "Santa Monica"
+}, {
+	"location": "Old Town Music Hall",
+	"address": "140 Richmond St. El Segundo, ",
+	"formattedAddress": "140 Richmond St, El Segundo, CA 90245, USA",
+	"lat": 33.9175771,
+	"lng": -118.4169034,
+	"zipcode": "90245",
+	"city": "El Segundo"
+}, {
+	"location": "4th Street Vine",
+	"address": "2142 E. Fourth St. Long Beach, ",
+	"formattedAddress": "2142 E 4th St, Long Beach, CA 90814, USA",
+	"lat": 33.7715581,
+	"lng": -118.1656217,
+	"zipcode": "90814",
+	"city": "Long Beach",
+	"neighborhood": "Alamitos Beach"
+}, {
+	"location": "Boulevard Music",
+	"address": "4316 Sepulveda Blvd. Culver City, ",
+	"formattedAddress": "4316 Sepulveda Blvd, Culver City, CA 90230, USA",
+	"lat": 34.0045754,
+	"lng": -118.4092156,
+	"zipcode": "90230",
+	"city": "Culver City",
+	"neighborhood": "Park West"
+}, {
+	"location": "Will Geer Theatricum Botanicum",
+	"address": "1419 N. Topanga Canyon Blvd. Topanga, ",
+	"formattedAddress": "1419 N Topanga Canyon Blvd, Topanga, CA 90290, USA",
+	"lat": 34.1108513,
+	"lng": -118.5928551,
+	"zipcode": "90290",
+	"city": "Topanga"
+}, {
+	"location": "Sacred Fools Studio",
+	"address": "1078 Lillian Way Los Angeles, ",
+	"formattedAddress": "1078 Lillian Way, Los Angeles, CA 90038, USA",
+	"lat": 34.09045880000001,
+	"lng": -118.327609,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Hornblower Cruises & Events",
+	"address": "13755 Fiji Way Marina del Rey, ",
+	"formattedAddress": "13755 Fiji Way, Marina Del Rey, CA 90292, USA",
+	"lat": 33.9725614,
+	"lng": -118.4462468,
+	"zipcode": "90292",
+	"city": "Marina del Rey"
+}, {
+	"location": "The Dog Bakery",
+	"address": "12112 Venice Blvd Los Angeles, ",
+	"formattedAddress": "12112 Venice Blvd, Los Angeles, CA 90066, USA",
+	"lat": 34.005143,
+	"lng": -118.4300922,
+	"zipcode": "90066",
+	"city": "Los Angeles",
+	"neighborhood": "Mar Vista"
+}, {
+	"location": "Ruby Theater at the Complex",
+	"address": "6476 Santa Monica Blvd. Los Angeles, ",
+	"formattedAddress": "6476 California Route 2, Los Angeles, CA 90038, USA",
+	"lat": 34.0905106,
+	"lng": -118.3308067,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Blitzstein Museum of Art",
+	"address": "428 N. Fairfax Ave. Los Angeles, ",
+	"formattedAddress": "428 N Fairfax Ave, Los Angeles, CA 90036, USA",
+	"lat": 34.0790993,
+	"lng": -118.3611352,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Fairfax"
+}, {
+	"location": "North Hollywood Park",
+	"address": "5099 Tujunga Ave. North Hollywood, ",
+	"formattedAddress": "5099 Tujunga Ave, North Hollywood, CA 91601, USA",
+	"lat": 34.1629645,
+	"lng": -118.3790245,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "Escape Hotel Hollywood",
+	"address": "6633 Hollywood Blvd. Los Angeles, ",
+	"formattedAddress": "6633 Hollywood Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.1017827,
+	"lng": -118.3345105,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Alo Yoga Store",
+	"address": "370 N Canon Dr. Beverly Hills, California 90210 310-295-1860",
+	"formattedAddress": "370 N Canon Dr, Beverly Hills, CA 90210, USA",
+	"lat": 34.0706309,
+	"lng": -118.4005796,
+	"zipcode": "90210",
+	"city": "Beverly Hills"
+}, {
+	"location": "Skylight Books",
+	"address": "1818 N. Vermont Ave. Los Angeles, ",
+	"formattedAddress": "1818 N Vermont Ave, Los Angeles, CA 90027, USA",
+	"lat": 34.104216,
+	"lng": -118.291488,
+	"zipcode": "90027",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Eagle Rock Brewery Public House",
+	"address": "1627 Colorado Blvd. Los Angeles, ",
+	"formattedAddress": "1627 Colorado Blvd, Los Angeles, CA 90041, USA",
+	"lat": 34.1396684,
+	"lng": -118.2019755,
+	"zipcode": "90041",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Regal Cinemas Premiere House at LA Live",
+	"address": "800 W. Olympic Blvd. Los Angeles, ",
+	"formattedAddress": "Lucky Strike Bowling - Los Angeles, 800 W Olympic Blvd, Los Angeles, CA 90015, USA",
+	"lat": 34.0447954,
+	"lng": -118.2652703,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Ojai California",
+	"address": "Ojai Ojai, California 93023 310-957-2094",
+	"formattedAddress": "310 E Ojai Ave, Ojai, CA 93023, USA",
+	"lat": 34.4480192,
+	"lng": -119.2442683,
+	"zipcode": "93023",
+	"city": "Ojai"
+}, {
+	"location": "The Gardens Casino",
+	"address": "11871 Carson St Hawaiian Gardens, ",
+	"formattedAddress": "11871 E Carson St, Hawaiian Gardens, CA 90716, USA",
+	"lat": 33.8325706,
+	"lng": -118.0789166,
+	"zipcode": "90716",
+	"city": "Hawaiian Gardens"
+}, {
+	"location": "Three Clubs Cocktail Lounge",
+	"address": "1123 Vine St. Los Angeles, ",
+	"formattedAddress": "1123 Vine St, Los Angeles, CA 90038, USA",
+	"lat": 34.0914652,
+	"lng": -118.3271185,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Westfield Century City",
+	"address": "10250 Santa Monica Blvd. Century City, ",
+	"formattedAddress": "10250 Santa Monica Blvd, Los Angeles, CA 90067, USA",
+	"lat": 34.0599924,
+	"lng": -118.4200376,
+	"zipcode": "90067",
+	"city": "Los Angeles",
+	"neighborhood": "Century City"
+}, {
+	"location": "Maker City L.A.",
+	"address": "1933 Broadway Los Angeles, ",
+	"formattedAddress": "1933 S Broadway, Los Angeles, CA 90007, USA",
+	"lat": 34.0312448,
+	"lng": -118.2665321,
+	"zipcode": "90007",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "Maker City LA",
+	"address": "1933 S. Broadway, 11th Floor Los Angeles, Downtown / LA Metro 90007 213-629-2787",
+	"formattedAddress": "8567 S Broadway, Los Angeles, CA 90003, USA",
+	"lat": 33.9603278,
+	"lng": -118.278768,
+	"zipcode": "90003",
+	"city": "Los Angeles",
+	"neighborhood": "South Figueroa Corridor"
+}, {
+	"location": "Chi Temple",
+	"address": "Downtown Los Angeles Downtown Los Angles, California 90017 650-455-6137",
+	"formattedAddress": "14032 S Vermont Ave, Los Angeles, CA 90247, USA",
+	"lat": 33.903996,
+	"lng": -118.29109,
+	"zipcode": "90247",
+	"city": "Los Angeles",
+	"neighborhood": "Harbor Gateway North"
+}, {
+	"location": "Los Angeles Theatre Center",
+	"address": "514 S. Spring St. Los Angeles, ",
+	"formattedAddress": "Security Building, 514 S Spring St, Los Angeles, CA 90013, USA",
+	"lat": 34.0466405,
+	"lng": -118.2496756,
+	"zipcode": "90013",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Music Center",
+	"address": "135 N. Grand Ave. Los Angeles, ",
+	"formattedAddress": "135 N Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0566067,
+	"lng": -118.2489325,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Heritage Fine Wines",
+	"address": "467 N Canon Dr Beverly Hills, California 90210 310-888-8042",
+	"formattedAddress": "467 N Canon Dr, Beverly Hills, CA 90210, USA",
+	"lat": 34.0718098,
+	"lng": -118.4021165,
+	"zipcode": "90210",
+	"city": "Beverly Hills"
+}, {
+	"location": "Exposition Park Rose Garden",
+	"address": "701 State Dr. Los Angeles, ",
+	"formattedAddress": "701 State Dr, Los Angeles, CA 90037, USA",
+	"lat": 34.016509,
+	"lng": -118.2843695,
+	"zipcode": "90037",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "Main Street Santa Monica",
+	"address": "betw. Pier Ave. & Bay St. Santa Monica, "
+}, {
+	"location": "Farm Sanctuary",
+	"address": "5200 Escondido Canyon Rd. Acton, ",
+	"formattedAddress": "5200 Escondido Canyon Rd, Acton, CA 93510, USA",
+	"lat": 34.4954824,
+	"lng": -118.2223679,
+	"zipcode": "93510",
+	"city": "Acton"
+}, {
+	"location": "Hinano Cafe",
+	"address": "15 W. Washington Blvd. Marina Del Rey, ",
+	"formattedAddress": "15 Washington Blvd, Marina Del Rey, CA 90292, USA",
+	"lat": 33.979448,
+	"lng": -118.4665257,
+	"zipcode": "90292",
+	"city": "Marina del Rey",
+	"neighborhood": "Venice"
+}, {
+	"location": "Pregerson Technical Facility",
+	"address": "12000 Vista del Mar, #230A Playa del Rey, ",
+	"formattedAddress": "12000 Vista Del Mar #230a, Playa Del Rey, CA 90293, USA",
+	"lat": 33.9251867,
+	"lng": -118.4307107,
+	"zipcode": "90293",
+	"city": "Los Angeles",
+	"neighborhood": "Playa del Rey"
+}, {
+	"location": "Starboard Attitude",
+	"address": "202 The Pier Redondo Beach, ",
+	"formattedAddress": "202 Pier Ave, Hermosa Beach, CA 90254, USA",
+	"lat": 33.86309320000001,
+	"lng": -118.3990998,
+	"zipcode": "90254",
+	"city": "Hermosa Beach"
+}, {
+	"location": "The Ruth B. Shannon Center for the Performing Arts",
+	"address": "6760 Painter Ave. Whittier, ",
+	"formattedAddress": "6760 Painter Ave, Whittier, CA 90601, USA",
+	"lat": 33.9795468,
+	"lng": -118.0321386,
+	"zipcode": "90601",
+	"city": "Whittier"
+}, {
+	"location": "Wheel House Cheese Shop",
+	"address": "12954 W. Washington Blvd. Los Angeles, ",
+	"formattedAddress": "12954 W Washington Blvd, Los Angeles, CA 90066, USA",
+	"lat": 33.9945579,
+	"lng": -118.4391725,
+	"zipcode": "90066",
+	"city": "Los Angeles",
+	"neighborhood": "Culver - West"
+}, {
+	"location": "The TAPPAN Atelier",
+	"address": "1008 Maple Ave. Los Angeles, ",
+	"formattedAddress": "1008 Maple Ave, Los Angeles, CA 90015, USA",
+	"lat": 34.037774,
+	"lng": -118.254117,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Molten Metal Works",
+	"address": "3617 San Fernando Rd Glendale, ",
+	"formattedAddress": "3617 San Fernando Rd, Glendale, CA 91204, USA",
+	"lat": 34.1209942,
+	"lng": -118.2524988,
+	"zipcode": "91204",
+	"city": "Glendale",
+	"neighborhood": "Tropico"
+}, {
+	"location": "PAPER TIGER BAR",
+	"address": "4574 BEVERLY BLVD LOS ANGELES, ",
+	"formattedAddress": "4574 Beverly Blvd, Los Angeles, CA 90004, USA",
+	"lat": 34.0761065,
+	"lng": -118.3088319,
+	"zipcode": "90004",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Whittier Center Theatre",
+	"address": "7630 S. Washington Ave. Whittier ",
+	"formattedAddress": "7630 Washington Ave, Whittier, CA 90602, USA",
+	"lat": 33.9726127,
+	"lng": -118.0346484,
+	"zipcode": "90602",
+	"city": "Whittier"
+}, {
+	"location": "99 Windward Ave.",
+	"address": "99 Windward Ave. Los Angeles CA",
+	"formattedAddress": "99 Windward Ave, Venice, CA 90291, USA",
+	"lat": 33.9876946,
+	"lng": -118.472284,
+	"zipcode": "90291",
+	"city": "Los Angeles",
+	"neighborhood": "Venice"
+}, {
+	"location": "Abbot Kinney Blvd.",
+	"address": "Abbot Kinney Blvd. and California St. Los Angeles CA",
+	"formattedAddress": "Abbot Kinney Blvd & California Ave, Venice, CA 90291, USA",
+	"lat": 33.9906424,
+	"lng": -118.4659828,
+	"zipcode": "90291",
+	"city": "Los Angeles",
+	"neighborhood": "Venice"
+}, {
+	"location": "Southwest Museum",
+	"address": "234 Museum Drive Los Angeles ",
+	"formattedAddress": "234 Museum Dr, Los Angeles, CA 90065, USA",
+	"lat": 34.1004316,
+	"lng": -118.2061763,
+	"zipcode": "90065",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Writers Guild Theater",
+	"address": "135 South Doheny Drive Beverly Hills ",
+	"formattedAddress": "135 S Doheny Dr, Beverly Hills, CA 90211, USA",
+	"lat": 34.0659201,
+	"lng": -118.3898719,
+	"zipcode": "90211",
+	"city": "Beverly Hills"
+}, {
+	"location": "First Fridays Long Beach Art Walk",
+	"address": "4313 Atlantic Avenue Long Beach ",
+	"formattedAddress": "4313 Atlantic Ave, Long Beach, CA 90807, USA",
+	"lat": 33.8347837,
+	"lng": -118.1852911,
+	"zipcode": "90807",
+	"city": "Long Beach",
+	"neighborhood": "Bixby Knolls"
+}, {
+	"location": "Sheraton Gateway Los Angeles",
+	"address": "6101 W. Century Blvd Los Angeles ",
+	"formattedAddress": "6101 W Century Blvd, Los Angeles, CA 90045, USA",
+	"lat": 33.9466262,
+	"lng": -118.3908121,
+	"zipcode": "90045",
+	"city": "Los Angeles"
+}, {
+	"location": "Sycamore Grove Park",
+	"address": "4702 N. Figueroa Street Highland Park ",
+	"formattedAddress": "4702 N Figueroa St, Los Angeles, CA 90042, USA",
+	"lat": 34.1021911,
+	"lng": -118.2030965,
+	"zipcode": "90042",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Grand Performances",
+	"address": "350 S Grand Ave. Los Angeles, CA.  Downtown ",
+	"formattedAddress": "Two California Plaza, 350 S Grand Ave, Los Angeles, CA 90071, USA",
+	"lat": 34.0514719,
+	"lng": -118.2516573,
+	"zipcode": "90071",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "At Multiple Venues",
+	"address": "Throughout Greater Los Angeles Throughout Greater Los Angeles CA 0",
+	"formattedAddress": "11301 Wilshire Blvd, Los Angeles, CA 90073, USA",
+	"lat": 34.0526893,
+	"lng": -118.4525674,
+	"zipcode": "90073",
+	"city": "Los Angeles",
+	"neighborhood": "Sawtelle"
+}, {
+	"location": "Dome Arclight Entertainment Center",
+	"address": "6360 W. Sunset Blvd. Hollywood, CA Hollywood ",
+	"formattedAddress": "6360 Sunset Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.0973718,
+	"lng": -118.3278725,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "St Matthews Episcopal Church",
+	"address": "1031 Bienveneda Avenue Pacific Palisades ",
+	"formattedAddress": "1031 Bienveneda Ave, Pacific Palisades, CA 90272, USA",
+	"lat": 34.0540215,
+	"lng": -118.5421364,
+	"zipcode": "90272",
+	"city": "Los Angeles",
+	"neighborhood": "Pacific Palisades"
+}, {
+	"location": "Little Tokyo",
+	"address": "262 S Los Angeles St. Los Angeles CA",
+	"formattedAddress": "262 S Los Angeles St, Los Angeles, CA 90012, USA",
+	"lat": 34.0485578,
+	"lng": -118.2443505,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Acme Comedy Hollywood",
+	"address": "135 N. La Brea Ave. Hollywood ",
+	"formattedAddress": "135 N La Brea Ave, Los Angeles, CA 90036, USA",
+	"lat": 34.0746854,
+	"lng": -118.3443585,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Greater Wilshire / Hancock Park"
+}, {
+	"location": "The Lot",
+	"address": "1041 N. Formosa Los Angeles CA",
+	"formattedAddress": "1041 N Formosa Ave, West Hollywood, CA 90046, USA",
+	"lat": 34.09028660000001,
+	"lng": -118.3464168,
+	"zipcode": "90046",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "THE COMPLEX - Flight Theatre",
+	"address": "6472 Santa Monica Blvd Hollywood ",
+	"formattedAddress": "6472 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905339,
+	"lng": -118.3306436,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Autry Museum at Griffith Park",
+	"address": "4700 Western Heritage Way Los Angeles ",
+	"formattedAddress": "4700 Western Heritage Way, Los Angeles, CA 90027, USA",
+	"lat": 34.1486203,
+	"lng": -118.2812131,
+	"zipcode": "90027",
+	"city": "Los Angeles"
+}, {
+	"location": "The ARTree Community Arts Center",
+	"address": "22508 6th St. Santa Clarita ",
+	"formattedAddress": "22508 6th St, Santa Clarita, CA 91321, USA",
+	"lat": 34.37763,
+	"lng": -118.5262992,
+	"zipcode": "91321",
+	"city": "Santa Clarita",
+	"neighborhood": "Newhall"
+}, {
+	"location": "Topanga Canyon Gallery",
+	"address": "120 N Topanga Canyon Blvd Topanga ",
+	"formattedAddress": "120 N Topanga Canyon Blvd, Topanga, CA 90290, USA",
+	"lat": 34.0897064,
+	"lng": -118.6037366,
+	"zipcode": "90290",
+	"city": "Topanga"
+}, {
+	"location": "West Hollywood Library",
+	"address": "625 N. San Vicente Blvd  ",
+	"formattedAddress": "625 N San Vicente Blvd, West Hollywood, CA 90069, USA",
+	"lat": 34.0818442,
+	"lng": -118.384113,
+	"zipcode": "90069",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Santa Monica Playhouse",
+	"address": "1211 4th St Santa Monica CA",
+	"formattedAddress": "1211 4th St, Santa Monica, CA 90401, USA",
+	"lat": 34.0189556,
+	"lng": -118.4977074,
+	"zipcode": "90401",
+	"city": "Santa Monica",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Lois Lambert Gallery",
+	"address": "2525 Michigan Ave E-3, Santa Monica, CA  ",
+	"formattedAddress": "2525 Michigan Ave, Santa Monica, CA 90405, USA",
+	"lat": 34.02778929999999,
+	"lng": -118.4684355,
+	"zipcode": "90405",
+	"city": "Santa Monica",
+	"neighborhood": "Pico"
+}, {
+	"location": "Porter Ranch Community School",
+	"address": "12450 Mason Ave, Porter Ranch Northridge ",
+	"formattedAddress": "12450 Mason Ave, Porter Ranch, CA 91326, USA",
+	"lat": 34.288994,
+	"lng": -118.583831,
+	"zipcode": "91326",
+	"city": "Los Angeles",
+	"neighborhood": "Porter Ranch"
+}, {
+	"location": "SAN FERNANDO VALLEY ARTS AND CULTURAL CENTER",
+	"address": "18312 OXNARD STREET, TARZANA Tarzana ",
+	"formattedAddress": "18312 Oxnard St, Tarzana, CA 91356, USA",
+	"lat": 34.1799689,
+	"lng": -118.5315888,
+	"zipcode": "91356",
+	"city": "Los Angeles",
+	"neighborhood": "Tarzana"
+}, {
+	"location": "San Fernando Valley Arts & Cultural Center",
+	"address": "18312 Oxnard St Tarzana ",
+	"formattedAddress": "18312 Oxnard St, Tarzana, CA 91356, USA",
+	"lat": 34.17962120000001,
+	"lng": -118.5314765,
+	"zipcode": "91356",
+	"city": "Los Angeles",
+	"neighborhood": "Tarzana"
+}, {
+	"location": "Leuzinger High School",
+	"address": "4118 W. Rosecrans Ave. Lawndale ",
+	"formattedAddress": "4118 W Rosecrans Ave, Lawndale, CA 90260, USA",
+	"lat": 33.9018085,
+	"lng": -118.3468237,
+	"zipcode": "90260",
+	"city": "Lawndale"
+}, {
+	"location": "Beverly Hills Library",
+	"address": "444 N. Rexford Drive  ",
+	"formattedAddress": "Beverly Hills Public Library, 444 N Rexford Dr, Beverly Hills, CA 90210, USA",
+	"lat": 34.0730103,
+	"lng": -118.399058,
+	"zipcode": "90210",
+	"city": "Beverly Hills"
+}, {
+	"location": "Cheremoya Elementary School",
+	"address": "6017 Franklin Ave Los Angeles ",
+	"formattedAddress": "6017 Franklin Ave, Hollywood, CA 90028, USA",
+	"lat": 34.1058128,
+	"lng": -118.3206796,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Golden Apple Comics",
+	"address": "7018 Melrose Ave. La Brea ",
+	"formattedAddress": "7018 Melrose Ave, Los Angeles, CA 90038, USA",
+	"lat": 34.0832477,
+	"lng": -118.3434462,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Barnes & Noble, The Grove",
+	"address": "189 The Grove Drive La Brea ",
+	"formattedAddress": "189 The Grove Dr, Los Angeles, CA 90036, USA",
+	"lat": 34.0719465,
+	"lng": -118.3565836,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Macy's Century City",
+	"address": "10250 Santa Monica Blvd., Century City, CA  Century City ",
+	"formattedAddress": "10250 Santa Monica Blvd, Los Angeles, CA 90067, USA",
+	"lat": 34.0599924,
+	"lng": -118.4200376,
+	"zipcode": "90067",
+	"city": "Los Angeles",
+	"neighborhood": "Century City"
+}, {
+	"location": "Brand Library",
+	"address": "1601 West Mountain Street Glendale ",
+	"formattedAddress": "1601 W Mountain St, Glendale, CA 91201, USA",
+	"lat": 34.1826353,
+	"lng": -118.2764402,
+	"zipcode": "91201",
+	"city": "Glendale",
+	"neighborhood": "Verdugo Mountains"
+}, {
+	"location": "Sacred Fools Second Stage",
+	"address": "6322 Santa Monica Blvd Hollywood ",
+	"formattedAddress": "6322 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905417,
+	"lng": -118.327535,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Lure Films",
+	"address": "671 N Berendo St. Mid-Wilshire ",
+	"formattedAddress": "671 N Berendo St, Los Angeles, CA 90004, USA",
+	"lat": 34.0832878,
+	"lng": -118.2941745,
+	"zipcode": "90004",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Essentia Santa Monica",
+	"address": "2430 Main Street, Santa Monica  ",
+	"formattedAddress": "2430 Main St, Santa Monica, CA 90405, USA",
+	"lat": 34.0035604,
+	"lng": -118.4854612,
+	"zipcode": "90405",
+	"city": "Santa Monica",
+	"neighborhood": "Ocean Park"
+}, {
+	"location": "McGroarty Arts Center",
+	"address": "7570 McGroarty Terrace, Tujunga, CA Tujunga ",
+	"formattedAddress": "7570 McGroarty Terrace, Tujunga, CA 91042, USA",
+	"lat": 34.2498652,
+	"lng": -118.2977024,
+	"zipcode": "91042",
+	"city": "Los Angeles",
+	"neighborhood": "Tujunga"
+}, {
+	"location": "Ramon Cortines High School for the Visual and Performing Arts",
+	"address": "450 N. Grand Ave. Los Angeles ",
+	"formattedAddress": "450 N Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0599295,
+	"lng": -118.2442035,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Backyard Busk",
+	"address": "1863 Alsace Ave Los Angeles ",
+	"formattedAddress": "1863 Alsace Ave, Los Angeles, CA 90019, USA",
+	"lat": 34.0419052,
+	"lng": -118.3516414,
+	"zipcode": "90019",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "This event is in a private house,the exactly location of the dinner will be given to you only after the purchase of tickets.",
+	"address": "Magnolia Blvd Sherman Oaks ",
+	"formattedAddress": "W Magnolia Blvd, Sherman Oaks, CA, USA",
+	"lat": 34.1648699,
+	"lng": -118.441012,
+	"city": "Los Angeles",
+	"neighborhood": "Sherman Oaks"
+}, {
+	"location": "Mimoda Studio",
+	"address": "5774 W. Pico Blvd Los Angeles ",
+	"formattedAddress": "5774 W Pico Blvd, Los Angeles, CA 90019, USA",
+	"lat": 34.0508497,
+	"lng": -118.3644513,
+	"zipcode": "90019",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Theatricum Botanicum",
+	"address": "1419 N. Topanga Cyn Blvd. Topanga ",
+	"formattedAddress": "1419 N Topanga Canyon Blvd, Topanga, CA 90290, USA",
+	"lat": 34.1108513,
+	"lng": -118.5928551,
+	"zipcode": "90290",
+	"city": "Topanga"
+}, {
+	"location": "Peter Strauss Ranch",
+	"address": "30000 Mulholland Highway Agoura Hills ",
+	"formattedAddress": "30000 Mulholland Hwy, Agoura Hills, CA 91301, USA",
+	"lat": 34.113496,
+	"lng": -118.779316,
+	"zipcode": "91301",
+	"city": "Agoura Hills"
+}, {
+	"location": "Station Hollywood Lounge in The W Hotel",
+	"address": "6250 Hollywood Blvd Los Angeles ",
+	"formattedAddress": "6250 Hollywood Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.1009777,
+	"lng": -118.3259236,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Alvas Showroom",
+	"address": "1417 West 8th Street San Pedro ",
+	"formattedAddress": "1417 W 8th St, San Pedro, CA 90732, USA",
+	"lat": 33.7368203,
+	"lng": -118.308436,
+	"zipcode": "90732",
+	"city": "Los Angeles",
+	"neighborhood": "San Pedro"
+}, {
+	"location": "First Street Pool and Billiards",
+	"address": "1906 E 1st Street Downtown ",
+	"formattedAddress": "1906 E 1st St, Los Angeles, CA 90033, USA",
+	"lat": 34.0462376,
+	"lng": -118.2173115,
+	"zipcode": "90033",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Ahrya Fine Arts Theatre",
+	"address": "8556 Wilshire Blvd. Beverly Hills ",
+	"formattedAddress": "8556 Wilshire Blvd, Beverly Hills, CA 90211, USA",
+	"lat": 34.0653227,
+	"lng": -118.3779504,
+	"zipcode": "90211",
+	"city": "Beverly Hills"
+}, {
+	"location": "The Actors Company LA",
+	"address": "916 N. Formosa Avenue Los Angeles ",
+	"formattedAddress": "916 N Formosa Ave, Los Angeles, CA 90046, USA",
+	"lat": 34.0877004,
+	"lng": -118.3458947,
+	"zipcode": "90046",
+	"city": "Los Angeles",
+	"neighborhood": "Fairfax"
+}, {
+	"location": "5101 E Ocean Blvd., Long Beach, CA 90803",
+	"address": "5101 E Ocean Blvd. Long Beach CA 30803",
+	"formattedAddress": "5101 E Ocean Blvd, Long Beach, CA 90803, USA",
+	"lat": 33.7564523,
+	"lng": -118.1383926,
+	"zipcode": "90803",
+	"city": "Long Beach",
+	"neighborhood": "Belmont Shore"
+}, {
+	"location": "Outdoor venue",
+	"address": "Tour begins at 26th St./Bergamot Metro Station, Santa Monica  ",
+	"formattedAddress": "2602 Olympic Blvd, Santa Monica, CA 90404, USA",
+	"lat": 34.0278485,
+	"lng": -118.4697336,
+	"zipcode": "90404",
+	"city": "Santa Monica",
+	"neighborhood": "Pico"
+}, {
+	"location": "Holmby Park",
+	"address": "601 Club View Drive, Los Angeles   ",
+	"formattedAddress": "601 Club View Dr, Los Angeles, CA 90024, USA",
+	"lat": 34.0728885,
+	"lng": -118.4293686,
+	"zipcode": "90024",
+	"city": "Los Angeles",
+	"neighborhood": "Westwood"
+}, {
+	"location": "Wanderlust Hollywood",
+	"address": "1357 Highland Avenue Los Angeles ",
+	"formattedAddress": "1357 Highland Ave, Los Angeles, CA 90028, USA",
+	"lat": 34.0960277,
+	"lng": -118.3390188,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Hollywood, CA",
+	"address": "Hollywood, CA La Brea ",
+	"formattedAddress": "7110 Hollywood Blvd, Los Angeles, CA 90046, USA",
+	"lat": 34.1012048,
+	"lng": -118.3458003,
+	"zipcode": "90046",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Crestwood Hills Park",
+	"address": "1000 Hanley Ave, Los Angeles Brentwood ",
+	"formattedAddress": "1000 Hanley Ave, Los Angeles, CA 90049, USA",
+	"lat": 34.0768468,
+	"lng": -118.4891025,
+	"zipcode": "90049",
+	"city": "Los Angeles",
+	"neighborhood": "Brentwood"
+}, {
+	"location": "South Robertson Blvd.",
+	"address": "2801 South Robertson Blvd. Palms ",
+	"formattedAddress": "2801 Robertson Blvd, Los Angeles, CA 90034, USA",
+	"lat": 34.0366894,
+	"lng": -118.3891037,
+	"zipcode": "90034",
+	"city": "Los Angeles",
+	"neighborhood": "Beverlywood"
+}, {
+	"location": "Lummis House",
+	"address": "200 E. AVE 43 Lincoln Heights ",
+	"formattedAddress": "200 E Ave 43, Los Angeles, CA 90031, USA",
+	"lat": 34.09316750000001,
+	"lng": -118.2068949,
+	"zipcode": "90031",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Lounge Theatre",
+	"address": "6201 Santa Monica Blvd. Hollywood ",
+	"formattedAddress": "6201 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0909811,
+	"lng": -118.3246507,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Naimie’s Beauty Center",
+	"address": "12640 Riverside Drive, Los Angeles, CA  Valley Village ",
+	"formattedAddress": "12640 Riverside Dr, Valley Village, CA 91607, USA",
+	"lat": 34.1571166,
+	"lng": -118.4085549,
+	"zipcode": "91607",
+	"city": "Los Angeles",
+	"neighborhood": "Valley Village"
+}, {
+	"location": "Naimie's",
+	"address": "12640 Riverside Drive Los Angeles, CA  Valley Village ",
+	"formattedAddress": "12640 Riverside Dr, Valley Village, CA 91607, USA",
+	"lat": 34.1571166,
+	"lng": -118.4085549,
+	"zipcode": "91607",
+	"city": "Los Angeles",
+	"neighborhood": "Valley Village"
+}, {
+	"location": "Congregation Kol-Ami",
+	"address": "1200 N La Brea Ave, West Hollywood, CA  Hollywood ",
+	"formattedAddress": "1200 N La Brea Ave, West Hollywood, CA 90038, USA",
+	"lat": 34.0927751,
+	"lng": -118.3438179,
+	"zipcode": "90038",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Zombie Joes Underground Theatre Group at Z.J.U.",
+	"address": "4850 Lankershim Blvd North Hollywood ",
+	"formattedAddress": "4850 Lankershim Blvd, North Hollywood, CA 91601, USA",
+	"lat": 34.1591794,
+	"lng": -118.3708756,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "The Actors Company (Let Live Theater)",
+	"address": "916 North Formosa Avenue, West Hollywood  ",
+	"formattedAddress": "916 N Formosa Ave, Los Angeles, CA 90046, USA",
+	"lat": 34.0877004,
+	"lng": -118.3458947,
+	"zipcode": "90046",
+	"city": "Los Angeles",
+	"neighborhood": "Fairfax"
+}, {
+	"location": "Tailwaggers Hollywood",
+	"address": "1629 N Bronson Ave Los Angeles ",
+	"formattedAddress": "1629 N Bronson Ave, Los Angeles, CA 90028, USA",
+	"lat": 34.1002655,
+	"lng": -118.3179862,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Geffen Playhosue",
+	"address": "10886 Le Conte Ave. Los Angeles ",
+	"formattedAddress": "10886 Le Conte Ave, Los Angeles, CA 90024, USA",
+	"lat": 34.0630407,
+	"lng": -118.4440547,
+	"zipcode": "90024",
+	"city": "Los Angeles",
+	"neighborhood": "Westwood"
+}, {
+	"location": "Stephanie Fuery Theatre",
+	"address": "5636 Melrose Avenue Los Angeles, ",
+	"formattedAddress": "5636 Melrose Ave, Los Angeles, CA 90038, USA",
+	"lat": 34.083279,
+	"lng": -118.3233997,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Vroman's Bookstore",
+	"address": "695 E Colorado Blvd Pasadena ",
+	"formattedAddress": "695 E Colorado Blvd, Pasadena, CA 91101, USA",
+	"lat": 34.14628150000001,
+	"lng": -118.1361812,
+	"zipcode": "91101",
+	"city": "Pasadena"
+}, {
+	"location": "The Landmark",
+	"address": "10850 W. Pico Blvd. los angeles ",
+	"formattedAddress": "10850 W Pico Blvd, Los Angeles, CA 90064, USA",
+	"lat": 34.0396352,
+	"lng": -118.4289445,
+	"zipcode": "90064",
+	"city": "Los Angeles",
+	"neighborhood": "West Los Angeles"
+}, {
+	"location": "The Landmark Theater",
+	"address": "10850 W. Pico Blvd Los Angeles ",
+	"formattedAddress": "10850 W Pico Blvd, Los Angeles, CA 90064, USA",
+	"lat": 34.0396352,
+	"lng": -118.4289445,
+	"zipcode": "90064",
+	"city": "Los Angeles",
+	"neighborhood": "West Los Angeles"
+}, {
+	"location": "Mar Vista Art Dept",
+	"address": "12513 Venice Blvd, Los Angeles, California Mar Vista ",
+	"formattedAddress": "12513 Venice Blvd, Los Angeles, CA 90066, USA",
+	"lat": 34.0032782,
+	"lng": -118.4350314,
+	"zipcode": "90066",
+	"city": "Los Angeles",
+	"neighborhood": "Mar Vista"
+}, {
+	"location": "Mr. C Hotel",
+	"address": "1226 Beverwil Drive 12th Floor Los Angeles ",
+	"formattedAddress": "1226 Beverwil Dr, Los Angeles, CA 90035, USA",
+	"lat": 34.0553185,
+	"lng": -118.399104,
+	"zipcode": "90035",
+	"city": "Los Angeles",
+	"neighborhood": "Pico - Robertson"
+}, {
+	"location": "Rockwell Table and Stage",
+	"address": "1714 N. Vermont Los Angeles ",
+	"formattedAddress": "1714 N Vermont Ave, Los Angeles, CA 90027, USA",
+	"lat": 34.102219,
+	"lng": -118.291396,
+	"zipcode": "90027",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Redwood Bar & Grill",
+	"address": "316 W 2nd St Los Angeles ",
+	"formattedAddress": "316 W 2nd St, Los Angeles, CA 90012, USA",
+	"lat": 34.0526005,
+	"lng": -118.2474909,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Regal Cinemas L.A. LIVE Stadium 14",
+	"address": "1000 West Olympic Blvd. Los Angeles ",
+	"formattedAddress": "1000 W Olympic Blvd, Los Angeles, CA 90015, USA",
+	"lat": 34.045746,
+	"lng": -118.2680369,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "The Avalon Hollywood",
+	"address": "1735 Vine Street  Los Angeles CA",
+	"formattedAddress": "1735 Vine St, Los Angeles, CA 90028, USA",
+	"lat": 34.1027186,
+	"lng": -118.3271694,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Goethe-Institut Los Angeles",
+	"address": "5750 Wilshire Blvd. Suite 100 Los Angeles ",
+	"formattedAddress": "5750 Wilshire Blvd #100, Los Angeles, CA 90036, USA",
+	"lat": 34.0615968,
+	"lng": -118.3547725,
+	"zipcode": "90036",
+	"city": "Los Angeles",
+	"neighborhood": "Mid-Wilshire"
+}, {
+	"location": "International City Theatre  Long Beach Performing Arts Center",
+	"address": "300 East Ocean Blvd. Long Beach ",
+	"formattedAddress": "300 E Ocean Blvd, Long Beach, CA 90802, USA",
+	"lat": 33.76520350000001,
+	"lng": -118.1893341,
+	"zipcode": "90802",
+	"city": "Long Beach",
+	"neighborhood": "Waterfront"
+}, {
+	"location": "The Greenhouse at Platform",
+	"address": "8850 Washington Blvd, Culver City, CA Culver City ",
+	"formattedAddress": "8850 Washington Blvd, Culver City, CA 90232, USA",
+	"lat": 34.0267713,
+	"lng": -118.3881923,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Lucerne - Higuera"
+}, {
+	"location": "Mondrian Los Angeles",
+	"address": "8440 Sunset Blvd Los Angeles ",
+	"formattedAddress": "8440 Sunset Blvd, West Hollywood, CA 90069, USA",
+	"lat": 34.0945231,
+	"lng": -118.3743505,
+	"zipcode": "90069",
+	"city": "West Hollywood",
+	"neighborhood": "Sunset Strip"
+}, {
+	"location": "Que Sera",
+	"address": "1923 E 7th St. Long Beach ",
+	"formattedAddress": "1923 E 7th St, Long Beach, CA 90813, USA",
+	"lat": 33.77560250000001,
+	"lng": -118.168074,
+	"zipcode": "90813",
+	"city": "Long Beach",
+	"neighborhood": "Hellman Street"
+}, {
+	"location": "Catalina Jazz Club",
+	"address": "6725 W. Sunset Blvd. Hollywood ",
+	"formattedAddress": "6725 Sunset Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.09834420000001,
+	"lng": -118.3373005,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Fringe Central",
+	"address": "6510 Santa Monica Blvd. Hollywood, CA  Hollywood ",
+	"formattedAddress": "6510 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905342,
+	"lng": -118.3312809,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Hilton Los Angeles Airport",
+	"address": "5711 West Century Boulevard, Los Angeles, CA Westchester ",
+	"formattedAddress": "5711 W Century Blvd, Los Angeles, CA 90045, USA",
+	"lat": 33.9455874,
+	"lng": -118.3816214,
+	"zipcode": "90045",
+	"city": "Los Angeles"
+}, {
+	"location": "Credo",
+	"address": "8327 West 3rd Street Los Angeles ",
+	"formattedAddress": "8327 W 3rd St, Los Angeles, CA 90048, USA",
+	"lat": 34.0730114,
+	"lng": -118.3709338,
+	"zipcode": "90048",
+	"city": "Los Angeles",
+	"neighborhood": "Beverly Grove"
+}, {
+	"location": "SoulCycle Studio",
+	"address": "888/898 S Olive St, Los Angeles, CA  Downtown ",
+	"formattedAddress": "888 S Olive St, Los Angeles, CA 90015, USA",
+	"lat": 34.0437942,
+	"lng": -118.2577112,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Inglewood Center for Spiritual Living",
+	"address": "525 N. Market St., Inglewood Inglewood ",
+	"formattedAddress": "525 N Market St, Inglewood, CA 90302, USA",
+	"lat": 33.9709198,
+	"lng": -118.3551472,
+	"zipcode": "90302",
+	"city": "Inglewood"
+}, {
+	"location": "Lonny Chapman Theatre",
+	"address": "10900 Burbank Blvd. North Hollywood ",
+	"formattedAddress": "10900 Burbank Blvd, North Hollywood, CA 91601, USA",
+	"lat": 34.1718698,
+	"lng": -118.3683542,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "Fred Kavli Theatre",
+	"address": "2100 E. Thousand Oaks Thousand Oaks CA",
+	"formattedAddress": "2100 Thousand Oaks Blvd, Thousand Oaks, CA 91362, USA",
+	"lat": 34.1746462,
+	"lng": -118.848904,
+	"zipcode": "91362",
+	"city": "Thousand Oaks"
+}, {
+	"location": "Dorie Theatre at The Complex",
+	"address": "6472 Santa Monica Blvd Hollywood ",
+	"formattedAddress": "6472 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+	"lat": 34.0905339,
+	"lng": -118.3306436,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Maker City LA at The Reef",
+	"address": "1933 S. Broadway, 11th Floor Los Angeles, CA ",
+	"formattedAddress": "1933 S Broadway, Los Angeles, CA 90007, USA",
+	"lat": 34.0312448,
+	"lng": -118.2665321,
+	"zipcode": "90007",
+	"city": "Los Angeles",
+	"neighborhood": "South Los Angeles"
+}, {
+	"location": "LAND",
+	"address": "6775 California Route 2 Los Angeles ",
+	"formattedAddress": "6775 California Route 2, Los Angeles, CA 90038, USA",
+	"lat": 34.091071,
+	"lng": -118.3382475,
+	"zipcode": "90038",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "ArcLight Cinemas Hollywood",
+	"address": "6360 W. Sunset Blvd. Hollywood, CA Hollywood ",
+	"formattedAddress": "6360 Sunset Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.0973718,
+	"lng": -118.3278725,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "The ROW DTLA",
+	"address": "777 South Alameda Street Downtown ",
+	"formattedAddress": "777 S Alameda St, Los Angeles, CA 90021, USA",
+	"lat": 34.0336927,
+	"lng": -118.2414879,
+	"zipcode": "90021",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "JW Marriott LA Live",
+	"address": "800 W Olympic Blvd, Los Angeles, CA  Downtown ",
+	"formattedAddress": "Lucky Strike Bowling - Los Angeles, 800 W Olympic Blvd, Los Angeles, CA 90015, USA",
+	"lat": 34.0447954,
+	"lng": -118.2652703,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Auto Club Speedway",
+	"address": "9300 Cherry Ave Fontana ",
+	"formattedAddress": "9300 Cherry Ave, Fontana, CA 92335, USA",
+	"lat": 34.084619,
+	"lng": -117.489531,
+	"zipcode": "92335",
+	"city": "Fontana"
+}, {
+	"location": "Kirk Douglas Theater",
+	"address": "9820 Washington Blvd Culver City ",
+	"formattedAddress": "9820 Washington Blvd, Culver City, CA 90232, USA",
+	"lat": 34.021564,
+	"lng": -118.3969631,
+	"zipcode": "90232",
+	"city": "Culver City"
+}, {
+	"location": "iO West Theater",
+	"address": "6366 Hollywood Blvd, Los Angeles, CA Hollywood ",
+	"formattedAddress": "6366 Hollywood Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.1013952,
+	"lng": -118.3287424,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Pasadena City Hall",
+	"address": "100 Garfield Street  ",
+	"formattedAddress": "100 Garfield St, Denver, CO 80206, USA",
+	"lat": 39.7180606,
+	"lng": -104.9434515,
+	"zipcode": "80206",
+	"city": "Denver",
+	"neighborhood": "East"
+}, {
+	"location": "Santa Anita Park",
+	"address": "285 W. Huntington Park, Arcadia, CA Arcadia ",
+	"formattedAddress": "285 W Huntington Dr, Arcadia, CA 91007, USA",
+	"lat": 34.138862,
+	"lng": -118.0446356,
+	"zipcode": "91007",
+	"city": "Arcadia"
+}, {
+	"location": "Curacao Department Store South Plaza",
+	"address": "8618 Garfield Ave, South Gate, CA  South Gate ",
+	"formattedAddress": "8618 Garfield Ave, South Gate, CA 90280, USA",
+	"lat": 33.95243,
+	"lng": -118.163147,
+	"zipcode": "90280",
+	"city": "South Gate"
+}, {
+	"location": "Helms Bakery",
+	"address": "8800 Venice Blvd. Culver City CA",
+	"formattedAddress": "8800 Venice Blvd, Los Angeles, CA 90034, USA",
+	"lat": 34.0306792,
+	"lng": -118.3851538,
+	"zipcode": "90034",
+	"city": "Los Angeles",
+	"neighborhood": "Art District"
+}, {
+	"location": "The Unusual Suspects Theatre Co. (Office Location)",
+	"address": "3719 Verdugo Road, Los Angeles, CA  Mount Washington ",
+	"formattedAddress": "3719 Verdugo Rd, Los Angeles, CA 90065, USA",
+	"lat": 34.1180476,
+	"lng": -118.2323372,
+	"zipcode": "90065",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Santa Clarita Performing Arts Center at College of the Canyons",
+	"address": "26455 Rockwell Canyon Road Valencia ",
+	"formattedAddress": "26455 Rockwell Canyon Rd, Valencia, CA 91355, USA",
+	"lat": 34.4043825,
+	"lng": -118.5705879,
+	"zipcode": "91355",
+	"city": "Santa Clarita",
+	"neighborhood": "Valencia"
+}, {
+	"location": "Palisades Charter High School",
+	"address": "15777 Bowdoin St. Los Angeles ",
+	"formattedAddress": "15777 Bowdoin St, Pacific Palisades, CA 90272, USA",
+	"lat": 34.047136,
+	"lng": -118.5304727,
+	"zipcode": "90272",
+	"city": "Los Angeles",
+	"neighborhood": "Pacific Palisades"
+}, {
+	"location": "Street Level Cafe & One One Six Two Gallery",
+	"address": "1162 Glendale Blvd Los Angeles, CA  Silver Lake ",
+	"formattedAddress": "1162 Glendale Blvd, Los Angeles, CA 90026, USA",
+	"lat": 34.0776463,
+	"lng": -118.2604759,
+	"zipcode": "90026",
+	"city": "Los Angeles",
+	"neighborhood": "Echo Park"
+}, {
+	"location": "The Mike Kelley Gallery / Beyond Baroque",
+	"address": "681 N. Venice Blvd. Venice, CA  Venice ",
+	"formattedAddress": "681 N Venice Blvd, Venice, CA 90291, USA",
+	"lat": 33.99116100000001,
+	"lng": -118.4586788,
+	"zipcode": "90291",
+	"city": "Los Angeles",
+	"neighborhood": "Venice"
+}, {
+	"location": "Jim Henson Company lot",
+	"address": "1416 No. La Brea Ave Hollywood ",
+	"formattedAddress": "1416 N La Brea Ave, Los Angeles, CA 90028, USA",
+	"lat": 34.09648120000001,
+	"lng": -118.3439042,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "First United Mehtodist Church of Pasadena",
+	"address": "500 E Colorado Blvd Pasadena CA",
+	"formattedAddress": "500 E Colorado Blvd, Pasadena, CA 91101, USA",
+	"lat": 34.144922,
+	"lng": -118.140235,
+	"zipcode": "91101",
+	"city": "Pasadena"
+}, {
+	"location": "The Colburn School - Zipper Concert Hall",
+	"address": "200 S. Grand Ave. Los Angeles ",
+	"formattedAddress": "200 S Grand Ave, Los Angeles, CA 90012, USA",
+	"lat": 34.0540039,
+	"lng": -118.2498686,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Harvard Yard",
+	"address": "1400 S Western Ave Los Angeles ",
+	"formattedAddress": "1400 S Western Ave, Los Angeles, CA 90006, USA",
+	"lat": 34.0460796,
+	"lng": -118.3088764,
+	"zipcode": "90006",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Culver City Teen Center",
+	"address": "4153 Overland Ave. Culver City ",
+	"formattedAddress": "4153 Overland Ave, Culver City, CA 90230, USA",
+	"lat": 34.0125454,
+	"lng": -118.4018472,
+	"zipcode": "90230",
+	"city": "Culver City",
+	"neighborhood": "Park West"
+}, {
+	"location": "Ventura Blvd, between Balboa and Amestoy",
+	"address": "Encino, CA Encino ",
+	"formattedAddress": "Encino, Los Angeles, CA, USA",
+	"lat": 34.1517492,
+	"lng": -118.5214282,
+	"city": "Los Angeles",
+	"neighborhood": "Encino"
+}, {
+	"location": "The Ritz Carlton Spa, Los Angeles",
+	"address": "900 W Olympic Blvd. Downtown ",
+	"formattedAddress": "900 W Olympic Blvd, Los Angeles, CA 90015, USA",
+	"lat": 34.0452221,
+	"lng": -118.2666712,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "[seven-degrees]",
+	"address": "891 Laguna Canyon Road Laguna Beach ",
+	"formattedAddress": "891 Laguna Canyon Rd, Laguna Beach, CA 92651, USA",
+	"lat": 33.5502031,
+	"lng": -117.7789825,
+	"zipcode": "92651",
+	"city": "Laguna Beach"
+}, {
+	"location": "Roxanne's Cocktail Lounge & Latin Grill",
+	"address": "1115 East Wardlow Road Long Beach ",
+	"formattedAddress": "1115 E Wardlow Rd, Long Beach, CA 90807, USA",
+	"lat": 33.819121,
+	"lng": -118.1780385,
+	"zipcode": "90807",
+	"city": "Long Beach",
+	"neighborhood": "Bixby Knolls"
+}, {
+	"location": "Private Estate",
+	"address": "111 Location Drive Bel-Air ",
+	"formattedAddress": "Château d'air location, 325 Route de Bel Air, 26260 Saint-Bardoux, France",
+	"lat": 45.0866565,
+	"lng": 4.987288899999999,
+	"zipcode": "26260",
+	"city": "Saint-Bardoux"
+}, {
+	"location": "Encino Park",
+	"address": "16953 Ventura Boulevard, Encino, CA Encino ",
+	"formattedAddress": "16953 Ventura Blvd, Encino, CA 91316, USA",
+	"lat": 34.1597113,
+	"lng": -118.5026246,
+	"zipcode": "91316",
+	"city": "Los Angeles",
+	"neighborhood": "Encino"
+}, {
+	"location": "Let Live Theater at The Actors Company",
+	"address": "916 North Formosa Ave Los Angeles ",
+	"formattedAddress": "916 N Formosa Ave, Los Angeles, CA 90046, USA",
+	"lat": 34.0877004,
+	"lng": -118.3458947,
+	"zipcode": "90046",
+	"city": "Los Angeles",
+	"neighborhood": "Fairfax"
+}, {
+	"location": "5 Towers at Universal CityWalk",
+	"address": "100 Universal City Plaza Universal City ",
+	"formattedAddress": "100 Universal City Plaza, North Hollywood, CA 91602, USA",
+	"lat": 34.1361918,
+	"lng": -118.3520161,
+	"zipcode": "91602",
+	"city": "Universal City",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "Pasadena Conservatory of Music",
+	"address": "100 North Hill Avenue  ",
+	"formattedAddress": "100 Hill Ave, Spirit Lake, IA 51360, USA",
+	"lat": 43.4445035,
+	"lng": -95.10259669999999,
+	"zipcode": "51360",
+	"city": "Spirit Lake"
+}, {
+	"location": "Microsoft Theatre LA Live",
+	"address": "777 Chick Hearn Court Los Angeles CA",
+	"formattedAddress": "777 Chick Hearn Ct, Los Angeles, CA 90015, USA",
+	"lat": 34.0444889,
+	"lng": -118.2670519,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Electric Lodge",
+	"address": "1416 Electric Avenue ",
+	"formattedAddress": "1416 Electric Ave, Venice, CA 90291, USA",
+	"lat": 33.9911866,
+	"lng": -118.4650125,
+	"zipcode": "90291",
+	"city": "Los Angeles",
+	"neighborhood": "Venice"
+}, {
+	"location": "Lakewood Golf Course",
+	"address": "3101 Carson Street, Lakewood Lakewood ",
+	"formattedAddress": "3101 E Carson St, Lakewood, CA 90712, USA",
+	"lat": 33.8335958,
+	"lng": -118.1542455,
+	"zipcode": "90712",
+	"city": "Lakewood"
+}, {
+	"location": "TBA",
+	"address": "contact us for details  "
+}, {
+	"location": "Los Angeles Convention & Exhibition Center",
+	"address": "1201 S Figueroa St Los Angeles ",
+	"formattedAddress": "1201 S Figueroa St, Los Angeles, CA 90015, USA",
+	"lat": 34.0413606,
+	"lng": -118.2697771,
+	"zipcode": "90015",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Los Angeles Family School",
+	"address": "2646 Griffith Park Blvd. Los Angeles ",
+	"formattedAddress": "2646 Griffith Park Blvd, Los Angeles, CA 90039, USA",
+	"lat": 34.1063949,
+	"lng": -118.2714777,
+	"zipcode": "90039",
+	"city": "Los Angeles",
+	"neighborhood": "Silver Lake"
+}, {
+	"location": "Four Seasons Beverly Hills",
+	"address": "300 S Doheny Dr, Los Angeles, CA  ",
+	"formattedAddress": "300 S Doheny Dr, Los Angeles, CA 90048, USA",
+	"lat": 34.0729547,
+	"lng": -118.3892059,
+	"zipcode": "90048",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "AMC Century City 15",
+	"address": "10250 Santa Monica Blvd Los Angeles ",
+	"formattedAddress": "10250 Santa Monica Blvd, Los Angeles, CA 90067, USA",
+	"lat": 34.0599924,
+	"lng": -118.4200376,
+	"zipcode": "90067",
+	"city": "Los Angeles",
+	"neighborhood": "Century City"
+}, {
+	"location": "ArcLight Culver City",
+	"address": "9500 Culver Blvd Culver City ",
+	"formattedAddress": "9500 Culver Blvd, Culver City, CA 90232, USA",
+	"lat": 34.0234499,
+	"lng": -118.3940916,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Downtown"
+}, {
+	"location": "The Braid Performance Space",
+	"address": "2912 Colorado Ave. #102, Santa Monica, CA  ",
+	"formattedAddress": "2912 Colorado Ave #102, Santa Monica, CA 90404, USA",
+	"lat": 34.0329685,
+	"lng": -118.4678207,
+	"zipcode": "90404",
+	"city": "Santa Monica"
+}, {
+	"location": "Buena Park Library",
+	"address": "7150 La Palma Ave Buena Park ",
+	"formattedAddress": "7150 La Palma Ave, Buena Park, CA 90620, USA",
+	"lat": 33.8460883,
+	"lng": -118.0084448,
+	"zipcode": "90620",
+	"city": "Buena Park"
+}, {
+	"location": "REDCAT",
+	"address": "631 West 2nd Street Los Angeles ",
+	"formattedAddress": "631 W 2nd St, Los Angeles, CA 90012, USA",
+	"lat": 34.0550997,
+	"lng": -118.2505889,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Downtown"
+}, {
+	"location": "Point Fermin Park",
+	"address": "807 W Paseo Del Mar San Peddro, CA ",
+	"formattedAddress": "807 W Paseo Del Mar, San Pedro, CA 90731, USA",
+	"lat": 33.7069915,
+	"lng": -118.2934374,
+	"zipcode": "90731",
+	"city": "Los Angeles",
+	"neighborhood": "San Pedro"
+}, {
+	"location": "Long Beach Convention Center",
+	"address": "300 E Ocean Blvd, Long Beach Long Beach ",
+	"formattedAddress": "300 E Ocean Blvd, Long Beach, CA 90802, USA",
+	"lat": 33.76520350000001,
+	"lng": -118.1893341,
+	"zipcode": "90802",
+	"city": "Long Beach",
+	"neighborhood": "Waterfront"
+}, {
+	"location": "TCL Chinese Theatre 6",
+	"address": "6801 Hollywood Blvd Los Angeles ",
+	"formattedAddress": "6801 Hollywood Blvd, Los Angeles, CA 90028, USA",
+	"lat": 34.1025489,
+	"lng": -118.3401051,
+	"zipcode": "90028",
+	"city": "Los Angeles",
+	"neighborhood": "Hollywood"
+}, {
+	"location": "Secret Rose Theatre",
+	"address": "11246 W Magnolia Blvd, North Hollywood, California  North Hollywood ",
+	"formattedAddress": "11246 W Magnolia Blvd, North Hollywood, CA 91601, USA",
+	"lat": 34.1646919,
+	"lng": -118.3761702,
+	"zipcode": "91601",
+	"city": "Los Angeles",
+	"neighborhood": "North Hollywood"
+}, {
+	"location": "Glen Helen Raceway",
+	"address": "18585 Verdemont Ranch Rd San Bernardino ",
+	"formattedAddress": "18585 Verdemont Ranch Rd, San Bernardino, CA 92407, USA",
+	"lat": 34.190556,
+	"lng": -117.390009,
+	"zipcode": "92407",
+	"city": "San Bernardino"
+}, {
+	"location": "DoubleTree by Hilton Hotel Los Angeles Downtown",
+	"address": "120 S Los Angeles St.  Los Angeles CA",
+	"formattedAddress": "120 S Los Angeles St, Los Angeles, CA 90012, USA",
+	"lat": 34.050357,
+	"lng": -118.242931,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "The Santa Clarita Performing Art Center",
+	"address": "26455 Rockwell Canyon Road, Valencia Valencia ",
+	"formattedAddress": "26455 Rockwell Canyon Rd, Santa Clarita, CA 91355, USA",
+	"lat": 34.4042459,
+	"lng": -118.5682302,
+	"zipcode": "91355",
+	"city": "Santa Clarita"
+}, {
+	"location": "Live Arts LA (LALA)",
+	"address": "4210 Panamint St. Los Angeles ",
+	"formattedAddress": "4210 Panamint St, Los Angeles, CA 90065, USA",
+	"lat": 34.1212571,
+	"lng": -118.2255646,
+	"zipcode": "90065",
+	"city": "Los Angeles",
+	"neighborhood": "Northeast Los Angeles"
+}, {
+	"location": "Union NightClub",
+	"address": "4067 West Pico Blvd. Los Angeles CA",
+	"formattedAddress": "4067 W Pico Blvd, Los Angeles, CA 90019, USA",
+	"lat": 34.047775,
+	"lng": -118.3241134,
+	"zipcode": "90019",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Venice Arts",
+	"address": "13445 Beach Avenue Marina del Rey ",
+	"formattedAddress": "13445 Beach Ave, Marina Del Rey, CA 90292, USA",
+	"lat": 33.9909428,
+	"lng": -118.4456119,
+	"zipcode": "90292",
+	"city": "Marina del Rey"
+}, {
+	"location": "Cornelius Projects",
+	"address": "1417 South Pacific Avenue San Pedro ",
+	"formattedAddress": "1417 S Pacific Ave, San Pedro, CA 90731, USA",
+	"lat": 33.731048,
+	"lng": -118.288318,
+	"zipcode": "90731",
+	"city": "Los Angeles",
+	"neighborhood": "San Pedro"
+}, {
+	"location": "Le Lycée Français de Los Angeles - Theater Raymond Kabbaz",
+	"address": "10361 West Pico Blvd West Los Angeles ",
+	"formattedAddress": "10361 W Pico Blvd, Los Angeles, CA 90064, USA",
+	"lat": 34.0472141,
+	"lng": -118.4160617,
+	"zipcode": "90064",
+	"city": "Los Angeles",
+	"neighborhood": "Century City"
+}, {
+	"location": "Plummer Park",
+	"address": "7377 Santa Monica Blvd. West Hollywood ",
+	"formattedAddress": "7377 Santa Monica Blvd, West Hollywood, CA 90046, USA",
+	"lat": 34.0913439,
+	"lng": -118.3508336,
+	"zipcode": "90046",
+	"city": "West Hollywood",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Los Angeles State Historic Park",
+	"address": "1245 North Spring Street Los Angeles, CA  Downtown ",
+	"formattedAddress": "1245 N Spring St, Los Angeles, CA 90012, USA",
+	"lat": 34.0661743,
+	"lng": -118.2342881,
+	"zipcode": "90012",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Cooper Design Space",
+	"address": "860 S Los Angeles St Los Angeles CA",
+	"formattedAddress": "860 S Los Angeles St, Los Angeles, CA 90014, USA",
+	"lat": 34.0408453,
+	"lng": -118.2534023,
+	"zipcode": "90014",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "The Row-DTLA",
+	"address": "777 South Alameda St. Downtown ",
+	"formattedAddress": "777 S Alameda St, Los Angeles, CA 90021, USA",
+	"lat": 34.0336927,
+	"lng": -118.2414879,
+	"zipcode": "90021",
+	"city": "Los Angeles",
+	"neighborhood": "Central LA"
+}, {
+	"location": "Watson Adventures Meet-Up Location",
+	"address": "Near City Hall Culver City ",
+	"formattedAddress": "9770 Culver Blvd # 3, Culver City, CA 90232, USA",
+	"lat": 34.0213325,
+	"lng": -118.3955343,
+	"zipcode": "90232",
+	"city": "Culver City",
+	"neighborhood": "Lucerne - Higuera"
+}, {
+	"location": "Avenue des Arts Gallery",
+	"address": "807 S Los Angeles Street Downtown ",
+	"formattedAddress": "807 S Bonnie Brae St, Los Angeles, CA 90057, USA",
+	"lat": 34.0536478,
+	"lng": -118.2758882,
+	"zipcode": "90057",
+	"city": "Los Angeles",
+	"neighborhood": "Westlake South"
+}, {
+	"location": "Ann and Jerry Moss Theater at New Roads School",
+	"address": "3131 Olympic Boulevard Santa Monica CA  "
+}, {
+	"location": "Lincoln High School Performing Arts Theater",
+	"address": "3501 North Broadway Los Angeles "
+}, {
+	"location": "Oceanfront Walk",
+	"address": "2000 Ocean Avenue, Santa Monica  "
+}, {
+	"location": "Electric Lodge Performing Arts Center",
+	"address": "1416 Electric Avenue Venice "
+}, {
+	"location": "Theatre 40",
+	"address": "241 S. Moreno Dr. Beverly Hills "
+}, {
+	"location": "Comedy Store",
+	"address": "8433 Sunset Blvd, Los Angeles, CA   "
+}, {
+	"location": "Hornblower Cruises",
+	"address": "13755 Fiji Way 13755 Fiji Way CA 0"
+}, {
+	"location": "The Whisky a Go Go",
+	"address": "8901 Sunset Boulevard West Hollywood "
+}, {
+	"location": "University of Santa Monica",
+	"address": "2101 Wilshire Blvd. Santa Monica  "
+}, {
+	"location": "Ojai CA",
+	"address": "Ojai Marina del Rey "
+}, {
+	"location": "L.A. Live",
+	"address": "800 W Olympic Blvd 800 W Olympic Blvd CA 0"
+}, {
+	"location": "Caf Fais Do Do",
+	"address": "5257 W. Adams Blvd. Los Angeles "
+}, {
+	"location": "JapanLA",
+	"address": "7320 1/2 Melrose Ave.  "
+}, {
+	"location": "Rose Bowl",
+	"address": "1001 Rose Bowl Dr. Pasadena "
+}, {
+	"location": "Santa Monica Bay Women's Club",
+	"address": "1210 Fourth Street, Santa Monica, CA   "
+}, {
+	"location": "Malibu Bluffs Park",
+	"address": "24250 Pacific Coast Hwy Malibu "
+}, {
+	"location": "Watson Adventures' Meet-Up Location",
+	"address": "Near Union Street Station Watts "
+}, {
+	"location": "Brookside at the Rose Bowl",
+	"address": "1133 Rosemont Avenue Pasadena CA"
+}, {
+	"location": "Fox Theater",
+	"address": "301 S Garey Ave Pomona CA"
+}, {
+	"location": "Wally Parks NHRA Motorsports Museum",
+	"address": "1101 McKinley Avenue - Building 3A Pomona "
+}, {
+	"location": "Corsair Stadium at Santa Monica College",
+	"address": "1900 Pico Blvd, Santa Monica, CA  "
+}, {
+	"location": "Neighborhood Unitarian Universalist Church",
+	"address": "301 Orange Grove Blvd.  "
+}, {
+	"location": "Heal the Bay’s Santa Monica Pier Aquarium",
+	"address": "1600 Ocean Front Walk  "
+}, {
+	"location": "El Camp",
+	"address": "2150 Park Place, El Segundo, CA El Segundo "
+}]

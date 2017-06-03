@@ -8,30 +8,31 @@ var $ = require("jquery");
 var moment = require('moment');
 require('../utils.js')();
 
-var startURL = "http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=";
-
-var URLlist = [];
-var obj = {
-	events : []
-};
-
 var dateData = getDateData();
 var monthName = dateData.monthName;
 // should this be capitalized?
 var searchWord = dateData.monthName;
 var num = 0;
 var saveIndex = 150;
+var startIndex = 0;
 
-for (var i = dateData.currentDay; i < dateData.numOfDays; i++) {
-	if (dateData.currentMonth.toString().length == 1)
-		dateData.currentMonth = '0' + dateData.currentMonth;
-	var dynamicURL = startURL + dateData.currentMonth + '/' + i + '/' + dateData.year;
-	URLlist.push(dynamicURL);
-}
+var startURL = "http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=";
+var saveDir = '..\\..\\data\\crawldata\\' + monthName;
+
+var URLlist = [];
+var obj = {
+	events : []
+};
+
+
 
 console.log("starting crawl for " + monthName);
+generateURLlist();
 createFolder(monthName);
-firstRequest(URLlist[0], 0);
+//firstRequest(URLlist[startIndex], startIndex);
+
+// TO DO:
+// pull callbacks into callback function
 
 function firstRequest(url, index) {
 	if (url == undefined)
@@ -39,14 +40,6 @@ function firstRequest(url, index) {
 
 	num++;
 	logNumOfEvents(obj.events.length);
-	// var length = obj.events.length;
-	// if (length >= 3000)
-	// console.log('reached 3000 entries');
-	// if (length >= 5000)
-	// console.log('reached 5000 entries');
-	// if (length >= 7000)
-	// console.log('reached 7000 entries');
-	// length = 0;
 
 	request(url, function(error, response, body) {
 		if (response) {
@@ -80,7 +73,8 @@ function firstRequest(url, index) {
 					var content = $(dayElement).parent().next().children()[0];
 					var children = $(content).children('.views-row');
 					var linkDate = url.split('=')[1].split('/')[1];
-					var parentDate = $('.field-content:contains("' + searchWord + ' ' + linkDate + '")').text().split(', ')[1];
+					//var parentDate = $('.field-content:contains("' + searchWord + ' ' + linkDate + '")').text().split(', ')[1];
+					var parentDate = searchWord + ' ' + linkDate;
 
 					$(children).each(function(index) {
 						var nameText = $(this).find("h2").text().trim();
@@ -99,13 +93,7 @@ function firstRequest(url, index) {
 					});
 
 					console.log(obj);
-
-					var json = JSON.stringify(obj);
-					// use save method here
-					var length = obj.events.length;
-					fs.writeFile('data\\' + monthName + '\\discoverParentData.json', json, 'utf8', function(err) {
-						console.log("File saved with " + length + ' entries');
-					});
+					saveFile(saveDir + '\\discoverParentData.json', obj.events.length, obj);
 
 					var nextNum = index + 1;
 					if (nextNum == URLlist.length) {
@@ -130,9 +118,9 @@ function firstRequest(url, index) {
 	});
 }
 
-//var obj = fs.readFileSync('data\\' + monthName + '\\discoverParentData.json', 'utf8');
-//obj = JSON.parse(obj);
-//makeSecondRequest(obj.events[0], 0);
+var obj = fs.readFileSync(saveDir + '\\discoverParentData.json', 'utf8');
+obj = JSON.parse(obj);
+makeSecondRequest(obj.events[1051], 1051);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
@@ -154,7 +142,7 @@ function makeSecondRequest(event, index) {
 
 				var nextIndex = index + 1;
 				if (nextIndex == Math.ceil(obj.events.length * .999)) {
-					saveFile('data\\' + monthName + '\\discover99.json', index);
+					saveFile(saveDir + '\\discover99.json', index, obj.events);
 					console.log('crawl finished');
 					return;
 				} else {
@@ -176,9 +164,11 @@ function makeSecondRequest(event, index) {
 						obj.events[index].address = address;
 					}
 
+
 					obj.events[index].date = $(eventHTML).find('.detail-page-date-time .date').text();
 					var type = $(eventHTML).find('.detail-page-breadcrumb')[0].childNodes[2].data;
 					obj.events[index].type = type.replace('/', '').trim();
+					obj.events[index].filterType = getFilterOption(type.replace('/', '').trim());
 
 					var summary = $(summaryNodes).text();
 					if (summary.indexOf('function') != -1)
@@ -190,14 +180,13 @@ function makeSecondRequest(event, index) {
 				// handle responses that aren't on correct page
 
 				console.log('\r\n' + index + '\r\n');
-				console.log(obj.events[index] + '\r\n\r\n');
+				console.log(obj.events[index]);
+				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
-					var percent = index / saveIndex;
-					// better file naming
-					saveFile('data\\' + monthName + '\\discover' + percent + '.json', index);
+					saveFile(saveDir + '\\discover' + startIndex + '-' + index + '.json', index, obj.events);
 				} else if (index == obj.events.length) {
-					saveFile('data\\' + monthName + '\\discover100.json', index);
+					saveFile(saveDir + '\\discover100.json', index, obj.events);
 				}
 			} else {
 				var nextIndex = index + 1;
@@ -214,4 +203,13 @@ function makeSecondRequest(event, index) {
 			return;
 		}
 	});
+}
+
+function generateURLlist() {
+	for (var i = dateData.currentDay; i < dateData.numOfDays; i++) {
+		if (dateData.currentMonth.toString().length == 1)
+			dateData.currentMonth = '0' + dateData.currentMonth;
+		var dynamicURL = startURL + dateData.currentMonth + '/' + i + '/' + dateData.year;
+		URLlist.push(dynamicURL);
+	}
 }

@@ -9,40 +9,31 @@ var moment = require('moment');
 var _ = require('underscore');
 require('../utils.js')();
 
+var dateData = getDateData();
+var monthName = dateData.monthName;
+var num = 0;
+var saveIndex = 150;
+var startIndex = 0;
+
 var startURL = "http://www.laweekly.com/calendar?dateRange[]=";
+var saveDir = '..\\..\\data\\crawldata\\' + monthName;
+
 var URLlist = [];
 var obj = {
 	events : []
 };
 
-var dateData = getDateData();
-var monthName = dateData.monthName;
-var num = 0;
-var saveIndex = 150;
-
-for (var i = dateData.currentDay; i < dateData.numOfDays + 1; i++) {
-	if (dateData.currentMonth.toString().length == 1)
-		dateData.currentMonth = '0' + dateData.currentMonth;
-	var dynamicURL = startURL + dateData.year + '-' + dateData.currentMonth + '-' + i;
-	URLlist.push(dynamicURL);
-}
-
 console.log("starting crawl for " + monthName);
+generateURLlist();
 createFolder(monthName);
-firstRequest(URLlist[0], 0);
+//firstRequest(URLlist[startIndex], startIndex);
+
+// create callback function for callbacks
 
 function firstRequest(url, index) {
 
 	num++;
 	logNumOfEvents(obj.events.length);
-	// var length = obj.events.length;
-	// if (length >= 3000)
-	// console.log('reached 3000 entries');
-	// if (length >= 5000)
-	// console.log('reached 5000 entries');
-	// if (length >= 7000)
-	// console.log('reached 7000 entries');
-	// length = 0;
 
 	if (url == undefined)
 		return;
@@ -103,11 +94,8 @@ function firstRequest(url, index) {
 		}
 
 		console.log(obj);
-		var json = JSON.stringify(obj);
-		var length = obj.events.length;
-		fs.writeFile('data\\' + monthName + '\\laWeeklyParentData.json', json, 'utf8', function(err) {
-			console.log("File saved with " + length + ' entries');
-		});
+		saveFile(saveDir + '\\laweekly99.json', obj.events.length, obj);
+
 		if (num == URLlist.length) {
 			console.log('first request completed');
 			makeSecondRequest(obj.events[0], 0);
@@ -116,9 +104,9 @@ function firstRequest(url, index) {
 
 }
 
-//var obj = fs.readFileSync('data\\' + monthName + '\\laWeeklyParentData.json', 'utf8');
-//obj = JSON.parse(obj);
-//makeSecondRequest(obj.events[601], 601);
+var obj = fs.readFileSync(saveDir + '\\laWeeklyParentData.json', 'utf8');
+obj = JSON.parse(obj);
+makeSecondRequest(obj.events[1201], 1201);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
@@ -138,7 +126,7 @@ function makeSecondRequest(event, index) {
 
 				var nextIndex = index + 1;
 				if (nextIndex == Math.ceil(obj.events.length * .999)) {
-					saveFile('data\\' + monthName + '\\laweekly99.json', index);
+					saveFile(saveDir + '\\laweekly99.json', index, obj.events);
 					console.log('crawl finished');
 					return;
 				} else {
@@ -150,19 +138,22 @@ function makeSecondRequest(event, index) {
 				var $ = cheerio.load(body);
 				var eventHTML = $('.content');
 				if (eventHTML) {
-					obj.events[index].type = $('.categories').text().replace(/\s+/g, ' ').trim();
+					var type = $('.categories').text().replace(/\s+/g, ' ').trim();
+					obj.events[index].type = type;
+					obj.events[index].filterType = getFilterOption(type);
 					obj.events[index].summary = $('.col-desc').text().replace(/\s+/g, ' ').trim();
 					obj.events[index].address = $('.address').text().replace(/\s+/g, ' ').trim();
 				}
 
 				console.log('\r\n' + index + '\r\n');
-				console.log(obj.events[index] + '\r\n\r\n');
+				console.log(obj.events[index]);
+				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
 					var percent = index / saveIndex;
-					saveFile('data\\' + monthName + '\\laweekly' + percent + '.json', index);
+					saveFile(saveDir + '\\laweekly' + startIndex + '-' + index + '.json', index, obj.events);
 				} else if (index == obj.events.length) {
-					saveFile('data\\' + monthName + '\\laweekly100.json', index);
+					saveFile(saveDir + '\\laweekly100.json', index, obj.events);
 				}
 			} else {
 				var nextIndex = index + 1;
@@ -179,4 +170,13 @@ function makeSecondRequest(event, index) {
 			return;
 		}
 	});
+}
+
+function generateURLlist() {
+	for (var i = dateData.currentDay; i < dateData.numOfDays + 1; i++) {
+		if (dateData.currentMonth.toString().length == 1)
+			dateData.currentMonth = '0' + dateData.currentMonth;
+		var dynamicURL = startURL + dateData.year + '-' + dateData.currentMonth + '-' + i;
+		URLlist.push(dynamicURL);
+	}
 }

@@ -7,28 +7,20 @@ var NodeGeocoder = require('node-geocoder');
 var geocoder = NodeGeocoder(options);
 var fs = require('fs');
 require('./locUtils.js')();
-require('../utils.js')();
+require('./utils.js')();
 
 var dateData = getDateData();
 var monthName = dateData.monthName;
-// geo options
 var requestWait = 10000;
-// wait time before next request
 var saveIndex = 50;
-// define frequency of saving
-var startIndex = 301;
-// change this if not starting from beginning
+var startIndex = 0;
 var locationDataDir = '..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsToGeo.json';
+createFolderNew('..\\data\\locationdata\\' + monthName);
 
-// run location utils (step 1 & 2)
+// step 1 & 2
 var locationData = retrieveMonthLocations();
-var locations = locationsToGeocode(locationData);
+//var locations = locationsToGeocode(locationData);
 
-// put this when geocoding is finished
-// step 4
-//getFullMonthLocationsData();
-
-// get file data
 if (!locations) {
 	var locations = fs.readFileSync(locationDataDir, 'utf8');
 	locations = JSON.parse(locations);
@@ -36,21 +28,17 @@ if (!locations) {
 
 console.log('number of locations to be geocoded: ' + (locations.length - startIndex));
 
-// make request (step 3)
-requestGeoCode(locations[startIndex], startIndex);
+// step 3
+//requestGeoCode(locations[startIndex], startIndex);
 
 function requestGeoCode(location, index) {
+	// will this work with new callback?
 	if (location == undefined || location.address == undefined)
 		return;
 
 	console.log('index: ' + index, '  address pre geocode: ' + location.address);
 	geocoder.geocode(location.address).then(function(res) {
 		console.log('index: ' + index, '   address post geocode: ' + location.address);
-
-		var nextNum = index + 1;
-		setTimeout(function() {
-			requestGeoCode(locations[nextNum], nextNum);
-		}, requestWait);
 
 		locations[index].formattedAddress = res[0].formattedAddress;
 		locations[index].lat = res[0].latitude;
@@ -64,28 +52,21 @@ function requestGeoCode(location, index) {
 		console.log('');
 
 	}).catch(function(err) {
-		// this is causing dupliation of calls every error
 		console.log(err);
-		var nextNum = index + 1;
-		setTimeout(function() {
-			requestGeoCode(locations[nextNum], nextNum);
-		}, requestWait);
 	});
 
 	if (index == locations.length - 1) {
 		console.log('geocoding completed');
-		saveFile(index, '..\\' + monthName + 'LocationsPartialGeo' + startIndex + '-' + index);
+		saveFile(locdatadir + monthName + 'LocationsPartialGeo' + startIndex + '-' + index + '.json', index, locations);
+		// step 4
+			setTimeout(function() {
+				createFinalFiles();
+			}, 3000); 
 	} else if (index % saveIndex === 0 && index != 0)
-		saveFile(index, '..\\' + monthName + 'LocationsPartialGeo' + startIndex + '-' + index);
-}
+		saveFile(locdatadir + 'LocationsPartialGeo' + startIndex + '-' + index + '.json', index, locations);
 
-// use utils
-function saveFile(index, dir) {
-	var json = JSON.stringify(locations);
-	var length = index - startIndex;
-	fs.writeFile(dir + '.json', json, 'utf8', function(err) {
-		console.log("File saved with " + length + ' entries');
-		return;
-	});
+	var nextNum = index + 1;
+	setTimeout(function() {
+		requestGeoCode(locations[nextNum], nextNum);
+	}, requestWait);
 }
-
