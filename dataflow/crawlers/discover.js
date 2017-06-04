@@ -7,6 +7,7 @@ var fs = require('fs');
 var $ = require("jquery");
 var moment = require('moment');
 require('../utils.js')();
+require('../logUtils.js')();
 
 var dateData = getDateData();
 var monthName = dateData.monthName;
@@ -24,12 +25,12 @@ var obj = {
 	events : []
 };
 
-
-
-console.log("starting crawl for " + monthName);
+//console.log("starting crawl for " + monthName);
+initialize();
+log('discover crawl for ' + monthName + ' starting...', 'info');
 generateURLlist();
 createFolder(monthName);
-//firstRequest(URLlist[startIndex], startIndex);
+firstRequest(URLlist[startIndex], startIndex);
 
 // TO DO:
 // pull callbacks into callback function
@@ -118,9 +119,9 @@ function firstRequest(url, index) {
 	});
 }
 
-var obj = fs.readFileSync(saveDir + '\\discoverParentData.json', 'utf8');
-obj = JSON.parse(obj);
-makeSecondRequest(obj.events[1051], 1051);
+//var obj = fs.readFileSync(saveDir + '\\discoverParentData.json', 'utf8');
+//obj = JSON.parse(obj);
+//makeSecondRequest(obj.events[0], 0);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
@@ -130,7 +131,8 @@ function makeSecondRequest(event, index) {
 		var nextIndex = index + 1;
 		setTimeout(function() {
 			makeSecondRequest(obj.events[nextIndex], nextIndex);
-		}, 10000);
+		//}, 10000);
+		}, 1000);
 		return;
 	}
 

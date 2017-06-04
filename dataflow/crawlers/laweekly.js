@@ -22,11 +22,12 @@ var URLlist = [];
 var obj = {
 	events : []
 };
+// change to var events = []??
 
 console.log("starting crawl for " + monthName);
 generateURLlist();
 createFolder(monthName);
-//firstRequest(URLlist[startIndex], startIndex);
+firstRequest(URLlist[startIndex], startIndex);
 
 // create callback function for callbacks
 
@@ -104,9 +105,9 @@ function firstRequest(url, index) {
 
 }
 
-var obj = fs.readFileSync(saveDir + '\\laWeeklyParentData.json', 'utf8');
-obj = JSON.parse(obj);
-makeSecondRequest(obj.events[1201], 1201);
+//var obj = fs.readFileSync(saveDir + '\\laWeeklyParentData.json', 'utf8');
+//obj = JSON.parse(obj);
+//makeSecondRequest(obj.events[0], 0);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;

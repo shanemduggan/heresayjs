@@ -19,7 +19,7 @@ createFolderNew('..\\data\\locationdata\\' + monthName);
 
 // step 1 & 2
 var locationData = retrieveMonthLocations();
-//var locations = locationsToGeocode(locationData);
+var locations = locationsToGeocode(locationData);
 
 if (!locations) {
 	var locations = fs.readFileSync(locationDataDir, 'utf8');
@@ -35,6 +35,8 @@ function requestGeoCode(location, index) {
 	// will this work with new callback?
 	if (location == undefined || location.address == undefined)
 		return;
+		
+	// skip events that have lat/long
 
 	console.log('index: ' + index, '  address pre geocode: ' + location.address);
 	geocoder.geocode(location.address).then(function(res) {

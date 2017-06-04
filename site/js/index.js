@@ -4,6 +4,7 @@ var undefinedLocationAddress = 0;
 var types = [];
 var eventData = [];
 var locationData = [];
+var historicLocData = [];
 var openCards = [];
 var appType = '';
 var centerMarker;
@@ -36,6 +37,13 @@ function getJson(eventdir, locationdir) {
 		if (data.length) {
 			console.log('# of locations: ' + data.length);
 			locationData = data;
+		}
+	});
+
+	$.getJSON('../data/locationdata/allLocationsGeo.json', function(data) {
+		if (data.length) {
+			console.log('# of historic locations: ' + data.length);
+			historicLocData = data;
 		}
 	});
 
@@ -207,7 +215,19 @@ function getLocation(event) {
 		event.formattedAddress = locationFound.formattedAddress;
 		event.lat = locationFound.lat;
 		event.lng = locationFound.lng;
+	} else {
+		console.log(event);
+		var historiclocationFound = _.find(historicLocData, function(l) {
+			return l.location === event.locationName;
+		});
+		if (historiclocationFound) {
+			event.formattedAddress = historiclocationFound.formattedAddress;
+			event.lat = historiclocationFound.lat;
+			event.lng = historiclocationFound.lng;
+		} else
+			console.log(event);
 	}
+
 	return event;
 }
 

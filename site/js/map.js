@@ -41,18 +41,20 @@ function placeMarkers(events) {
 		console.log('# of unique events: ' + events.length);
 
 	for (var i = 0; i < events.length; i++) {
-		//if (!events[i].lat)
-		//	continue;
-		var event = events[i];
-		var location = _.find(locationData, function(l) {
-			return l.address == event.address;
-		});
-		
-		if (location)
-			console.log(location);
-		
-		if (!location)
+		if (!events[i].lat)
 			continue;
+		var event = events[i];
+		// var location = _.find(locationData, function(l) {
+		// return l.address == event.address;
+		// });
+
+		//if (location)
+		//	console.log(location);
+		//if (event.lat)
+		//	console.log(event.address);
+
+		//if (!location)
+		//	continue;
 
 		(function(i) {
 			var myLatlng = new google.maps.LatLng(events[i].lat, events[i].lng);
@@ -71,8 +73,7 @@ function placeMarkers(events) {
 			});
 
 			if (events[i].name.length > 50) {
-				var fullName = events[i].name;
-				events[i].name.replace(/^(.{50}[^\s]*).*/, "$1") + "\n";
+				var fullName = events[i].name; events[i].name.replace(/^(.{50}[^\s]*).*/, "$1") + "\n";
 				var title = '<div class="iw-title" title="' + fullName + '"><a target="_blank" href="' + events[i].detailPage + '">' + events[i].name + '</a></div>';
 			} else
 				var title = '<div class="iw-title"><a target="_blank" href="' + events[i].detailPage + '">' + events[i].name + '</a></div>';

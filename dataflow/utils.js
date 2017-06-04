@@ -1,5 +1,7 @@
 module.exports = function() {
 	this.fs = require('fs');
+	this.$ = require('jquery');
+	this._ = require('underscore');
 	this.types = [];
 	this.saveFile = function(dir, length, obj) {
 		var json = JSON.stringify(obj);
@@ -69,8 +71,9 @@ module.exports = function() {
 	this.getFilterOption = function(type) {
 		if (!type)
 			return "Miscellanous";
-		if ($.inArray(type, types) == -1) {
-			this.types.push(type);
+		//if ($.inArray(type, types) == -1) {
+		if (types.indexOf(type) == -1) {
+			types.push(type);
 		}
 
 		var miscKeyWords = ['Miscellaneous', 'Other', 'Shopping', 'Community', 'Promotional', 'Activism', 'Spirituality', 'Religion', 'World', 'Competitions', 'Recreation', 'Games'];

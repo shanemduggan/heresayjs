@@ -1,0 +1,9 @@
+https://www.npmjs.com/package/simple-node-logger
+
+https://www.google.com/search?q=winston+npm&oq=winston+npm&aqs=chrome..69i57j0l5.4243j0j4&sourceid=chrome&ie=UTF-8
+
+https://www.google.com/search?q=easy+to+use+logger+for+node&oq=easy+to+use+logger+for+node&aqs=chrome..69i57j0l5.2435j0j1&sourceid=chrome&ie=UTF-8
+
+https://www.npmjs.com/package/winston#using-the-default-logger
+
+http://thisdavej.com/using-winston-a-versatile-logging-library-for-node-js/

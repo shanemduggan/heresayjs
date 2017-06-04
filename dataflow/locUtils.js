@@ -42,9 +42,12 @@ module.exports = function() {
 			return e.address && e.locationName != "";
 		});
 		console.log(filteredLocationData.length);
-		//console.log(filteredLocationData[0]);
 
-		var uniqueLocationData = _.uniq(filteredLocationData, 'locationName');
+		// could be an issue
+		var uniqueLocationData = _.uniq(filteredLocationData, function(m) {
+			return m.locationName;
+		});
+
 		console.log('number of full data events: ' + uniqueLocationData.length);
 
 		var locationData = _.map(uniqueLocationData, function(e) {
@@ -75,58 +78,122 @@ module.exports = function() {
 	// find name in geocoded locations
 	// if not, save to new file
 	this.locationsToGeocode = function(data) {
+		var locationData = [];
+		var foundLocs = [];
+		var fullMonthData = [];
 		var locsToGeocode = [];
 		var geocodedLocs = [];
 		var numOfLocsFound = 0;
+		var numOfLocsToGeo = 0;
+		var hasData = 0;
 
 		if (data) {
-			var locationData = data;
+			var monthlyLocs = data;
 		} else {
-			var locationData = fs.readFileSync(locdatadir + monthName + 'Locations.json', 'utf8');
-			locationData = JSON.parse(locationData);
+			// fix this
+			//var monthlyLocs = fs.readFileSync(locdatadir + monthName + 'Locations.json', 'utf8');
+			monthlyLocs = JSON.parse(monthlyLocs);
 		}
 
-		console.log('current months location data length: ' + locationData.length);
+		console.log('current months location data length: ' + monthlyLocs.length);
 
 		var marchLocations = fs.readFileSync(locdir + 'marchLocationsGeo.json', 'utf8');
 		var aprilLocations = fs.readFileSync(locdir + 'aprilLocationsGeo.json', 'utf8');
+		var mayLocations = fs.readFileSync(locdir + 'mayLocationsGeo.json', 'utf8');
 
 		marchLocations = JSON.parse(marchLocations);
 		aprilLocations = JSON.parse(aprilLocations);
+		mayLocations = JSON.parse(mayLocations);
 
-		console.log(' april location data length: ' + aprilLocations.length);
-		console.log(' march location data length: ' + marchLocations.length);
+		locationData = locationData.concat(marchLocations);
+		locationData = locationData.concat(aprilLocations);
+		locationData = locationData.concat(mayLocations);
 
-		locationData.forEach(function(loc) {
-			var foundLocation = _.find(marchLocations, function(m) {
-				return loc.location == m.location;
-			});
+		console.log('april location data length: ' + aprilLocations.length);
+		console.log('march location data length: ' + marchLocations.length);
+		console.log('may location data length: ' + mayLocations.length);
+		console.log('all location data length: ' + locationData.length);
 
-			// create function for this. pass in each months location data
-			// check each file until found then return data
-			if (!foundLocation) {
-				var foundLocation = _.find(aprilLocations, function(m) {
+		var json = JSON.stringify(locationData);
+		fs.writeFile('..\\data\\locationdata\\allLocationsGeo.json', json, 'utf8', function(err) {
+			console.log('all locations saved');
+		});
+
+		// Changes
+		// keep all unique locations in array
+		// go through historic data and update objects
+		// take the rest and geocode
+		// one geocode is done. that is final file
+
+		var newlyGeod = fs.readFileSync('..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsGeo.json', 'utf8');
+		newlyGeod = JSON.parse(newlyGeod);
+		console.log('newly geod data length: ' + newlyGeod.length);
+
+		var missingLocs = 0;
+		newlyGeod.forEach(function(loc) {
+			if (loc.lat)
+				fullMonthData.push(loc);
+			else {
+				var foundLocation = _.find(locationData, function(m) {
 					return loc.location == m.location;
 				});
 
-				if (!foundLocation) {
-					locsToGeocode.push(loc);
-				} else {
-					geocodedLocs.push(foundLocation);
-					console.log(foundLocation.location + ' found in april/march data');
+				if (foundLocation) {
 					numOfLocsFound++;
+					fullMonthData.push(loc);
+				} else {
+					locsToGeocode.push(loc);
+					numOfLocsToGeo++;
+					missingLocs++;
 				}
 			}
 		});
-		console.log('found ' + numOfLocsFound + ' geocoded locations');
-		console.log('locations to geocode ' + locsToGeocode.length);
-		var locsToGeo = JSON.stringify(locsToGeocode);
-		var geodLocs = JSON.stringify(geocodedLocs);
-		fs.writeFile(locdatadir + monthName + 'LocationsToGeo.json', locsToGeo, 'utf8', function(err) {
+
+		console.log(newlyGeod.length);
+		console.log(fullMonthData.length);
+		console.log(missingLocs);
+
+		var uniqueLocationData = _.uniq(monthlyLocs, function(m) {
+			return m.location && m.address;
 		});
-		fs.writeFile(locdatadir + monthName + 'LocationsPrevGeod.json', geodLocs, 'utf8', function(err) {
+
+		//console.log('number of full data events: ' + uniqueLocationData.length);
+
+		uniqueLocationData.forEach(function(loc) {
+			if (loc.lat)
+				console.log(loc);
+			else {
+				var foundLocation = _.find(locationData, function(m) {
+					return loc.location == m.location;
+				});
+
+				if (foundLocation) {
+					fullMonthData.push(foundLocation);
+					numOfLocsFound++;
+				} else
+					numOfLocsToGeo++;
+
+				foundLocation = undefined;
+				foundLocationInNewGeo = undefined;
+			}
 		});
-		return locsToGeocode;
+
+		console.log('locations newly geod: ' + hasData);
+		console.log('locations found: ' + numOfLocsFound);
+		console.log('locations to geo: ' + numOfLocsToGeo);
+
+		var json = JSON.stringify(fullMonthData);
+		fs.writeFile('..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsFullGeoNew.json', json, 'utf8', function(err) {
+			console.log('locations saved');
+		});
+
+		var fullLocs = _.filter(fullMonthData, function(e) {
+			return e.lat;
+		});
+		console.log('events that have coords' + fullLocs.length);
+		console.log('events missing coords' + (fullMonthData.length - fullLocs.length));
+
+		return fullLocs;
 	};
 
 	this.getFullMonthLocationsData = function() {
