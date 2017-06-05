@@ -1,0 +1,43 @@
+Flow / Function calls
+
+1. crawl
+	> when laweekly done
+2. location utils
+	> retrieveMonthLocations()
+	> locationsToGeocode()
+3. geocode
+	> when geocode done
+4. location utils
+	> combine location files
+	> move file to correct folder
+5. general utils
+	> combine event files
+	> move file to correct folder
+
+
+
+
+
+
+
+
+
+
+
+
+
+Notes for crawl exp:
+
+goal: full autonomy for data
+solution: run crawlers at 8pm-4pm
+		   run data parser / geo
+
+data flow
+	1. get data (run crawler)
+	2. normalize data
+	3. unique locations 
+	4. geocode
+	5. concat files
+	6. put in specific folders
+	7. push to mongo required?
+	8. logging issues

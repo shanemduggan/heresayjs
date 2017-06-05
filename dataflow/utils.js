@@ -6,6 +6,7 @@ module.exports = function() {
 	this.saveFile = function(dir, length, obj) {
 		var json = JSON.stringify(obj);
 		fs.writeFile(dir, json, 'utf8', function(err) {
+			// put in log
 			console.log("File saved with " + length + ' entries');
 			return;
 		});
@@ -13,6 +14,7 @@ module.exports = function() {
 
 	this.createFolder = function(monthName) {
 		if (!fs.existsSync("../../data/crawldata/" + monthName)) {
+			// put in log
 			console.log('creating folder for ' + monthName + ' crawl data');
 			fs.mkdirSync("../../data/crawldata/" + monthName);
 		}
@@ -21,6 +23,7 @@ module.exports = function() {
 	this.createFolderNew = function(dir) {
 		if (!fs.existsSync(dir)) {
 			//console.log('creating folder for ' + monthName + ' crawl data');
+			// put in log
 			console.log('creating folder at: ' + dir);
 			fs.mkdirSync(dir);
 		}
@@ -59,6 +62,7 @@ module.exports = function() {
 	};
 
 	this.logNumOfEvents = function(length) {
+		// put in log
 		if (length >= 3000)
 			console.log('reached 3000 entries');
 		if (length >= 5000)

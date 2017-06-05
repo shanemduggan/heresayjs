@@ -25,8 +25,6 @@ var obj = {
 	events : []
 };
 
-//console.log("starting crawl for " + monthName);
-initialize();
 log('discover crawl for ' + monthName + ' starting...', 'info');
 generateURLlist();
 createFolder(monthName);
@@ -98,7 +96,7 @@ function firstRequest(url, index) {
 
 					var nextNum = index + 1;
 					if (nextNum == URLlist.length) {
-						console.log('first request completed');
+						log('discover - parent crawl complete', 'info');
 						makeSecondRequest(obj.events[0], 0);
 					}
 				}
@@ -110,6 +108,7 @@ function firstRequest(url, index) {
 				return;
 			}
 		} else {
+			log('discover error - error', 'info');
 			var nextNum = index + 1;
 			setTimeout(function() {
 				firstRequest(URLlist[nextNum], nextNum);
@@ -123,6 +122,10 @@ function firstRequest(url, index) {
 //obj = JSON.parse(obj);
 //makeSecondRequest(obj.events[0], 0);
 
+// start at 500
+// cut out first 500 when saving
+// cut out any after current index
+
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
 	var eventDate = event.date;
@@ -131,7 +134,7 @@ function makeSecondRequest(event, index) {
 		var nextIndex = index + 1;
 		setTimeout(function() {
 			makeSecondRequest(obj.events[nextIndex], nextIndex);
-		//}, 10000);
+			//}, 10000);
 		}, 1000);
 		return;
 	}
@@ -144,8 +147,10 @@ function makeSecondRequest(event, index) {
 
 				var nextIndex = index + 1;
 				if (nextIndex == Math.ceil(obj.events.length * .999)) {
-					saveFile(saveDir + '\\discover99.json', index, obj.events);
-					console.log('crawl finished');
+					var saveData = getSaveData(index);
+					saveFile(saveDir + '\\discover99.json', index, saveData.events);
+					//saveFile(saveDir + '\\discover99.json', index, obj.events);
+					log('discover - child crawl completed', 'info');
 					return;
 				} else {
 					setTimeout(function() {
@@ -166,7 +171,6 @@ function makeSecondRequest(event, index) {
 						obj.events[index].address = address;
 					}
 
-
 					obj.events[index].date = $(eventHTML).find('.detail-page-date-time .date').text();
 					var type = $(eventHTML).find('.detail-page-breadcrumb')[0].childNodes[2].data;
 					obj.events[index].type = type.replace('/', '').trim();
@@ -186,10 +190,16 @@ function makeSecondRequest(event, index) {
 				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
-					saveFile(saveDir + '\\discover' + startIndex + '-' + index + '.json', index, obj.events);
+					var saveData = getSaveData(index);
+					log('discover - saving children ' + startIndex + ' - ' + index, 'info');
+					saveFile(saveDir + '\\discover' + startIndex + '-' + index + '.json', index, saveData.events);
+					//saveFile(saveDir + '\\discover' + startIndex + '-' + index + '.json', index, obj.events);
 				} else if (index == obj.events.length) {
-					saveFile(saveDir + '\\discover100.json', index, obj.events);
+					var saveData = getSaveData(index);
+					saveFile(saveDir + '\\discover100.json', index, saveData.events);
+					//saveFile(saveDir + '\\discover100.json', index, obj.events);
 				}
+				// detect this at beginning. should consoludate into one
 			} else {
 				var nextIndex = index + 1;
 				setTimeout(function() {
@@ -214,4 +224,25 @@ function generateURLlist() {
 		var dynamicURL = startURL + dateData.currentMonth + '/' + i + '/' + dateData.year;
 		URLlist.push(dynamicURL);
 	}
+	
+	// handle logging objects
+	log('discover crawl URLS:', 'info');
+	log(URLlist, 'info');
+}
+
+function getSaveData(index) {
+	var saveData = jQuery.extend({}, obj);
+	if (startIndex == 0) {
+		//split from index to end
+		saveData.events.splice(index, saveData.events.length);
+	} else {
+		// split from 0 to start index
+		saveData.events.splice(0, startIndex);
+		saveData.events.splice(index, saveData.events.length);
+		// split from index to end
+	}
+
+	console.log(saveData);
+	console.log(saveData.events.length);
+	return saveData;
 }

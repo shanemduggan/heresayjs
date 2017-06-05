@@ -2,6 +2,31 @@
 
 
 
+6/4
+
+mlab can hold  roughly 500k docs (1 mill docs is 1.29 gig)
+geocode api 2500/day cap
+json handle ~3900 parent events
+laweekly ~3100 events @ 100/day, 300 child/hr
+			parent: 1 hr; child: 12+ hr			
+discover ~ 1300 events, full: 6.5 hr
+timeout ~ 140 events (7 min)
+overall crawl length: estimating 15 hr for full crawl
+
+
+new crawl length: laweekly length + couple hours
+	> cutting out 6 hrs
+
+
+
+
+
+
+
+
+
+
+
 
 
 

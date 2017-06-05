@@ -8,6 +8,7 @@ var $ = require("jquery");
 var moment = require('moment');
 var _ = require('underscore');
 require('../utils.js')();
+require('../logUtils.js')();
 
 var dateData = getDateData();
 var monthName = dateData.monthName;
@@ -24,7 +25,7 @@ var obj = {
 };
 // change to var events = []??
 
-console.log("starting crawl for " + monthName);
+log('starting laweekly crawl for ' + monthName, 'info');
 generateURLlist();
 createFolder(monthName);
 firstRequest(URLlist[startIndex], startIndex);
@@ -98,7 +99,7 @@ function firstRequest(url, index) {
 		saveFile(saveDir + '\\laweekly99.json', obj.events.length, obj);
 
 		if (num == URLlist.length) {
-			console.log('first request completed');
+			log('laweekly - parent crawl completed. found ' + obj.events.length + ' number of events', 'info');		
 			makeSecondRequest(obj.events[0], 0);
 		}
 	});
@@ -151,9 +152,11 @@ function makeSecondRequest(event, index) {
 				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
-					var percent = index / saveIndex;
+					log('laweekly crawl saving ' + startIndex + ' - ' + index, 'info');
+					//var percent = index / saveIndex;
 					saveFile(saveDir + '\\laweekly' + startIndex + '-' + index + '.json', index, obj.events);
 				} else if (index == obj.events.length) {
+					log('laweekly - child crawl complete. saving ' + obj.events.length + ' number of events', 'info');
 					saveFile(saveDir + '\\laweekly100.json', index, obj.events);
 				}
 			} else {
@@ -164,6 +167,7 @@ function makeSecondRequest(event, index) {
 				return;
 			}
 		} else {
+			log('la weekly child crawl error ' + error, 'info');
 			var nextIndex = index + 1;
 			setTimeout(function() {
 				makeSecondRequest(obj.events[nextIndex], nextIndex);
@@ -180,4 +184,7 @@ function generateURLlist() {
 		var dynamicURL = startURL + dateData.year + '-' + dateData.currentMonth + '-' + i;
 		URLlist.push(dynamicURL);
 	}
+	
+	log('laweekly crawl URLs', 'info');
+	log(URLlist, 'info');
 }

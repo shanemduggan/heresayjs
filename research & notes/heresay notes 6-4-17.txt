@@ -1,0 +1,266 @@
+McGinty69!&shit
+network solutions - Bengals69!
+gmaps :  AIzaSyC0MK06KIq5QAHH-lIlF-c6Y5Yig1yMjPw 
+set PORT=1234
+http://stackoverflow.com/questions/7474354/include-jquery-in-the-javascript-console
+
+https://developer.foursquare.com/docs/
+https://foursquare.com/dens/list/a-brief-history-of-foursquare
+
+HereSay 2.0 - Sharing / Google analytics
+
+How to make experience better?
+Make other peoples' experiences better?
+Make people more comfortable
+
+json handle ~3900 parent events
+
+
+
+
+https://www.reddit.com/r/AskReddit/comments/68fmkk/soldiers_of_reddit_whats_the_scariest_or_weirdest/?st=j25f3wr7&sh=50fe6a5c
+https://www.reddit.com/r/history/comments/66pwmm/today_is_the_2700th_birthday_of_rome_here_is_a_3d/?st=j1s94ns9&sh=952d10bf
+
+
+https://seroter.wordpress.com/2013/07/29/where-the-heck-do-i-host-my-node-js-app/
+
+http://stackoverflow.com/questions/5797852/in-node-js-how-do-i-include-functions-from-my-other-files
+
+https://imagopyrenaei.files.wordpress.com/2017/05/nineveh-23may2017.png
+
+If he doesn't do anything too evil, he might be idolized like crazy in future generations as one of the greatest characters of the capitalist era.
+
+Musk, Bezos, and Gates, among many others could probably be seen as our modern-day "Captains of Industry."
+
+At the time of their careers there were not considered nice people. Bill Gates didn't start his career by being a nice guy, nor did Rockefeller, both were cut-throat in their competitive actions. Both in their later years though dedicated their entire lives to giving away their money.
+
+
+
+peter thiel, max levchin, reid hoffman (paypal mafia)
+
+
+
+Provo - now til October
+https://foursquare.com/
+http://stackoverflow.com/questions/18444161/google-maps-responsive-resize
+https://www.reddit.com/r/todayilearned/comments/66inyw/til_two_time_medal_of_honor_recipient_major/?st=j1r5dop3&sh=504a9259
+https://www.reddit.com/r/heroesofthestorm/comments/66k9t5/what_bundle_should_you_pick_for_lol_and_dota_2/?utm_content=comments&utm_medium=hot&utm_source=reddit&utm_name=heroesofthestorm
+
+How to start a start up - Chris video
+
+http://www.code-experience.com/react-js-vs-traditional-mvc-backbone-ember-angular/
+
+
+
+
+
+
+https://www.reddit.com/r/worldnews/comments/66ok41/elon_musk_says_brain_interface_will_be_ready/?st=j1sqka2n&sh=4bba7f4c
+https://www.reddit.com/r/worldnews/comments/66s1zn/sources_russia_tried_to_use_trump_advisers_to/?st=j1sqk2cc&sh=98acfefe
+https://www.reddit.com/r/worldnews/comments/66p33u/trump_officials_negotiated_release_of_us_aid/?st=j1sqjfal&sh=919c5165
+https://www.reddit.com/r/worldnews/comments/66vm7r/the_fbi_gathered_intelligence_in_the_summer_of/?st=j1tl7rj3&sh=da0a0c70
+
+
+https://www.reddit.com/r/syriancivilwar/comments/6axr21/clearing_up_some_of_the_misconceptions_on_this/
+https://www.reddit.com/r/syriancivilwar/comments/6aznry/us_insiders_account_of_us_turk_relations_towards/
+
+
+https://www.reddit.com/r/Music/comments/66wa5m/my_cousin_playing_around_with_talk_box/?st=j1tl1tqp&sh=6c67dcde
+
+
+http://stackoverflow.com/questions/1328723/how-to-generate-a-simple-popup-using-jquery
+
+
+Sam Altman
+Famous 25 - clinic
+
+
+
+
+
+
+goal: full autonomy for data
+solution: run crawlers at 8pm-4pm
+		   run data parser / geo
+
+data flow
+	1. data parse / geocode
+	2. put in correct place (test)
+	3. push to git & mongo
+	4. logging issues (add to step 1, test)
+
+
+
+
+
+
+
+Timeline
+--------------------------------
+Improve crawler run experience / Data flow
+	> data clean up > geo unique locs 
+	> create necessary files > push to git
+
+UI improvements
+
+Show app / Get feedback / Take break from development 
+--------------------------------
+
+
+
+
+
+
+
+
+
+
+https://www.reddit.com/r/worldnews/comments/6c71j4/comey_agrees_to_testify_in_open_hearing_before/
+https://www.reddit.com/r/syriancivilwar/comments/6c71i1/saa_didnt_receive_any_us_warning_on_tanaf/
+https://www.reddit.com/r/syriancivilwar/comments/6c6sfj/the_coalition_forces_are_issued_a_prewarning_to/
+https://www.reddit.com/r/syriancivilwar/comments/6c4n1n/syrian_arab_army_reached_zarqa_crossroad_29km/
+
+
+
+
+
+
+
+
+June: 			data flow optimization & testing 
+				refine UI / chris feedback & mockups
+				friend launch
+
+
+
+ui
+` move date and buttons on same line
+` put location below
+
+
+data flow
+` location utils (test)
+	- retrieveMonthLocations()
+	- locationsToGeocode()
+` geocode (test end, add logging)
+	- when geocode done
+` location utils
+	- combine location files (dynamic)
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Update on flow:
+	> then run data parsing / geocoding flow (re-test)
+	> logging
+		- log how many locations didnt get geo'd
+		- how many events, locations, unique locations
+		- any errors
+	> think about a way to save intermittedly better
+		- only events, no empty data in files
+		- read them and concact
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Backlog:
+> see if i can reduce wait time for geocoding from 5 sec	
+> other server side data clean up or normalization
+> begin work on logging (timestamp, message)
+	- when different phases are done
+	- files saved
+	- errors
+	- amt of data
+		> do not log actual data
+> try to create full data flow in batch
+	- clean up step 1&2
+	- end of step3 we can save files and get final versions
+	- put data in github folder & push
+	 	> step 3 for batch file?
+> 	re-work how crawl data is saved (test)
+> creating marker clean up
+		- doubling in showCard & placeMarkers
+> logging handle objects & test
+
+
+
+chris giving me:
+	- mockups (nav, card, general)
+	- logo designs
+
+
+
+
+>>> figure out why markers have low numbers <<<
+	- most addresses in historic data
+	- some issues with data geo need to be fixed
+
+
+create list of addresses not found
+search all location data 
+	if found
+		where are they being filtered
+	if not found
+		why aren't they being geod
+
+
+
+
+Next steps
+0. express sample set up (query both collections)
+	> work on getting location data from events
+		- need to save it to new array
+		- look through april events
+		   find loc doc in db
+		   update event object with location information
+0. set up heroku to host crawler 
+
+
+
+I. brainstorm where to go from here
+	> server
+	> db? (save addresses)
+	> themes / filtering
+II. server research (aws, heroku)
+III. function to handle response & errors
+	- add in secondCallback 
+
+References:
+https://foursquare.com/
+http://isis.liveuamap.com
+https://codepen.io/Marnoto/pen/xboPmG (info window)
+http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html (info window)
+http://codepen.io/artchibald/pen/OXGOVm (fb share)
+
+http://losangeles.ohmyrockness.com/shows > category: music

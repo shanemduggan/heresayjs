@@ -7,6 +7,7 @@ module.exports = function() {
 	this.fs = require('fs');
 	this._ = require('underscore');
 	require('./utils.js')();
+	require('./logUtils.js')();
 	this.dateData = getDateData();
 	this.monthName = dateData.monthName;
 	this.crawldatadir = '..\\data\\crawldata\\' + monthName + '\\';
@@ -71,6 +72,8 @@ module.exports = function() {
 		var newJson = JSON.stringify(locationData);
 		fs.writeFile(locdatadir + monthName + 'LocationsPostClean.json', newJson, 'utf8', function(err) {
 		});
+		
+		log('step #1 for data flow complete -  retrieving month locations', 'info');
 		return locationData;
 	};
 
@@ -193,6 +196,7 @@ module.exports = function() {
 		console.log('events that have coords' + fullLocs.length);
 		console.log('events missing coords' + (fullMonthData.length - fullLocs.length));
 
+		log('step #2 for data flow completed - found locations to be geocoded', 'info');
 		return fullLocs;
 	};
 
