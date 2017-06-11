@@ -6,8 +6,11 @@
 module.exports = function() {
 	this.fs = require('fs');
 	this._ = require('underscore');
+	//this.exec = require('child_process').exec;
+	this.cp = require('child_process');
 	require('./utils.js')();
 	require('./logUtils.js')();
+	require('./dbUtils.js')();
 	this.dateData = getDateData();
 	this.monthName = dateData.monthName;
 	this.crawldatadir = '..\\data\\crawldata\\' + monthName + '\\';
@@ -72,7 +75,7 @@ module.exports = function() {
 		var newJson = JSON.stringify(locationData);
 		fs.writeFile(locdatadir + monthName + 'LocationsPostClean.json', newJson, 'utf8', function(err) {
 		});
-		
+
 		log('step #1 for data flow complete -  retrieving month locations', 'info');
 		return locationData;
 	};
@@ -199,7 +202,9 @@ module.exports = function() {
 		log('step #2 for data flow completed - found locations to be geocoded', 'info');
 		return fullLocs;
 	};
-
+	
+	
+	// is this being used?
 	this.getFullMonthLocationsData = function() {
 		var allMonthLocs = [];
 		var prevGeod = fs.readFileSync(locdatadir + monthName + 'LocationsPrevGeod.json', 'utf8');
@@ -239,6 +244,7 @@ module.exports = function() {
 		fullLocationData = fullLocationData.concat(newlyGeod);
 		fullLocationData = fullLocationData.concat(prevGeod);
 		saveFile('..\\data\\locationdata\\' + monthName + 'LocationsGeo.json', fullLocationData.length, fullLocationData);
+		log('step #4 for data flow completed - final files created', 'info');
 
 		//var notFound = 0;
 		// allLocs.forEach(function(loc, index) {
@@ -298,6 +304,25 @@ module.exports = function() {
 		//
 		// fs.writeFile('..\\data\\locationdata\\' + monthName + 'LocationsGeo.json', json, 'utf8', function(err) {
 		// });
+
+	};
+
+	this.pushFiles = function() {
+		cp.execSync('xcopy ..\\data\\crawldata\\' + monthName + '\\' + monthName + 'Events.json C:\\Users\\Shane\\Desktop\\HS-GitPage\\app\\data\\crawldata\\' + monthName + ' /Y');
+		cp.execSync('xcopy ..\\data\\locationdata\\' + monthName + 'LocationsGeo.json C:\\Users\\Shane\\Desktop\\HS-GitPage\\app\\data\\locationdata\\ /Y');
+		cp.exec("gitPush.bat", {
+			cwd : 'C:\\Users\\Shane\\Desktop\\HS\\dataflow'
+			}, function(error, stdout, stderr) {
+				console.log(error);
+				console.log(stdout);
+				console.log(stderr);
+		});
+		
+		log('step #5 in progress - data files pushed to git', 'info');
+		log('starting mongo push', 'info');
+
+		// push data to mongodb
+		saveAsCollection();
 
 	};
 };

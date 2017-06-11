@@ -23,7 +23,6 @@ var URLlist = [];
 var obj = {
 	events : []
 };
-// change to var events = []??
 
 log('starting laweekly crawl for ' + monthName, 'info');
 generateURLlist();
@@ -96,10 +95,10 @@ function firstRequest(url, index) {
 		}
 
 		console.log(obj);
-		saveFile(saveDir + '\\laweekly99.json', obj.events.length, obj);
+		saveFile(saveDir + '\\laweeklyParentData.json', obj.events.length, obj);
 
 		if (num == URLlist.length) {
-			log('laweekly - parent crawl completed. found ' + obj.events.length + ' number of events', 'info');		
+			log('laweekly - parent crawl completed. found ' + obj.events.length + ' number of events', 'info');
 			makeSecondRequest(obj.events[0], 0);
 		}
 	});
@@ -128,7 +127,9 @@ function makeSecondRequest(event, index) {
 
 				var nextIndex = index + 1;
 				if (nextIndex == Math.ceil(obj.events.length * .999)) {
-					saveFile(saveDir + '\\laweekly99.json', index, obj.events);
+					var saveData = getSaveData(index);
+					saveFile(saveDir + '\\laweekly99.json', saveData.events.length, saveData.events);
+					//saveFile(saveDir + '\\laweekly99.json', index, obj.events);
 					console.log('crawl finished');
 					return;
 				} else {
@@ -152,12 +153,13 @@ function makeSecondRequest(event, index) {
 				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
+					var saveData = getSaveData(index);
 					log('laweekly crawl saving ' + startIndex + ' - ' + index, 'info');
-					//var percent = index / saveIndex;
-					saveFile(saveDir + '\\laweekly' + startIndex + '-' + index + '.json', index, obj.events);
+					saveFile(saveDir + '\\laweekly' + startIndex + '-' + index + '.json', saveData.events.length, saveData.events);
 				} else if (index == obj.events.length) {
-					log('laweekly - child crawl complete. saving ' + obj.events.length + ' number of events', 'info');
-					saveFile(saveDir + '\\laweekly100.json', index, obj.events);
+					var saveData = getSaveData(index);
+					log('laweekly - child crawl complete. saving ' + saveData.events.length + ' number of events', 'info');
+					saveFile(saveDir + '\\laweekly100.json', saveData.events.length, saveData.events);
 				}
 			} else {
 				var nextIndex = index + 1;
@@ -184,7 +186,21 @@ function generateURLlist() {
 		var dynamicURL = startURL + dateData.year + '-' + dateData.currentMonth + '-' + i;
 		URLlist.push(dynamicURL);
 	}
-	
+
 	log('laweekly crawl URLs', 'info');
 	log(URLlist, 'info');
+}
+
+function getSaveData(index) {
+	var saveData = JSON.parse(JSON.stringify(obj));
+	if (startIndex == 0) {
+		//split from index to end
+		saveData.events.splice(index, saveData.events.length);
+	} else {
+		// split from 0 to start index && index to end
+		saveData.events.splice(index, saveData.events.length);
+		saveData.events.splice(0, startIndex);
+	}
+
+	return saveData;
 }

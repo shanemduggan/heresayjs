@@ -11,12 +11,13 @@ module.exports = function() {
 	this.initialize = function() {
 		var tsFormat = new Date().toLocaleTimeString();
 		var dateInfo = getDateData();
+		var time = new Date().toLocaleString().split(', ')[1].replace(/ /g, '');
+		var fileName = '../log/'+ dateInfo.monthName +'Log.log';
 
-		fs.writeFileSync('C:\Users\Shane\Desktop\HS\dataflow\log' + dateInfo.monthName + 'Log.log');
-		
+		// https://github.com/winstonjs/winston-daily-rotate-file
 		logger = new (winston.Logger)({
 			transports : [new (winston.transports.File)({
-				filename : '../log/juneLog.log',
+				filename : fileName,
 				timestamp : tsFormat
 			})]
 		});
@@ -30,7 +31,7 @@ module.exports = function() {
 
 		if (level == 'info')
 			logger.info(msg);
-			
-		// handle objects and strings
+		else if (level == 'error')
+			logger.error(msg);
 	};
 };
