@@ -1,4 +1,99 @@
+function setUpMobileFilters() {
+	cachedTypeEvents = [];
+	dateTypeEvents = [];
+	$('#typeFilter a').click(function() {
+		$('#typeFilter a.activeItem').removeClass('activeItem');
+		console.log(this);
+		var type = $(this).text();
+		$(this).addClass('activeItem');
+
+		if ($('#dateFilter a.activeItem').length == 0) {
+			var title = type;
+			var events = _.filter(eventData, function(e) {
+				e.type = getFilterOption(e.type);
+				return e.type == type;
+			});
+		} else {
+			if (type == 'All') {
+				var date = $('#dateFilter a.activeItem').text();
+				var title = date;
+				var events = _.filter(eventData, function(e) {
+					return e.date == date;
+				});
+			} else if ($('#dateFilter a.activeItem').text() == 'All') {
+				var type = $('#typeFilter a.activeItem').text();
+				var title = type;
+				var events = _.filter(eventData, function(e) {
+					return e.type == type;
+				});
+			} else {
+				var date = $('#dateFilter a.activeItem').text();
+				var title = type + ' for ' + date;
+				var events = _.filter(eventData, function(e) {
+					e.type = getFilterOption(e.type);
+					return e.type == type && e.date == date;
+				});
+			}
+		}
+
+		if ($('#typeFilter a.activeItem').text() == 'All' && $('#dateFilter a.activeItem').text() == 'All') {
+			var title = 'Try selecting a date or event';
+		}
+
+		console.log(events);
+		updateMobileSideBar(title, events);
+	});
+
+	$('#dateFilter a').click(function() {
+		$('#dateFilter a.activeItem').removeClass('activeItem');
+		console.log(this);
+		var date = $(this).text();
+		$(this).addClass('activeItem');
+
+		if ($('#typeFilter a.activeItem').length == 0) {
+			var title = date;
+			var events = _.filter(eventData, function(e) {
+				return e.date == date;
+			});
+		} else {
+			if (date == 'All') {
+				var type = $('#typeFilter a.activeItem').text();
+				var title = type;
+				var events = _.filter(eventData, function(e) {
+					return e.type == type;
+				});
+			} else if ($('#typeFilter a.activeItem').text() == 'All') {
+				var date = $('#dateFilter a.activeItem').text();
+				var title = date;
+				var events = _.filter(eventData, function(e) {
+					return e.date == date;
+				});
+			} else {
+				var type = $('#typeFilter a.activeItem').text();
+				var title = type + ' for ' + date;
+				var events = _.filter(eventData, function(e) {
+					e.type = getFilterOption(e.type);
+					return e.type == type && e.date == date;
+				});
+			}
+
+		}
+
+		if ($('#typeFilter a.activeItem').text() == 'All' && $('#dateFilter a.activeItem').text() == 'All') {
+			var title = 'Try selecting a date or event';
+		}
+
+		console.log(events);
+		updateMobileSideBar(title, events);
+	});
+}
+
 function setUpFilters() {
+	if (appType == 'mobile') {
+		setUpMobileFilters();
+		return;
+	}
+
 	createDateFilterOptions();
 
 	$('#typeFilter select').change(function(e) {
@@ -70,7 +165,7 @@ function setUpFilters() {
 		openCards.forEach(function(card) {
 			card.close();
 		});
-		
+
 		cachedDateEvents = [];
 		typeDateEvents = [];
 		var dateIndex = $('#dateFilter select').val();
@@ -144,7 +239,7 @@ function updateSideBar(heading, sideBarEvents) {
 		else
 			$('#sidebar ul').append('<li><span class="name">' + e.name + '</span></li>');
 	});
-	
+
 	if (appType == 'mobile')
 		return;
 
@@ -154,6 +249,23 @@ function updateSideBar(heading, sideBarEvents) {
 
 	$('#sidebar li').hover(function() {
 		showCard(this, 'hover');
+	});
+
+}
+
+function updateMobileSideBar(heading, sideBarEvents) {
+	$('#sidebar ul').html('');
+	$('#sidebar h3').remove();
+	$('#sidebar').prepend('<h3>' + heading + '</h3>');
+	$('#sidebar').animate({ scrollTop: 0 }, 125);
+
+	sideBarEvents.forEach(function(e) {
+		var liFound = $("#sidebar ul li:contains('" + e.name + "')");
+		if (liFound.length)
+			return;
+		$('#sidebar ul').append('<li><a target="_blank" href="' + e.detailPage + '"><span class="name">' + e.name + '</span><br/><span class="eventDate">' + e.date + '</span><br/><span class="details">' + e.locationName + '<br/></span></a></li>');
+		//$('#sidebar ul').append('<li><span class="name">' + e.name + '</span><br/><span class="eventDate">' + e.date + '</span><br/><span class="details">' + e.locationName + '<br/></span></li>');
+		//$('#sidebar ul').append('<li><a target="_blank" href="' + e.detailPage + '"><span class="name">' + e.name + '</span></a></li>');
 	});
 
 }
