@@ -1,6 +1,0 @@
-{"level":"info","message":"laweekly crawl for july starting...","timestamp":"2017-07-02T11:57:59.891"}
-{"level":"info","message":"crawling http://www.laweekly.com/calendar?dateRange[]=2017-07-2","timestamp":"2017-07-02T11:57:59.898"}
-{"level":"info","message":"discover crawl for july starting...","timestamp":"2017-07-02T11:57:59.942"}
-{"level":"info","message":"crawling http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=07/2/2017","timestamp":"2017-07-02T11:57:59.946"}
-{"level":"info","message":"crawling http://www.laweekly.com/calendar?dateRange[]=2017-07-3","timestamp":"2017-07-02T11:58:13.231"}
-{"level":"info","message":"crawling http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=07/3/2017","timestamp":"2017-07-02T11:58:18.016"}

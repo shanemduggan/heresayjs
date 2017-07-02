@@ -1,3 +1,0 @@
-{"level":"info","message":"data parsing starting...","timestamp":"2017-07-02T14:09:14.822"}
-{"level":"info","message":"step #1 for data flow complete -  retrieving month locations","timestamp":"2017-07-02T14:09:14.911"}
-{"level":"info","message":"step #2 for data flow completed - found locations to be geocoded","timestamp":"2017-07-02T14:09:15.306"}
