@@ -25,7 +25,7 @@ var dateTypeEvents = [];
 var typeDateEvents = [];
 
 $(window).on('load', function() {
-	var eventdir = '../data/crawldata/june/juneEvents.json';
+	var eventdir = '../data/crawldata/' + monthName + '/' + monthName + 'Events.json';
 	var locationdir = '../data/locationdata/' + monthName + 'LocationsGeo.json';
 	getJson(eventdir, locationdir);
 	// setUpFilters();
@@ -109,16 +109,6 @@ function afterDataLoaded() {
 		$('#sidebar').width(browserWidth);
 		$('#header').hide();
 
-		var days = getDateFilterOptions();
-		days.unshift('All');
-		var dateFilter = '<div id="dateFilter" class="scrollmenu">';
-		for (var i = 0; i < days.length; i++) {
-			dateFilter += '<a id="' + days[i].split(' ')[1] + '" href="#">' + days[i] + '</a>';
-		}
-
-		dateFilter += '</div>';
-		$('body').append(dateFilter);
-
 		//var types = ['Theater', 'Art', 'Food & Drink', 'Comedy', 'Music', 'Festivals', 'Sports', 'Dance', 'Family', 'Film & TV', 'Educational', 'Outdoors', 'Museum', 'Health', 'Holidays', 'Miscellaneous'];
 		var types = ['All', 'Theater', 'Art', 'Food & Drink', 'Comedy', 'Music', 'Festivals', 'Sports', 'Dance', 'Family', 'Film & TV', 'Museum', 'Miscellaneous'];
 
@@ -128,8 +118,23 @@ function afterDataLoaded() {
 		}
 
 		typeFilter += '</div>';
-		$('body').append(typeFilter);
+		//$('body').append(typeFilter);
+		$('body').prepend(typeFilter);
+
+		var days = getDateFilterOptions();
+		days.unshift('All');
+		var dateFilter = '<div id="dateFilter" class="scrollmenu">';
+		for (var i = 0; i < days.length; i++) {
+			dateFilter += '<a id="' + days[i].split(' ')[1] + '" href="#">' + days[i] + '</a>';
+		}
+
+		dateFilter += '</div>';
+		//$('body').append(dateFilter);
+		$('body').prepend(dateFilter);
+
 		$('#sidebar h3').hide();
+		
+		// do we need this?
 		setUpFilters();
 		$('#typeFilter #Art').trigger("click");
 		$('#' + days[1].split(' ')[1]).trigger("click");

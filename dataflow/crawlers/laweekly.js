@@ -20,24 +20,22 @@ var startURL = "http://www.laweekly.com/calendar?dateRange[]=";
 var saveDir = '..\\..\\data\\crawldata\\' + monthName;
 
 var URLlist = [];
-var obj = {
-	events : []
-};
+var events = [];
 
-log('starting laweekly crawl for ' + monthName, 'info');
+log('laweekly crawl for ' + monthName + ' starting...', 'info');
 generateURLlist();
 createFolder(monthName);
 firstRequest(URLlist[startIndex], startIndex);
 
-// create callback function for callbacks
-
 function firstRequest(url, index) {
 
 	num++;
-	logNumOfEvents(obj.events.length);
+	logNumOfEvents(events.length);
 
 	if (url == undefined)
 		return;
+	
+	log('crawling ' + url, 'info');
 	request(url, function(error, response, body) {
 		if (response)
 			console.log("Status code: " + response.statusCode);
@@ -82,7 +80,7 @@ function firstRequest(url, index) {
 				var detailPage = $(this).find(".title").children().attr("href");
 				detailPage = 'http://www.laweekly.com' + detailPage;
 
-				obj.events.push({
+				events.push({
 					name : nameText,
 					summary : '',
 					locationName : locationName,
@@ -90,31 +88,31 @@ function firstRequest(url, index) {
 					date : monthText
 				});
 
-				console.log(obj.events);
+				console.log(events);
 			});
 		}
 
-		console.log(obj);
-		saveFile(saveDir + '\\laweeklyParentData.json', obj.events.length, obj);
+		console.log(events);
+		saveFile(saveDir + '\\laweeklyParentData.json', events.length, events);
 
 		if (num == URLlist.length) {
-			log('laweekly - parent crawl completed. found ' + obj.events.length + ' number of events', 'info');
-			makeSecondRequest(obj.events[0], 0);
+			log('laweekly - parent crawl completed. found ' + events.length + ' events', 'info');
+			makeSecondRequest(events[0], 0);
 		}
 	});
 
 }
 
-//var obj = fs.readFileSync(saveDir + '\\laWeeklyParentData.json', 'utf8');
-//obj = JSON.parse(obj);
-//makeSecondRequest(obj.events[0], 0);
+//var events = fs.readFileSync(saveDir + '\\laWeeklyParentData.json', 'utf8');
+//events = JSON.parse(events);
+//makeSecondRequest(events[startIndex], startIndex);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
 	if (url == undefined) {
 		var nextIndex = index + 1;
 		setTimeout(function() {
-			makeSecondRequest(obj.events[nextIndex], nextIndex);
+			makeSecondRequest(events[nextIndex], nextIndex);
 		}, 10000);
 		return;
 	}
@@ -126,15 +124,14 @@ function makeSecondRequest(event, index) {
 			if (response.statusCode == 200) {
 
 				var nextIndex = index + 1;
-				if (nextIndex == Math.ceil(obj.events.length * .999)) {
+				if (nextIndex == Math.ceil(events.length * .999)) {
 					var saveData = getSaveData(index);
-					saveFile(saveDir + '\\laweekly99.json', saveData.events.length, saveData.events);
-					//saveFile(saveDir + '\\laweekly99.json', index, obj.events);
+					saveFile(saveDir + '\\laweekly99.json', saveData.length, saveData);
 					console.log('crawl finished');
 					return;
 				} else {
 					setTimeout(function() {
-						makeSecondRequest(obj.events[nextIndex], nextIndex);
+						makeSecondRequest(events[nextIndex], nextIndex);
 					}, 10000);
 				}
 
@@ -142,29 +139,31 @@ function makeSecondRequest(event, index) {
 				var eventHTML = $('.content');
 				if (eventHTML) {
 					var type = $('.categories').text().replace(/\s+/g, ' ').trim();
-					obj.events[index].type = type;
-					obj.events[index].filterType = getFilterOption(type);
-					obj.events[index].summary = $('.col-desc').text().replace(/\s+/g, ' ').trim();
-					obj.events[index].address = $('.address').text().replace(/\s+/g, ' ').trim();
+					events[index].type = type;
+					events[index].filterType = getFilterOption(type);
+					events[index].summary = $('.col-desc').text().replace(/\s+/g, ' ').trim();
+					events[index].address = $('.address').text().replace(/\s+/g, ' ').trim();
+					events[index].price = $('span[itemprop="price"]').text();
+					events[index].locationLink = 'http://www.laweekly.com' + $('.loc').attr('href');
 				}
 
 				console.log('\r\n' + index + '\r\n');
-				console.log(obj.events[index]);
+				console.log(events[index]);
 				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
 					var saveData = getSaveData(index);
-					log('laweekly crawl saving ' + startIndex + ' - ' + index, 'info');
-					saveFile(saveDir + '\\laweekly' + startIndex + '-' + index + '.json', saveData.events.length, saveData.events);
-				} else if (index == obj.events.length) {
+					log('laweekly - saving children ' + startIndex + ' - ' + index, 'info');
+					saveFile(saveDir + '\\laweekly' + startIndex + '-' + index + '.json', saveData.length, saveData);
+				} else if (index == events.length) {
 					var saveData = getSaveData(index);
-					log('laweekly - child crawl complete. saving ' + saveData.events.length + ' number of events', 'info');
-					saveFile(saveDir + '\\laweekly100.json', saveData.events.length, saveData.events);
+					log('laweekly - child crawl complete. saving ' + saveData.length + ' events', 'info');
+					saveFile(saveDir + '\\laweekly100.json', saveData.length, saveData);
 				}
 			} else {
 				var nextIndex = index + 1;
 				setTimeout(function() {
-					makeSecondRequest(obj.events[nextIndex], nextIndex);
+					makeSecondRequest(events[nextIndex], nextIndex);
 				}, 10000);
 				return;
 			}
@@ -172,7 +171,7 @@ function makeSecondRequest(event, index) {
 			log('la weekly child crawl error ' + error, 'info');
 			var nextIndex = index + 1;
 			setTimeout(function() {
-				makeSecondRequest(obj.events[nextIndex], nextIndex);
+				makeSecondRequest(events[nextIndex], nextIndex);
 			}, 10000);
 			return;
 		}
@@ -186,20 +185,15 @@ function generateURLlist() {
 		var dynamicURL = startURL + dateData.year + '-' + dateData.currentMonth + '-' + i;
 		URLlist.push(dynamicURL);
 	}
-
-	log('laweekly crawl URLs', 'info');
-	log(URLlist, 'info');
 }
 
 function getSaveData(index) {
-	var saveData = JSON.parse(JSON.stringify(obj));
+	var saveData = JSON.parse(JSON.stringify(events));
 	if (startIndex == 0) {
-		//split from index to end
-		saveData.events.splice(index, saveData.events.length);
+		saveData.splice(index, saveData.length);
 	} else {
-		// split from 0 to start index && index to end
-		saveData.events.splice(index, saveData.events.length);
-		saveData.events.splice(0, startIndex);
+		saveData.splice(index, saveData.length);
+		saveData.splice(0, startIndex);
 	}
 
 	return saveData;

@@ -1,0 +1,33 @@
+{"level":"info","message":"data parsing starting...","timestamp":"2017-07-02T14:42:31.682"}
+{"level":"info","message":"total number of events: 5051","timestamp":"2017-07-02T14:42:31.827"}
+{"level":"info","message":"filtered locations: 4972","timestamp":"2017-07-02T14:42:31.880"}
+{"location":"East L.A. Civic Center","address":"4801 E. 3rd St. Los Angeles, ","level":"info","message":"","timestamp":"2017-07-02T14:42:31.889"}
+{"level":"info","message":"number of locations post clean: 4972","timestamp":"2017-07-02T14:42:31.889"}
+{"level":"info","message":"step #1 for data flow complete -  retrieving month locations","timestamp":"2017-07-02T14:42:31.894"}
+{"level":"info","message":"step #2 starting...","timestamp":"2017-07-02T14:42:31.894"}
+{"level":"info","message":"current months location data length: 4972","timestamp":"2017-07-02T14:42:31.894"}
+{"level":"info","message":"april location data length: 3148","timestamp":"2017-07-02T14:42:31.964"}
+{"level":"info","message":"march location data length: 2131","timestamp":"2017-07-02T14:42:31.964"}
+{"level":"info","message":"may location data length: 466","timestamp":"2017-07-02T14:42:31.965"}
+{"level":"info","message":"june location data length: 760","timestamp":"2017-07-02T14:42:31.965"}
+{"level":"info","message":"all location data length: 6505","timestamp":"2017-07-02T14:42:31.965"}
+{"level":"info","message":"number of full data events: 735","timestamp":"2017-07-02T14:42:32.088"}
+{"level":"info","message":"locations found: 494","timestamp":"2017-07-02T14:42:32.278"}
+{"level":"info","message":"locations to geo: 241","timestamp":"2017-07-02T14:42:32.278"}
+{"level":"info","message":"step #2 for data flow completed - found locations to be geocoded","timestamp":"2017-07-02T14:42:32.280"}
+{"level":"info","message":"number of locations to be geocoded: 241","timestamp":"2017-07-02T14:42:32.280"}
+{"level":"info","message":"geocoding saving 0 - 50","timestamp":"2017-07-02T14:44:12.321"}
+{"level":"info","message":"geocoding saving 0 - 100","timestamp":"2017-07-02T14:45:52.405"}
+{"level":"info","message":"geocoding saving 0 - 150","timestamp":"2017-07-02T14:47:32.434"}
+{"level":"info","message":"geocoding saving 0 - 200","timestamp":"2017-07-02T14:49:12.448"}
+{"level":"info","message":"step #3 - geocoding completed","timestamp":"2017-07-02T14:50:32.467"}
+{"level":"info","message":"starting step #4 - create final files","timestamp":"2017-07-02T14:50:37.470"}
+{"level":"info","message":"newly geod data length: 241","timestamp":"2017-07-02T14:50:37.474"}
+{"level":"info","message":"previously geod data length: 494","timestamp":"2017-07-02T14:50:37.508"}
+{"level":"info","message":"step #4 for data flow completed - final files created","timestamp":"2017-07-02T14:50:37.510"}
+{"level":"info","message":"starting step #5 - push files","timestamp":"2017-07-02T14:52:32.473"}
+{"level":"info","message":"step #5 completed - data files pushed to git","timestamp":"2017-07-02T14:52:32.906"}
+{"level":"info","message":"data flow has been completed","timestamp":"2017-07-02T14:52:32.907"}
+{"level":"info","message":"","timestamp":"2017-07-02T14:52:43.753"}
+{"level":"info","message":"\r\ndatestr is 07_02_2017\r\n[master ad63759] 07_02_2017 data\n 7 files changed, 6 insertions(+), 1 deletion(-)\n create mode 100644 data/locationdata/backup/allLocationsGeo.json\n create mode 100644 data/locationdata/backup/aprilLocationsGeo.json\n rename data/locationdata/{ => backup}/julyLocationsGeo.json (100%)\n create mode 100644 data/locationdata/backup/juneLocationsGeo.json\n create mode 100644 data/locationdata/backup/marchLocationsGeo.json\n create mode 100644 data/locationdata/backup/mayLocationsGeo.json\n rewrite data/locationdata/julyLocationsGeo.json (85%)\n","timestamp":"2017-07-02T14:52:43.754"}
+{"level":"info","message":"warning: push.default is unset; its implicit value is changing in\nGit 2.0 from 'matching' to 'simple'. To squelch this message\nand maintain the current behavior after the default changes, use:\n\n  git config --global push.default matching\n\nTo squelch this message and adopt the new behavior now, use:\n\n  git config --global push.default simple\n\nWhen push.default is set to 'matching', git will push local branches\nto the remote branches that already exist with the same name.\n\nIn Git 2.0, Git will default to the more conservative 'simple'\nbehavior, which only pushes the current branch to the corresponding\nremote branch that 'git pull' uses to update the current branch.\n\nSee 'git help config' and search for 'push.default' for further information.\n(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode\n'current' instead of 'simple' if you sometimes use older versions of Git)\n\nTo https://github.com/shanemduggan/shanemduggan.github.io.git\n   af465f5..ad63759  master -> master\n","timestamp":"2017-07-02T14:52:43.754"}

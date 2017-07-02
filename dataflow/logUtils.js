@@ -1,37 +1,39 @@
 module.exports = function() {
 	this.fs = require('fs');
-	//this.$ = require('jquery');
-	//this._ = require('underscore');
-	//this.types = [];
 	this.winston = require('winston');
 	require('./utils.js')();
-	this.created = false;
 	this.logger = undefined;
 
-	this.initialize = function() {
-		var tsFormat = new Date().toLocaleTimeString();
+	this.initialize = function(msg, level, type) {
 		var dateInfo = getDateData();
-		var time = new Date().toLocaleString().split(', ')[1].replace(/ /g, '');
-		var fileName = '../log/'+ dateInfo.monthName +'Log.log';
+
+		if (type == 'dataFlow')
+			var fileName = 'log/' + dateInfo.monthName + 'DataFlow.log';
+		else
+			var fileName = '../log/' + dateInfo.monthName + 'Crawl.log';
 
 		// https://github.com/winstonjs/winston-daily-rotate-file
 		logger = new (winston.Logger)({
 			transports : [new (winston.transports.File)({
 				filename : fileName,
-				timestamp : tsFormat
+				timestamp : function() {
+					var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+					return localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
+				}
 			})]
 		});
 
-		return true;
+		log(msg, level);
 	};
 
-	this.log = function(msg, level) {
-		if (!created)
-			created = initialize();
-
-		if (level == 'info')
-			logger.info(msg);
-		else if (level == 'error')
-			logger.error(msg);
+	this.log = function(msg, level, type) {
+		if (logger == undefined)
+			initialize(msg, level, type);
+		else {
+			if (level == 'info')
+				logger.info(msg);
+			else if (level == 'error')
+				logger.error(msg);
+		}
 	};
 };

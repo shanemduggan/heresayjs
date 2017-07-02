@@ -13,32 +13,28 @@ var dateData = getDateData();
 var monthName = dateData.monthName;
 // should this be capitalized?
 var searchWord = dateData.monthName;
-var num = 0;
+//var num = 0;
 var saveIndex = 150;
-var startIndex = 595;
+var startIndex = 0;
 
 var startURL = "http://www.discoverlosangeles.com/what-to-do/events?when[value][date]=";
 var saveDir = '..\\..\\data\\crawldata\\' + monthName;
 
 var URLlist = [];
-var obj = {
-	events : []
-};
+var events = [];
 
 log('discover crawl for ' + monthName + ' starting...', 'info');
 generateURLlist();
 createFolder(monthName);
-//firstRequest(URLlist[startIndex], startIndex);
-
-// TO DO:
-// pull callbacks into callback function
+firstRequest(URLlist[startIndex], startIndex);
 
 function firstRequest(url, index) {
 	if (url == undefined)
 		return;
 
-	num++;
-	logNumOfEvents(obj.events.length);
+	//num++;
+	logNumOfEvents(events.length);
+	log('crawling ' + url, 'info');
 
 	request(url, function(error, response, body) {
 		if (response) {
@@ -82,7 +78,7 @@ function firstRequest(url, index) {
 						var eventDetailLink = $(this).find("h2").children().attr("href");
 						eventDetailLink = 'http://www.discoverlosangeles.com' + eventDetailLink;
 
-						obj.events.push({
+						events.push({
 							name : nameText,
 							summary : summaryText,
 							locationName : locationText,
@@ -91,13 +87,13 @@ function firstRequest(url, index) {
 						});
 					});
 
-					console.log(obj);
-					saveFile(saveDir + '\\discoverParentData.json', obj.events.length, obj);
+					console.log(events);
+					saveFile(saveDir + '\\discoverParentData.json', events.length, events);
 
 					var nextNum = index + 1;
 					if (nextNum == URLlist.length) {
-						log('discover - parent crawl complete', 'info');
-						makeSecondRequest(obj.events[0], 0);
+						log('discover - parent crawl completed. found ' + events.length + ' events', 'info');
+						makeSecondRequest(events[0], 0);
 					}
 				}
 			} else {
@@ -118,9 +114,9 @@ function firstRequest(url, index) {
 	});
 }
 
-var obj = fs.readFileSync(saveDir + '\\discoverParentData.json', 'utf8');
-obj = JSON.parse(obj);
-makeSecondRequest(obj.events[startIndex], startIndex);
+//var events = fs.readFileSync(saveDir + '\\discoverParentData.json', 'utf8');
+//events = JSON.parse(events);
+//makeSecondRequest(events[startIndex], startIndex);
 
 function makeSecondRequest(event, index) {
 	var url = event.detailPage;
@@ -129,27 +125,26 @@ function makeSecondRequest(event, index) {
 		// ignore old events or ones that have no url
 		var nextIndex = index + 1;
 		setTimeout(function() {
-			makeSecondRequest(obj.events[nextIndex], nextIndex);
+			makeSecondRequest(events[nextIndex], nextIndex);
 			//}, 10000);
 		}, 1000);
 		return;
 	}
 
 	console.log('crawling event details for ' + url + '\r\n');
-
 	request(url, function(error, response, body) {
 		if (response) {
 			if (response.statusCode == 200) {
 
 				var nextIndex = index + 1;
-				if (nextIndex == Math.ceil(obj.events.length * .999)) {
+				if (nextIndex == Math.ceil(events.length * .999)) {
 					var saveData = getSaveData(index);
-					saveFile(saveDir + '\\discover99.json', saveData.events.length, saveData.events);
+					saveFile(saveDir + '\\discover99.json', saveData.length, saveData);
 					log('discover - child crawl completed', 'info');
 					return;
 				} else {
 					setTimeout(function() {
-						makeSecondRequest(obj.events[nextIndex], nextIndex);
+						makeSecondRequest(events[nextIndex], nextIndex);
 					}, 10000);
 				}
 
@@ -159,51 +154,53 @@ function makeSecondRequest(event, index) {
 					summaryNodes = $('#event_tabs').find('.detail-page-description .field-item').children()[0];
 
 					if ($('.poi-map__address').length) {
-						obj.events[index].address = $('.poi-map__address').html().replace('<br>', ' ').trim();
+						events[index].address = $('.poi-map__address').html().replace('<br>', ' ').trim();
 					} else if ($('.poi-map__image').length) {
 						var address = $('.poi-map__image').find('img').attr('src').split('%7C')[1].replace(/,|\\/g, '');
 						address.replace(/(\r\n|\n|\r)/gm, '');
-						obj.events[index].address = address;
+						events[index].address = address;
 					}
 
-					obj.events[index].date = $(eventHTML).find('.detail-page-date-time .date').text();
+					events[index].date = $(eventHTML).find('.detail-page-date-time .date').text();
 					var type = $(eventHTML).find('.detail-page-breadcrumb')[0].childNodes[2].data;
-					obj.events[index].type = type.replace('/', '').trim();
-					obj.events[index].filterType = getFilterOption(type.replace('/', '').trim());
+					events[index].type = type.replace('/', '').trim();
+					events[index].filterType = getFilterOption(type.replace('/', '').trim());
+					events[index].price = $('.detail-page-price').text();
 
 					var summary = $(summaryNodes).text();
 					if (summary.indexOf('function') != -1)
 						// parse if start end with /* */
 						console.log(summary);
-					obj.events[index].summary = summary;
+					events[index].summary = summary;
 				} else
 					return;
 				// handle responses that aren't on correct page
 
 				console.log('\r\n' + index + '\r\n');
-				console.log(obj.events[index]);
+				console.log(events[index]);
 				console.log('\r\n\r\n');
 
 				if (index % saveIndex === 0 && index != 0) {
 					var saveData = getSaveData(index);
 					log('discover - saving children ' + startIndex + ' - ' + index, 'info');
-					saveFile(saveDir + '\\discover' + startIndex + '-' + index + '.json', saveData.events.length, saveData.events);
-				} else if (index == obj.events.length) {
+					saveFile(saveDir + '\\discover' + startIndex + '-' + index + '.json', saveData.length, saveData);
+				} else if (index == events.length) {
 					var saveData = getSaveData(index);
-					saveFile(saveDir + '\\discover100.json', saveData.events.length, saveData.events);
+					log('discover - child crawl complete. saving ' + saveData.length + ' events', 'info');
+					saveFile(saveDir + '\\discover100.json', saveData.length, saveData);
 				}
 				// detecting above at beginning. should consoludate into one
 			} else {
 				var nextIndex = index + 1;
 				setTimeout(function() {
-					makeSecondRequest(obj.events[nextIndex], nextIndex);
+					makeSecondRequest(events[nextIndex], nextIndex);
 				}, 10000);
 				return;
 			}
 		} else {
 			var nextIndex = index + 1;
 			setTimeout(function() {
-				makeSecondRequest(obj.events[nextIndex], nextIndex);
+				makeSecondRequest(events[nextIndex], nextIndex);
 			}, 10000);
 			return;
 		}
@@ -217,20 +214,15 @@ function generateURLlist() {
 		var dynamicURL = startURL + dateData.currentMonth + '/' + i + '/' + dateData.year;
 		URLlist.push(dynamicURL);
 	}
-
-	log('discover crawl URLS:', 'info');
-	log(URLlist, 'info');
 }
 
 function getSaveData(index) {
-	var saveData = JSON.parse(JSON.stringify(obj));
+	var saveData = JSON.parse(JSON.stringify(events));
 	if (startIndex == 0) {
-		//split from index to end
-		saveData.events.splice(index, saveData.events.length);
+		saveData.splice(index, saveData.length);
 	} else {
-		// split from 0 to start index && index to end
-		saveData.events.splice(index, saveData.events.length);
-		saveData.events.splice(0, startIndex);
+		saveData.splice(index, saveData.length);
+		saveData.splice(0, startIndex);
 	}
 
 	return saveData;

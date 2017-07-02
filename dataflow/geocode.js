@@ -3,43 +3,36 @@ var options = {
 	apiKey : 'AIzaSyDcIb1KF-PhD_-R1NkUiuWpMhftyrJlQck',
 	formatter : null
 };
+
 var NodeGeocoder = require('node-geocoder');
 var geocoder = NodeGeocoder(options);
 var fs = require('fs');
-require('../logUtils.js')();
+require('./logUtils.js')();
 require('./locUtils.js')();
 require('./utils.js')();
 
 var dateData = getDateData();
 var monthName = dateData.monthName;
-var requestWait = 10000;
+//var requestWait = 10000;
+var requestWait = 2000;
 var saveIndex = 50;
 var startIndex = 0;
-var locationDataDir = '..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsToGeo.json';
-//createFolderNew('..\\data\\locationdata\\' + monthName);
-
-pushFiles();
+createFolderNew('..\\data\\locationdata\\' + monthName);
+createFolderNew('C:\\Users\\Shane\\Desktop\\HS-GitPage\\app\\data\\crawldata\\' + monthName);
+log('data parsing starting...', 'info', 'dataFlow');
 
 // step 1 & 2
 var locationData = retrieveMonthLocations();
 var locations = locationsToGeocode(locationData);
-
-if (!locations) {
-	var locations = fs.readFileSync(locationDataDir, 'utf8');
-	locations = JSON.parse(locations);
-}
-
-console.log('number of locations to be geocoded: ' + (locations.length - startIndex));
+log('number of locations to be geocoded: ' + (locations.length - startIndex), 'info');
 
 // step 3
 requestGeoCode(locations[startIndex], startIndex);
 
 function requestGeoCode(location, index) {
 	// will this work with new callback?
-	if (location == undefined || location.address == undefined)
-		return;
-
-	// skip events that have lat/long
+	//if (location == undefined || location.address == undefined)
+	//	return;
 
 	console.log('index: ' + index, '  address pre geocode: ' + location.address);
 	geocoder.geocode(location.address).then(function(res) {
@@ -60,25 +53,31 @@ function requestGeoCode(location, index) {
 		console.log(err);
 	});
 
-	if (index == locations.length - 1) {
-		log('geocoding completed', 'info');
+	if (index < locations.length - 1) {
+		if (index % saveIndex === 0 && index != 0) {
+			log('geocoding saving ' + startIndex + ' - ' + index, 'info');
+			saveFile(locdatadir + 'LocationsPartialGeo' + startIndex + '-' + index + '.json', index, locations);
+		}
+
+		var nextNum = index + 1;
+		setTimeout(function() {
+			requestGeoCode(locations[nextNum], nextNum);
+		}, requestWait);
+	} else if (index == locations.length - 1) {
+		log('step #3 - geocoding completed', 'info');
+
+		// use util
 		saveFile(locdatadir + monthName + 'LocationsPartialGeo' + startIndex + '-' + index + '.json', index, locations);
+		saveFile(locdatadir + monthName + 'LocationsNewGeod.json', index, locations);
+
 		// step 4
 		setTimeout(function() {
-			log('starting step 4 - create final files', 'info');
 			createFinalFiles();
-		}, 3000);
+		}, 20000);
 
 		// step 5
 		setTimeout(function() {
-			log('starting step 5 - push files', 'info');
 			pushFiles();
-		}, 300000);
-	} else if (index % saveIndex === 0 && index != 0)
-		saveFile(locdatadir + 'LocationsPartialGeo' + startIndex + '-' + index + '.json', index, locations);
-
-	var nextNum = index + 1;
-	setTimeout(function() {
-		requestGeoCode(locations[nextNum], nextNum);
-	}, requestWait);
+		}, 120000);
+	}
 }
