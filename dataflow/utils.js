@@ -2,12 +2,14 @@ module.exports = function() {
 	this.fs = require('fs');
 	this.$ = require('jquery');
 	this._ = require('underscore');
+	require('./logUtils.js')();
 	this.types = [];
 	this.saveFile = function(dir, length, obj) {
 		var json = JSON.stringify(obj);
 		fs.writeFile(dir, json, 'utf8', function(err) {
 			// put in log
-			console.log("File saved with " + length + ' entries');
+			//console.log("File saved with " + length + ' entries');
+			log('File saved with ' + length + ' entries', 'info');
 			return;
 		});
 	};
@@ -15,7 +17,8 @@ module.exports = function() {
 	this.createFolder = function(monthName) {
 		if (!fs.existsSync("../../data/crawldata/" + monthName)) {
 			// put in log
-			console.log('creating folder for ' + monthName + ' crawl data');
+			//console.log('creating folder for ' + monthName + ' crawl data');
+			log('creating folder for ' + monthName + ' crawl data', 'info');
 			fs.mkdirSync("../../data/crawldata/" + monthName);
 		}
 	};
@@ -24,7 +27,8 @@ module.exports = function() {
 		if (!fs.existsSync(dir)) {
 			//console.log('creating folder for ' + monthName + ' crawl data');
 			// put in log
-			console.log('creating folder at: ' + dir);
+			//console.log('creating folder at: ' + dir);
+			log('creating folder at: ' + dir, 'info');
 			fs.mkdirSync(dir);
 		}
 	};
@@ -64,11 +68,14 @@ module.exports = function() {
 	this.logNumOfEvents = function(length) {
 		// put in log
 		if (length >= 3000)
-			console.log('reached 3000 entries');
+			//console.log('reached 3000 entries');
+			log('reached 3000 entries', 'info');
 		if (length >= 5000)
-			console.log('reached 5000 entries');
+			//console.log('reached 5000 entries');
+			log('reached 5000 entries', 'info');
 		if (length >= 7000)
-			console.log('reached 7000 entries');
+			//console.log('reached 7000 entries');
+			log('reached 7000 entries', 'info');
 		length = 0;
 	};
 

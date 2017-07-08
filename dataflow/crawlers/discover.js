@@ -104,7 +104,7 @@ function firstRequest(url, index) {
 				return;
 			}
 		} else {
-			log('discover error - error', 'info');
+			log('discover error - ' + error, 'info');
 			var nextNum = index + 1;
 			setTimeout(function() {
 				firstRequest(URLlist[nextNum], nextNum);
@@ -198,6 +198,7 @@ function makeSecondRequest(event, index) {
 				return;
 			}
 		} else {
+			log('discover child error - ' + error, 'info');
 			var nextIndex = index + 1;
 			setTimeout(function() {
 				makeSecondRequest(events[nextIndex], nextIndex);

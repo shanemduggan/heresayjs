@@ -33,8 +33,11 @@ module.exports = function() {
 		log('total number of events: ' + allData.length, 'info');
 
 		// use util
-		fs.writeFile(crawldatadir + monthName + 'Events.json', JSON.stringify(allData), 'utf8');
-		fs.writeFile(locdatadir + monthName + 'LocsPreClean.json', JSON.stringify(allData), 'utf8');
+		//fs.writeFile(crawldatadir + monthName + 'Events.json', JSON.stringify(allData), 'utf8');
+		//fs.writeFile(locdatadir + monthName + 'LocsPreClean.json', JSON.stringify(allData), 'utf8');
+
+		saveFile(crawldatadir + monthName + 'Events.json', allData.length, JSON.stringify(allData));
+		saveFile(locdatadir + monthName + 'LocsPreClean.json', allData.length, JSON.stringify(allData));
 
 		var filteredLocationData = _.filter(allData, function(e) {
 			return e.address && e.locationName != "";
@@ -61,7 +64,8 @@ module.exports = function() {
 		log('number of locations post clean: ' + locationData.length, 'info');
 
 		// use util
-		fs.writeFile(locdatadir + monthName + 'LocationsPostClean.json', JSON.stringify(locationData), 'utf8');
+		//fs.writeFile(locdatadir + monthName + 'LocationsPostClean.json', JSON.stringify(locationData), 'utf8');
+		saveFile(locdatadir + monthName + 'LocationsPostClean.json', locationData.length, JSON.stringify(locationData));
 
 		log('step #1 for data flow complete -  retrieving month locations', 'info');
 		return locationData;
@@ -99,7 +103,8 @@ module.exports = function() {
 		log('all location data length: ' + locationData.length, 'info');
 
 		// use util
-		fs.writeFile('..\\data\\locationdata\\allLocationsGeo.json', JSON.stringify(locationData), 'utf8');
+		//fs.writeFile('..\\data\\locationdata\\allLocationsGeo.json', JSON.stringify(locationData), 'utf8');
+		saveFile('..\\data\\locationdata\\allLocationsGeo.json', locationData.length, JSON.stringify(locationData));
 
 		var uniqueLocationData = _.uniq(monthlyLocs, function(m) {
 			return m.location && m.address;
@@ -123,9 +128,10 @@ module.exports = function() {
 
 		// use util
 		var json = JSON.stringify(fullMonthData);
-		fs.writeFile('..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsPrevGeod.json', json, 'utf8', function(err) {
-			console.log('locations saved');
-		});
+		// fs.writeFile('..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsPrevGeod.json', json, 'utf8', function(err) {
+		// console.log('locations saved');
+		// });
+		saveFile('..\\data\\locationdata\\' + monthName + '\\' + monthName + 'LocationsPrevGeod.json', fullMonthData.length, JSON.stringify(fullMonthData));
 
 		log('step #2 for data flow completed - found locations to be geocoded', 'info');
 		return locsToGeocode;
@@ -160,13 +166,28 @@ module.exports = function() {
 			cwd : 'C:\\Users\\Shane\\Desktop\\HS\\dataflow\\scripts'
 		}, function(error, stdout, stderr) {
 			if (error)
-				log(error, 'info');
+				log('git push error - ' + error, 'info');
 			log(stdout, 'info');
 			log(stderr, 'info');
 		});
 
 		log('step #5 completed - data files pushed to git', 'info');
 		log('data flow has been completed', 'info');
+	};
+
+	this.createAllLocsFile = function() {
+		var locationData = [];
+		var months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'november', 'december'];
+		var monthNum = new Date().getMonth() + 1;
+		for (var i = 0; i < monthNum; i++) {
+			var monthLocs = fs.readFileSync(locdir + months[i] + 'LocationsGeo.json', 'utf8');
+			monthLocs = JSON.parse(monthLocs);
+			locationData = locationData.concat(monthLocs);
+			log(months[i] + ' location data length: ' + monthLocs.length, 'info');
+		}
+
+		saveFile('..\\data\\locationdata\\allLocationsGeo.json', locationData.length, JSON.stringify(locationData));
+		return locationData;
 	};
 };
 

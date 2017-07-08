@@ -50,7 +50,8 @@ function requestGeoCode(location, index) {
 		console.log('');
 
 	}).catch(function(err) {
-		console.log(err);
+		//console.log(err);
+		log('geocode error - ' + error, 'info');
 	});
 
 	if (index < locations.length - 1) {

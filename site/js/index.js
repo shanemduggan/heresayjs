@@ -8,6 +8,7 @@ var historicLocData = [];
 var openCards = [];
 var appType = '';
 var centerMarker;
+var onLoadClick = true;
 
 var currentMonth = new Date().getMonth() + 1;
 var monthName = getMonthName(currentMonth);
@@ -32,6 +33,12 @@ $(window).on('load', function() {
 });
 
 function getJson(eventdir, locationdir) {
+
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) || $('html').width() <= 640)
+		appType = 'mobile';
+
+	afterDataLoaded();
+
 	$.getJSON(locationdir, function(data) {
 		if (data.length) {
 			console.log('# of locations: ' + data.length);
@@ -39,12 +46,12 @@ function getJson(eventdir, locationdir) {
 		}
 	});
 
-	$.getJSON('../data/locationdata/allLocationsGeo.json', function(data) {
-		if (data.length) {
-			console.log('# of historic locations: ' + data.length);
-			historicLocData = data;
-		}
-	});
+	// $.getJSON('../data/locationdata/allLocationsGeo.json', function(data) {
+	// if (data.length) {
+	// console.log('# of historic locations: ' + data.length);
+	// historicLocData = data;
+	// }
+	// });
 
 	$.getJSON(eventdir, function(data) {
 		var filteredData = [];
@@ -64,13 +71,12 @@ function getJson(eventdir, locationdir) {
 		//locationData = [];
 		//eventData = [];
 
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) || $('html').width() <= 640)
-			appType = 'mobile';
-
 		if (locationData.length && eventData.length) {
 			if (appType != 'mobile')
 				initMap();
-			afterDataLoaded();
+			else
+				triggerMobileFilters();
+			//afterDataLoaded();
 		} else {
 			$('#wrapper').hide();
 			$('#sorryMessage').show();
@@ -79,14 +85,63 @@ function getJson(eventdir, locationdir) {
 
 }
 
+function triggerMobileFilters() {
+	var browserWidth = $('html').width();
+	var browserHeight = $('html').height();
+
+	$('#wrapper').show();
+	$('body').addClass('mobile');
+	$('#map_canvas').hide();
+
+	var headerHeight = Math.ceil(browserHeight * .07);
+	var sideBarHeight = Math.ceil(browserHeight * .93);
+
+	$('#sidebar').height(sideBarHeight);
+	$('#sidebar').width(browserWidth);
+	$('#header').hide();
+
+	//var types = ['Theater', 'Art', 'Food & Drink', 'Comedy', 'Music', 'Festivals', 'Sports', 'Dance', 'Family', 'Film & TV', 'Educational', 'Outdoors', 'Museum', 'Health', 'Holidays', 'Miscellaneous'];
+	var types = ['All', 'Theater', 'Art', 'Food & Drink', 'Comedy', 'Music', 'Festivals', 'Sports', 'Dance', 'Family', 'Film & TV', 'Museum', 'Miscellaneous'];
+
+	var typeFilter = '<div id="typeFilter" class="scrollmenu">';
+	for (var i = 0; i < types.length; i++) {
+		typeFilter += '<a id="' + types[i] + '" href="#">' + types[i] + '</a>';
+	}
+
+	typeFilter += '</div>';
+	$('body').prepend(typeFilter);
+
+	var days = getDateFilterOptions();
+	days.unshift('All');
+	var dateFilter = '<div id="dateFilter" class="scrollmenu">';
+	for (var i = 0; i < days.length; i++) {
+		dateFilter += '<a id="' + days[i].split(' ')[1] + '" href="#">' + days[i] + '</a>';
+	}
+
+	dateFilter += '</div>';
+	$('body').prepend(dateFilter);
+
+	$('#sidebar h3').hide();
+
+	// do we need this?
+	setUpFilters();
+
+	var days = getDateFilterOptions();
+	days.unshift('All');
+	$('#' + days[1].split(' ')[1]).trigger("click");
+	$('#typeFilter #Art').trigger("click");
+}
+
 function afterDataLoaded() {
 	var browserWidth = $('html').width();
 	var browserHeight = $('html').height();
 
 	if (appType != 'mobile') {
+		$('#wrapper').show();
 		setUpFilters();
 		var headerHeight = Math.ceil(browserHeight * .07);
-		var mapHeight = Math.ceil(browserHeight * .93);
+		//var mapHeight = Math.ceil(browserHeight * .93);
+		var mapHeight = Math.ceil(browserHeight * .96);
 
 		$('#header').height(headerHeight);
 		$('#dateFilter').height(headerHeight);
@@ -96,53 +151,13 @@ function afterDataLoaded() {
 		$('#map_canvas').height(mapHeight);
 		$('#sidebar').height(mapHeight);
 
-		$("#selectDate").val('1').trigger('change');
-		$("#selectType").val('2').trigger('change');
-	} else {
-		$('body').addClass('mobile');
-		$('#map_canvas').hide();
-
-		var headerHeight = Math.ceil(browserHeight * .07);
-		var sideBarHeight = Math.ceil(browserHeight * .93);
-
-		$('#sidebar').height(sideBarHeight);
-		$('#sidebar').width(browserWidth);
-		$('#header').hide();
-
-		//var types = ['Theater', 'Art', 'Food & Drink', 'Comedy', 'Music', 'Festivals', 'Sports', 'Dance', 'Family', 'Film & TV', 'Educational', 'Outdoors', 'Museum', 'Health', 'Holidays', 'Miscellaneous'];
-		var types = ['All', 'Theater', 'Art', 'Food & Drink', 'Comedy', 'Music', 'Festivals', 'Sports', 'Dance', 'Family', 'Film & TV', 'Museum', 'Miscellaneous'];
-
-		var typeFilter = '<div id="typeFilter" class="scrollmenu">';
-		for (var i = 0; i < types.length; i++) {
-			typeFilter += '<a id="' + types[i] + '" href="#">' + types[i] + '</a>';
-		}
-
-		typeFilter += '</div>';
-		//$('body').append(typeFilter);
-		$('body').prepend(typeFilter);
-
-		var days = getDateFilterOptions();
-		days.unshift('All');
-		var dateFilter = '<div id="dateFilter" class="scrollmenu">';
-		for (var i = 0; i < days.length; i++) {
-			dateFilter += '<a id="' + days[i].split(' ')[1] + '" href="#">' + days[i] + '</a>';
-		}
-
-		dateFilter += '</div>';
-		//$('body').append(dateFilter);
-		$('body').prepend(dateFilter);
-
-		$('#sidebar h3').hide();
-		
-		// do we need this?
-		setUpFilters();
-		$('#typeFilter #Art').trigger("click");
-		$('#' + days[1].split(' ')[1]).trigger("click");
+		//$("#selectDate").val('1').trigger('change');
+		//$("#selectType").val('2').trigger('change');
 	}
 }
 
 function showCard(ele, action) {
-	console.log(map.getCenter());
+	//console.log(map.getCenter());
 	var name = $(ele).text();
 	if (name) {
 		var marker = markers[name];

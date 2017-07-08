@@ -39,6 +39,8 @@ function firstRequest(url, index) {
 	request(url, function(error, response, body) {
 		if (response)
 			console.log("Status code: " + response.statusCode);
+		else
+			log('laweekly parent error - ' + error, 'info');
 		if (response.statusCode !== 200)
 			return;
 		console.log(url);
@@ -168,7 +170,7 @@ function makeSecondRequest(event, index) {
 				return;
 			}
 		} else {
-			log('la weekly child crawl error ' + error, 'info');
+			log('la weekly child crawl error - ' + error, 'info');
 			var nextIndex = index + 1;
 			setTimeout(function() {
 				makeSecondRequest(events[nextIndex], nextIndex);
